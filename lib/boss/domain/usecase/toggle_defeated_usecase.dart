@@ -13,9 +13,13 @@ class ToggleDefeatedUsecaseImpl implements ToggleDefeatedUsecase {
   ToggleDefeatedUsecaseImpl({required ProgressRepository repository})
       : _repository = repository;
 
+  /// Reloads fresh progress from the repository before mutating so that a
+  /// stale in-memory [current] snapshot from a sibling bloc can never clobber
+  /// keys written by another feature.
   @override
   Future<Progress> call(Progress current, String bossId) async {
-    final next = current.toggleDefeated(bossId);
+    final fresh = await _repository.load();
+    final next = fresh.toggleDefeated(bossId);
     await _repository.save(next);
     return next;
   }

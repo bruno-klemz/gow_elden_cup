@@ -4,7 +4,6 @@ import 'package:gow_elden_cup/album/domain/entity/map_coord.dart';
 import 'package:gow_elden_cup/album/domain/entity/realm.dart';
 import 'package:gow_elden_cup/album/domain/usecase/load_album_usecase.dart';
 import 'package:gow_elden_cup/album/presenter/search/bloc/search_bloc.dart';
-import 'package:gow_elden_cup/album/presenter/search/search_result.dart';
 import 'package:gow_elden_cup/album/presenter/search/search_view.dart';
 import 'package:gow_elden_cup/boss/domain/entity/progress.dart';
 import 'package:gow_elden_cup/boss/domain/usecase/load_progress_usecase.dart';
@@ -73,21 +72,24 @@ void main() {
     expect(find.textContaining('👑'), findsNothing); // crown only when defeated
   });
 
-  testWidgets('tapping a realm pops with RegionResult', (tester) async {
+  // I3: realm rows are display-only — tapping them must NOT pop the route.
+  testWidgets('tapping a realm row does not pop the route (non-interactive)',
+      (tester) async {
     final bloc = _makeBloc();
-    SearchResult? popped;
+    bool popped = false;
     await tester.pumpWidget(MaterialApp(
       home: Builder(
         builder: (context) => Scaffold(
           body: Center(
             child: ElevatedButton(
               onPressed: () async {
-                popped = await Navigator.of(context).push<SearchResult>(
+                await Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (_) => BlocProvider.value(
                         value: bloc, child: withSettings(const SearchView())),
                   ),
                 );
+                popped = true;
               },
               child: const Text('go'),
             ),
@@ -101,7 +103,8 @@ void main() {
     await tester.tap(find.text('Midgard').first);
     await tester.pumpAndSettle();
 
-    expect(popped, isA<RegionResult>());
-    expect((popped! as RegionResult).realmId, 'midgard');
+    // The route must still be on the stack — realm tap is a no-op.
+    expect(popped, isFalse);
+    expect(find.text('Midgard'), findsWidgets);
   });
 }

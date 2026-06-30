@@ -30,3 +30,7 @@ class SearchTypeFilterChanged extends SearchEvent {
   @override
   List<Object?> get props => [type];
 }
+
+class SearchProgressRefreshed extends SearchEvent {
+  const SearchProgressRefreshed();
+}

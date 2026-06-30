@@ -6,13 +6,13 @@ import '../../../theme/app_theme.dart';
 import '../../domain/entity/boss.dart';
 import '../../domain/entity/realm.dart';
 import 'bloc/search_bloc.dart';
-import 'search_result.dart';
 import 'widgets/progress_ring.dart';
 import 'widgets/type_filter_chips.dart';
 
-/// Pure UI for search. Reads [SearchBloc]; pops with a [SearchResult] on realm
-/// tap. Boss taps push [BossDetailsScreen] directly (resolving realmMapImage
-/// the same way [album_view] does).
+/// Pure UI for search. Reads [SearchBloc]. Boss taps push [BossDetailsScreen]
+/// directly (resolving realmMapImage the same way [album_view] does). Realm
+/// rows are display-only; navigation from realm rows was removed because the
+/// screen lives in a permanent [IndexedStack] and was unreachable via push.
 class SearchView extends StatelessWidget {
   const SearchView({super.key});
 
@@ -134,7 +134,6 @@ class SearchView extends StatelessWidget {
       leading: ProgressRing(progress: total == 0 ? 0 : defeated / total),
       title: realm.name,
       subtitle: '$defeated/$total derrotados',
-      onTap: () => Navigator.of(context).pop(RegionResult(realm.id)),
     );
   }
 
@@ -191,6 +190,7 @@ class SearchView extends StatelessWidget {
     final mapImage = state.realmMapImage(boss.realm);
     await BossDetailsScreen.push(context, boss, realmMapImage: mapImage);
     if (!context.mounted) return;
+    context.read<SearchBloc>().add(const SearchProgressRefreshed());
   }
 
   Widget _sectionLabel(String text) => Padding(
@@ -207,7 +207,7 @@ class SearchView extends StatelessWidget {
     required Widget leading,
     required String title,
     required String subtitle,
-    required VoidCallback onTap,
+    VoidCallback? onTap,
     Color titleColor = AppColors.goldLight,
   }) =>
       InkWell(

@@ -27,6 +27,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     on<SearchTabChanged>(_onTabChanged);
     on<SearchQueryChanged>(_onQueryChanged);
     on<SearchTypeFilterChanged>(_onTypeFilterChanged);
+    on<SearchProgressRefreshed>(_onProgressRefreshed);
   }
 
   Future<void> _onStarted(SearchStarted e, Emitter<SearchState> emit) async {
@@ -45,4 +46,10 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
           SearchTypeFilterChanged e, Emitter<SearchState> emit) =>
       emit(state.copyWith(
           typeFilter: e.type, clearTypeFilter: e.type == null));
+
+  Future<void> _onProgressRefreshed(
+      SearchProgressRefreshed e, Emitter<SearchState> emit) async {
+    final progress = await _loadProgress();
+    emit(state.copyWith(progress: progress));
+  }
 }

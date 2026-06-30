@@ -4,7 +4,7 @@ import '../../../../album/domain/entity/boss.dart';
 import '../../../../theme/app_theme.dart';
 
 /// Fallback asset path when a realm has no dedicated map image.
-const _kFallbackMap = 'assets/images/map/base_map.webp';
+const _kFallbackMap = 'assets/images/placeholder.webp';
 
 class MapSection extends StatelessWidget {
   const MapSection({

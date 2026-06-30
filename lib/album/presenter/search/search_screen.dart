@@ -4,19 +4,12 @@ import '../../../boss/domain/usecase/load_progress_usecase.dart';
 import '../../../service_locator.dart';
 import '../../domain/usecase/load_album_usecase.dart';
 import 'bloc/search_bloc.dart';
-import 'search_result.dart';
 import 'search_view.dart';
 
-/// Composition root for the search screen. Pushes itself and resolves to the
-/// selected [SearchResult] (or null if dismissed).
+/// Composition root for the search screen. Lives permanently in the shell's
+/// [IndexedStack]; wires up [SearchBloc] and renders [SearchView].
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
-
-  static Future<SearchResult?> push(BuildContext context) {
-    return Navigator.of(context).push<SearchResult>(MaterialPageRoute(
-      builder: (_) => const SearchScreen(),
-    ));
-  }
 
   @override
   Widget build(BuildContext context) {

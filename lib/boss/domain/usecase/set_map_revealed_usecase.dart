@@ -13,10 +13,14 @@ class SetMapRevealedUsecaseImpl implements SetMapRevealedUsecase {
   SetMapRevealedUsecaseImpl({required ProgressRepository repository})
       : _repository = repository;
 
+  /// Reloads fresh progress from the repository before mutating so that a
+  /// stale in-memory [current] snapshot from a sibling bloc can never clobber
+  /// keys written by another feature.
   @override
   Future<Progress> call(Progress current, String bossId,
       {required bool revealed}) async {
-    final next = revealed ? current.revealMap(bossId) : current.hideMap(bossId);
+    final fresh = await _repository.load();
+    final next = revealed ? fresh.revealMap(bossId) : fresh.hideMap(bossId);
     await _repository.save(next);
     return next;
   }
