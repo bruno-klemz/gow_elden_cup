@@ -1,11 +1,27 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:gow_elden_cup/main.dart';
+import 'package:gow_elden_cup/service_locator.dart';
 
 void main() {
-  testWidgets('GoW Album smoke test', (WidgetTester tester) async {
-    await tester.pumpWidget(const GowAlbumApp());
+  TestWidgetsFlutterBinding.ensureInitialized();
 
-    expect(find.text('GoW Album'), findsOneWidget);
+  setUp(() async {
+    SharedPreferences.setMockInitialValues({});
+    await locator.reset();
+    setupLocator();
+  });
+
+  testWidgets('GoW Album smoke test — app builds with the nav bar',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(const GowAlbumApp());
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+
+    // The NavigationBar destinations confirm the app shell rendered.
+    expect(find.text('Chefes'), findsWidgets);
+    expect(find.text('Favors'), findsWidgets);
+    expect(find.text('Busca'), findsWidgets);
   });
 }
