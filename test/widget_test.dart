@@ -21,7 +21,7 @@ void main() {
 
     // The NavigationBar destinations confirm the app shell rendered.
     expect(find.text('Chefes'), findsWidgets);
-    expect(find.text('Favors'), findsWidgets);
+    expect(find.text('Favores'), findsWidgets);
     expect(find.text('Busca'), findsWidgets);
   });
 }
