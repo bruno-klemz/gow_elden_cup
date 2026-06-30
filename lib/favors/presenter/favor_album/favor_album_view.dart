@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../theme/app_theme.dart';
 import '../../domain/entity/favor.dart';
+import '../favor_details/favor_details_screen.dart';
 import 'bloc/favor_album_bloc.dart';
 import 'widgets/favor_filters.dart';
 import 'widgets/favor_list.dart';
@@ -12,10 +13,10 @@ import 'widgets/favor_list.dart';
 class FavorAlbumView extends StatelessWidget {
   const FavorAlbumView({super.key});
 
-  // Task 11 will replace this stub with a real FavorDetailsScreen push.
-  void _openFavor(BuildContext context, Favor favor) {
-    // TODO(task-11): push FavorDetailsScreen(favor: favor).
-    // Left as a documented no-op so Task 11 can wire it without searching.
+  Future<void> _openFavor(BuildContext context, Favor favor) async {
+    await FavorDetailsScreen.push(context, favor);
+    if (!context.mounted) return;
+    context.read<FavorAlbumBloc>().add(const FavorAlbumProgressRefreshed());
   }
 
   @override
