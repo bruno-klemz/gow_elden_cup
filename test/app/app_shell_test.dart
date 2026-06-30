@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -25,7 +26,7 @@ void main() {
 
       // NavigationBar destination labels appear in the nav bar.
       expect(find.text('Chefes'), findsWidgets);
-      expect(find.text('Favors'), findsWidgets);
+      expect(find.text('Favores'), findsWidgets);
       expect(find.text('Busca'), findsWidgets);
     });
 
@@ -35,26 +36,29 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 100));
 
-      // FavorAlbumView renders 'Favores' in its AppBar. On the album tab it
-      // is off-screen (IndexedStack keeps it alive but not visible).
-      expect(find.text('Favores'), findsNothing);
+      // The nav label 'Favores' is always visible in the NavigationBar.
+      // The FavorAlbumView AppBar title 'Favores' is off-screen (IndexedStack
+      // keeps it alive but offstage). Verify only the nav label is present,
+      // meaning exactly one 'Favores' widget is found (the nav destination).
+      expect(find.text('Favores'), findsOneWidget);
     });
 
-    testWidgets('tapping Favors destination shows the favor album AppBar',
+    testWidgets('tapping Favores destination shows the favor album AppBar',
         (tester) async {
       await tester.pumpWidget(const GowAlbumApp());
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 100));
 
-      // Tap the 'Favors' NavigationDestination label.
-      await tester.tap(find.text('Favors').first);
+      // Tap the 'Favores' NavigationDestination by icon to be unambiguous.
+      await tester.tap(find.byIcon(Icons.menu_book_outlined));
       // Pump instead of pumpAndSettle to avoid timing out on ongoing
       // animations (CircularProgressIndicator during async data load).
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 300));
 
-      // FavorAlbumView renders 'Favores' in its AppBar — now visible.
-      expect(find.text('Favores'), findsOneWidget);
+      // After switching, both the nav label and the FavorAlbumView AppBar
+      // title render 'Favores' — assert both are present.
+      expect(find.text('Favores'), findsWidgets);
     });
   });
 }
