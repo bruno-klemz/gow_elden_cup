@@ -4,6 +4,7 @@ import 'package:gow_elden_cup/album/domain/entity/boss.dart';
 import 'package:gow_elden_cup/album/domain/entity/map_coord.dart';
 import 'package:gow_elden_cup/album/presenter/album/widgets/reveal_overlay.dart';
 import 'package:gow_elden_cup/album/presenter/album/widgets/sticker_slot.dart';
+import 'package:gow_elden_cup/album/presenter/album/widgets/type_badge.dart';
 
 import '../../support/settings_bloc_harness.dart';
 
@@ -11,6 +12,13 @@ const _boss = Boss(
   id: 'baldur', name: 'Baldur', realm: 'midgard',
   art: 'images/baldur.webp', locationName: 'loc',
   mapCoord: MapCoord(0.6, 0.4), lore: 'l',
+);
+
+const _typedBoss = Boss(
+  id: 'thor', name: 'Thor', realm: 'midgard',
+  type: BossType.berserker,
+  art: 'images/thor.webp', locationName: 'loc',
+  mapCoord: MapCoord(0.5, 0.5), lore: 'l',
 );
 
 Widget _host(Widget child) =>
@@ -90,5 +98,20 @@ void main() {
     await tester.pumpWidget(_host(
         StickerSlot(boss: _boss, defeated: false, isMain: true, onTap: () {})));
     expect(find.text('👑'), findsNothing);
+  });
+
+  testWidgets('TypeBadge shows on a defeated slot and is hidden on a pending slot',
+      (tester) async {
+    // ARRANGE + ACT: defeated (revealed) slot — defeated: true, animateReveal defaults to false
+    await tester.pumpWidget(_host(
+        StickerSlot(boss: _typedBoss, defeated: true, onTap: () {})));
+    // ASSERT: badge is visible on a revealed slot
+    expect(find.byType(TypeBadge), findsOneWidget);
+
+    // ACT: pending slot — defeated: false
+    await tester.pumpWidget(_host(
+        StickerSlot(boss: _typedBoss, defeated: false, onTap: () {})));
+    // ASSERT: badge is absent on a pending (spoiler-safe) slot
+    expect(find.byType(TypeBadge), findsNothing);
   });
 }
