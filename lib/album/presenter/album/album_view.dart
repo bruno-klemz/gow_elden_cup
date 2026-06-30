@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../boss/presenter/boss_details/boss_details_screen.dart';
 import '../../../theme/app_theme.dart';
+import '../../domain/entity/boss.dart';
 import 'bloc/album_bloc.dart';
 import 'widgets/album_page_indicator.dart';
 import 'widgets/blur_toggle_button.dart';
@@ -9,11 +11,6 @@ import 'widgets/realm_page.dart';
 /// Pure UI for the album. Reads [AlbumBloc] from context.
 ///
 /// Each realm is a page; the user flips horizontally between them.
-///
-/// NOTE(Task 7): Boss details navigation is a no-op tap until BossDetailsScreen
-/// is implemented. When Task 7 lands, wire _openBoss to
-/// BossDetailsScreen.push(context, boss) and add AlbumProgressRefreshed /
-/// AlbumRevealRequested on return, matching the reference app's _openBoss.
 class AlbumView extends StatefulWidget {
   const AlbumView({super.key});
 
@@ -35,11 +32,20 @@ class _AlbumViewState extends State<AlbumView> {
     super.dispose();
   }
 
-  // TODO(Task 7): Replace with real BossDetailsScreen.push navigation.
-  // On return, call AlbumProgressRefreshed and (if a boss was defeated)
-  // AlbumRevealRequested. See reference album_view.dart _openBoss.
-  void _openBoss(BuildContext context, boss) {
-    // No-op until BossDetailsScreen exists (Task 7).
+  Future<void> _openBoss(BuildContext context, Boss boss) async {
+    final state = context.read<AlbumBloc>().state;
+    final realm = state.data?.realms.where((r) => r.id == boss.realm).firstOrNull;
+    final defeatedId = await BossDetailsScreen.push(
+      context,
+      boss,
+      realmMapImage: realm?.mapImage,
+    );
+    if (!context.mounted) return;
+    final bloc = context.read<AlbumBloc>();
+    bloc.add(const AlbumProgressRefreshed());
+    if (defeatedId != null) {
+      bloc.add(AlbumRevealRequested(defeatedId));
+    }
   }
 
   /// Flips to the realm of [bossId], then scrolls its slot into view so the
