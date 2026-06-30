@@ -1,1 +1,48 @@
-[]
+{
+  "favors": [
+    {
+      "id": "the_lost_lindwyrm",
+      "name": "A Linhagem Perdida",
+      "realm": "svartalfheim",
+      "region": "Jarnsmida Pitmines",
+      "giver": "Lunda",
+      "summary": "Recupere um tesouro anão.",
+      "lore": "Os anões de Svartalfheim guardam segredos antigos sob a terra.",
+      "steps": [
+        {"id": "s1", "title": "Abra o portão da mina", "detail": "Use a Lança Draupnir no mecanismo ao sul.", "tip": "Cuidado com os Grims."},
+        {"id": "s2", "title": "Derrote o guardião", "detail": "Um Dreki bloqueia a câmara final.", "bossId": "dreki_poison"}
+      ],
+      "rewards": [{"name": "Encantamento Raro", "rarity": "epic"}, {"name": "Hacksilver", "quantity": 8000}],
+      "needsReview": true
+    },
+    {
+      "id": "weight_of_chains",
+      "name": "O Peso das Correntes",
+      "realm": "alfheim",
+      "summary": "Liberte os prisioneiros da Luz.",
+      "lore": "A Luz de Alfheim corrompeu muitos guerreiros e servos.",
+      "steps": [
+        {"id": "s1", "title": "Encontre a prisão", "detail": "Nas cavernas ao norte da Floresta de Alfheim."},
+        {"id": "s2", "title": "Quebre os selhos", "detail": "Destrua os cristais que sustentam as correntes."}
+      ],
+      "rewards": [{"name": "XP", "quantity": 3000}, {"name": "Hacksilver", "quantity": 4000}],
+      "needsReview": true
+    },
+    {
+      "id": "the_mysterious_orb",
+      "name": "O Orbe Misterioso",
+      "realm": "vanaheim",
+      "region": "Lago Pilgrim",
+      "giver": "Freyr",
+      "summary": "Investigue a origem do orbe mágico.",
+      "lore": "Os Vanir têm conhecimento de artefatos que os Aesir nunca compreenderam.",
+      "steps": [
+        {"id": "s1", "title": "Encontre o orbe", "detail": "Mergulhe no Lago Pilgrim ao amanhecer.", "tip": "O orbe brilha sob a luz da lua."},
+        {"id": "s2", "title": "Consulte Freyr", "detail": "Leve o orbe a Freyr no Acampamento Vanaheim."},
+        {"id": "s3", "title": "Destrua o portão", "detail": "Use o orbe para abrir o portão selado.", "bossId": "einherjar_commander"}
+      ],
+      "rewards": [{"name": "Olho de Odin", "rarity": "legendary"}, {"name": "Hacksilver", "quantity": 10000}],
+      "needsReview": true
+    }
+  ]
+}
