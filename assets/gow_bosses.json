@@ -1,1 +1,43 @@
-[]
+{
+  "realms": [
+    {"id": "midgard", "name": "Midgard", "order": 1, "mapImage": "images/map/midgard.webp"},
+    {"id": "svartalfheim", "name": "Svartalfheim", "order": 2, "mapImage": "images/map/svartalfheim.webp"},
+    {"id": "vanaheim", "name": "Vanaheim", "order": 3, "mapImage": "images/map/vanaheim.webp"},
+    {"id": "alfheim", "name": "Alfheim", "order": 4, "mapImage": "images/map/alfheim.webp"},
+    {"id": "muspelheim", "name": "Muspelheim", "order": 5, "mapImage": "images/map/muspelheim.webp"},
+    {"id": "helheim", "name": "Helheim", "order": 6, "mapImage": "images/map/helheim.webp"},
+    {"id": "niflheim", "name": "Niflheim", "order": 7, "mapImage": "images/map/niflheim.webp"},
+    {"id": "asgard", "name": "Asgard", "order": 8, "mapImage": "images/map/asgard.webp"},
+    {"id": "jotunheim", "name": "Jötunheim", "order": 9, "mapImage": "images/map/jotunheim.webp"}
+  ],
+  "bosses": [
+    {
+      "id": "fraekni_the_zealous", "name": "Fraekni, a Zelosa", "subtitle": "Berserker",
+      "realm": "midgard", "type": "berserker", "art": "images/placeholder.webp",
+      "locationName": "Lago dos Nove", "mapCoord": {"x": 0, "y": 0},
+      "weaknesses": ["stun", "blades"], "immunities": [],
+      "strategy": "Padrão de ataque previsível; esquive da investida indefensável e puna após o slam.",
+      "loot": [{"name": "Fragmento de Berserker"}], "lore": "Uma berserker que assombra o Lago dos Nove.",
+      "mainOrder": 0, "needsReview": true
+    },
+    {
+      "id": "heimdall", "name": "Heimdall", "subtitle": "Guardião de Asgard",
+      "realm": "asgard", "type": "story", "art": "images/placeholder.webp",
+      "locationName": "Asgard", "mapCoord": {"x": 0, "y": 0},
+      "weaknesses": ["spear", "stun"], "immunities": ["frost"],
+      "strategy": "Use a Lança Draupnir — ele prevê ataques que enxerga; ataques de lança contornam isso.",
+      "loot": [{"name": "Armadura do Guardião"}], "lore": "O arrogante guardião de Asgard.",
+      "mainOrder": 1, "needsReview": true
+    },
+    {
+      "id": "gna", "name": "Gná", "subtitle": "Rainha das Valquírias",
+      "realm": "muspelheim", "type": "valkyrie", "art": "images/placeholder.webp",
+      "locationName": "Muspelheim", "mapCoord": {"x": 0, "y": 0},
+      "weaknesses": ["sonic", "burn"], "immunities": [],
+      "strategy": "Faça-a vacilar com ataques rúnicos e Relíquia; peça a Freya flecha rúnica no ataque de cajado flamejante.",
+      "loot": [{"name": "Escudo Rond da Obliteração"}, {"name": "Armadura da Rainha (Freya)"}],
+      "lore": "A recém-coroada Rainha das Valquírias, o desafio mais duro de Ragnarök.",
+      "mainOrder": 0, "needsReview": true
+    }
+  ]
+}
