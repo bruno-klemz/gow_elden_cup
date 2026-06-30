@@ -11,4 +11,9 @@ void main() {
   test('fromKey throws on unknown', () {
     expect(() => DamageType.fromKey('scarlet_rot'), throwsArgumentError);
   });
+  test('fromKey resolves snake_case aliases', () {
+    expect(DamageType.fromKey('chaos_blades'), DamageType.blades);
+    expect(DamageType.fromKey('leviathan_axe'), DamageType.axe);
+    expect(DamageType.fromKey('draupnir_spear'), DamageType.spear);
+  });
 }
