@@ -78,23 +78,20 @@ class _RealmChips extends StatelessWidget {
 
   Widget _chip({required String label, required String? value}) {
     final active = selected == value;
-    return Padding(
-      padding: const EdgeInsets.only(right: 0),
-      child: ChoiceChip(
-        label: Text(label),
-        selected: active,
-        onSelected: (_) => onChanged(value),
-        labelStyle: TextStyle(
-          color: active ? AppColors.background : AppColors.textMuted,
-          fontSize: 11,
-          fontWeight: FontWeight.w700,
-        ),
-        selectedColor: AppColors.gold,
-        backgroundColor: AppColors.surfaceAlt,
-        side: BorderSide(color: active ? AppColors.gold : AppColors.border),
-        showCheckmark: false,
-        visualDensity: VisualDensity.compact,
+    return ChoiceChip(
+      label: Text(label),
+      selected: active,
+      onSelected: (_) => onChanged(value),
+      labelStyle: TextStyle(
+        color: active ? AppColors.background : AppColors.textMuted,
+        fontSize: 11,
+        fontWeight: FontWeight.w700,
       ),
+      selectedColor: AppColors.gold,
+      backgroundColor: AppColors.surfaceAlt,
+      side: BorderSide(color: active ? AppColors.gold : AppColors.border),
+      showCheckmark: false,
+      visualDensity: VisualDensity.compact,
     );
   }
 }
