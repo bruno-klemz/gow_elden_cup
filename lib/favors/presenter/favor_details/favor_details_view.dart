@@ -39,7 +39,31 @@ class FavorDetailsView extends StatelessWidget {
                   giver: favor.giver,
                   sealText: state.sealText(favor),
                 ),
-                _LoreParchment(favor: favor),
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.all(14),
+                  decoration: BoxDecoration(
+                    color: AppColors.surfaceAlt,
+                    border: Border.all(color: AppColors.border),
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(favor.summary, style: AppText.lore),
+                      if (favor.lore.isNotEmpty) ...[
+                        const SizedBox(height: 8),
+                        Text(
+                          favor.lore,
+                          style: AppText.lore.copyWith(
+                            color: AppColors.textBody,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
                 const SizedBox(height: 16),
                 const Text('📋 PASSOS', style: AppText.sectionLabel),
                 const SizedBox(height: 8),
@@ -56,38 +80,6 @@ class FavorDetailsView extends StatelessWidget {
             ),
           );
         },
-      ),
-    );
-  }
-}
-
-class _LoreParchment extends StatelessWidget {
-  const _LoreParchment({required this.favor});
-  final Favor favor;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: AppColors.surfaceAlt,
-        border: Border.all(color: AppColors.border),
-        borderRadius: BorderRadius.circular(6),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(favor.summary, style: AppText.lore),
-          if (favor.lore.isNotEmpty) ...[
-            const SizedBox(height: 8),
-            Text(favor.lore,
-                style: AppText.lore.copyWith(
-                  color: AppColors.textBody,
-                  fontStyle: FontStyle.italic,
-                )),
-          ],
-        ],
       ),
     );
   }
