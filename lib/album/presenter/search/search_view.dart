@@ -190,6 +190,7 @@ class SearchView extends StatelessWidget {
       BuildContext context, SearchState state, Boss boss) async {
     final mapImage = state.realmMapImage(boss.realm);
     await BossDetailsScreen.push(context, boss, realmMapImage: mapImage);
+    if (!context.mounted) return;
   }
 
   Widget _sectionLabel(String text) => Padding(
