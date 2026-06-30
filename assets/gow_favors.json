@@ -1,48 +1,743 @@
 {
   "favors": [
     {
-      "id": "the_lost_lindwyrm",
-      "name": "A Linhagem Perdida",
-      "realm": "svartalfheim",
-      "region": "Jarnsmida Pitmines",
-      "giver": "Lunda",
-      "summary": "Recupere um tesouro anão.",
-      "lore": "Os anões de Svartalfheim guardam segredos antigos sob a terra.",
+      "id": "animal_instincts",
+      "name": "Instintos Animais",
+      "realm": "midgard",
+      "region": "Lago dos Nove",
+      "giver": "",
+      "summary": "Elimine os acampamentos dos Invasores Kol ao redor do Lago dos Nove.",
+      "lore": "Com Ragnarök se aproximando, grupos de invasores Kol aproveitam o caos para pilhar Midgard.",
       "steps": [
-        {"id": "s1", "title": "Abra o portão da mina", "detail": "Use a Lança Draupnir no mecanismo ao sul.", "tip": "Cuidado com os Grims."},
-        {"id": "s2", "title": "Derrote o guardião", "detail": "Um Dreki bloqueia a câmara final.", "bossId": "dreki_poison"}
+        {"id": "s1", "title": "Localize os acampamentos", "detail": "Encontre e destrua os acampamentos dos Invasores Kol ao redor do Lago dos Nove."},
+        {"id": "s2", "title": "Elimine o líder", "detail": "Derrote o líder do grupo para concluir a missão."}
       ],
-      "rewards": [{"name": "Encantamento Raro", "rarity": "epic"}, {"name": "Hacksilver", "quantity": 8000}],
+      "rewards": [{"name": "1000 XP de Kratos"}, {"name": "250 XP de Freya"}, {"name": "Token of Elemental Evasion"}, {"name": "Crackle of Bilskirnir"}],
+      "needsReview": false
+    },
+    {
+      "id": "guiding_light",
+      "name": "Luz Guia",
+      "realm": "midgard",
+      "region": "Lago dos Nove",
+      "giver": "",
+      "summary": "Investigue os destroços da estátua de Tyr no Lago dos Nove.",
+      "lore": "Os destroços da estátua de Tyr guardam segredos do passado que podem iluminar o caminho de Kratos.",
+      "steps": [
+        {"id": "s1", "title": "Encontre os destroços", "detail": "Localize e examine os fragmentos da estátua destruída de Tyr."},
+        {"id": "s2", "title": "Colete as runas", "detail": "Recolha as runas espalhadas ao redor dos destroços."}
+      ],
+      "rewards": [{"name": "750 XP de Kratos"}, {"name": "200 XP de Freya"}, {"name": "Conjunto de Armadura Guiding Light"}],
+      "needsReview": false
+    },
+    {
+      "id": "sigruns_curse",
+      "name": "A Maldição de Sigrun",
+      "realm": "midgard",
+      "region": "Lago dos Nove",
+      "giver": "",
+      "summary": "Descubra os segredos do passado de Sigrun e quebre a maldição que a aflige.",
+      "lore": "Sigrun, a antiga Rainha das Valquírias, deixou rastros de sua queda no mundo mortal que pedem resolução.",
+      "steps": [
+        {"id": "s1", "title": "Investigue as pistas", "detail": "Encontre as pistas sobre a maldição de Sigrun espalhadas por Midgard."},
+        {"id": "s2", "title": "Quebre o selo", "detail": "Destrua o artefato que mantém a maldição ativa."}
+      ],
+      "rewards": [{"name": "1500 XP de Kratos"}, {"name": "375 XP de Freya"}],
       "needsReview": true
+    },
+    {
+      "id": "across_the_realms",
+      "name": "Pelos Reinos",
+      "realm": "midgard",
+      "region": "Múltiplos Reinos",
+      "giver": "",
+      "summary": "Encontre os 4 ingredientes espalhados por múltiplos reinos.",
+      "lore": "Uma antiga receita requer ingredientes de quatro reinos distintos, cada um com seus próprios perigos.",
+      "steps": [
+        {"id": "s1", "title": "Ingrediente em Midgard", "detail": "Localize o primeiro ingrediente em Midgard."},
+        {"id": "s2", "title": "Ingrediente em Alfheim", "detail": "Localize o segundo ingrediente em Alfheim."},
+        {"id": "s3", "title": "Ingrediente em Vanaheim", "detail": "Localize o terceiro ingrediente em Vanaheim."},
+        {"id": "s4", "title": "Ingrediente em Svartalfheim", "detail": "Localize o quarto ingrediente em Svartalfheim."}
+      ],
+      "rewards": [{"name": "1000 XP de Kratos"}, {"name": "350 XP de Freya"}],
+      "needsReview": true
+    },
+    {
+      "id": "a_viking_funeral",
+      "name": "Um Funeral Viking",
+      "realm": "svartalfheim",
+      "region": "Nidavellir",
+      "giver": "Lunda",
+      "summary": "Participe do funeral de um anão importante para Lunda.",
+      "lore": "Em Svartalfheim, os anões guardam tradições funerárias antigas que devem ser respeitadas mesmo em tempos de guerra.",
+      "steps": [
+        {"id": "s1", "title": "Encontre Lunda", "detail": "Vá até Lunda em Nidavellir para saber o que ela precisa."},
+        {"id": "s2", "title": "Prepare o funeral", "detail": "Colete os itens necessários para o ritual funerário."},
+        {"id": "s3", "title": "Realize o ritual", "detail": "Execute os passos do ritual anão com Lunda."}
+      ],
+      "rewards": [{"name": "Funeral for a Friend Trophy"}],
+      "needsReview": false
+    },
+    {
+      "id": "in_service_to_asgard",
+      "name": "A Serviço de Asgard",
+      "realm": "svartalfheim",
+      "region": "Baía da Riqueza",
+      "giver": "Raeb",
+      "summary": "Desligue as três máquinas Rog de Asgard que exploram Svartalfheim.",
+      "lore": "Odin enviou engenhocas mecânicas para extrair recursos de Svartalfheim à força, humilhando os anões.",
+      "steps": [
+        {"id": "s1", "title": "Encontre a primeira Rog", "detail": "Localize e desligue a primeira máquina Rog."},
+        {"id": "s2", "title": "Encontre a segunda Rog", "detail": "Localize e desligue a segunda máquina Rog."},
+        {"id": "s3", "title": "Encontre a terceira Rog", "detail": "Localize e desligue a terceira máquina Rog."}
+      ],
+      "rewards": [{"name": "500 XP de Kratos"}, {"name": "125 XP de Atreus"}, {"name": "Minério de Nidavellir"}],
+      "needsReview": false
+    },
+    {
+      "id": "spirit_of_rebellion",
+      "name": "Espírito de Rebelião",
+      "realm": "svartalfheim",
+      "region": "Nidavellir",
+      "giver": "Durlin",
+      "summary": "Recupere o Martelo da Revolução para Durlin e acenda a rebelião dos anões.",
+      "lore": "Durlin, líder da resistência anã, precisa do lendário Martelo da Revolução para inspirar seu povo contra Odin.",
+      "steps": [
+        {"id": "s1", "title": "Fale com Durlin", "detail": "Encontre Durlin em Nidavellir e ouça seu pedido."},
+        {"id": "s2", "title": "Localize o martelo", "detail": "Siga as pistas até o esconderijo do Martelo da Revolução."},
+        {"id": "s3", "title": "Retorne o martelo", "detail": "Leve o martelo de volta a Durlin."}
+      ],
+      "rewards": [{"name": "3000 XP de Kratos"}, {"name": "750 XP de Freya"}, {"name": "Mountain Splitter"}],
+      "needsReview": false
+    },
+    {
+      "id": "the_lost_treasure",
+      "name": "O Tesouro Perdido",
+      "realm": "svartalfheim",
+      "region": "Baía da Riqueza",
+      "giver": "Espírito do Viajante Ancião",
+      "summary": "Recupere um tesouro pessoal para o espírito de um viajante anão.",
+      "lore": "O espírito de um velho viajante anão não consegue descansar enquanto seu bem mais precioso permanecer perdido.",
+      "steps": [
+        {"id": "s1", "title": "Fale com o espírito", "detail": "Encontre o espírito do viajante ancião e saiba o que ele busca."},
+        {"id": "s2", "title": "Encontre o tesouro", "detail": "Localize o esconderijo do tesouro perdido."},
+        {"id": "s3", "title": "Retorne para o espírito", "detail": "Leve o tesouro de volta para que o espírito possa descansar em paz."}
+      ],
+      "rewards": [{"name": "3000 XP de Kratos"}, {"name": "750 XP de Freya"}, {"name": "Svefnthorn"}],
+      "needsReview": false
     },
     {
       "id": "weight_of_chains",
       "name": "O Peso das Correntes",
-      "realm": "alfheim",
-      "summary": "Liberte os prisioneiros da Luz.",
-      "lore": "A Luz de Alfheim corrompeu muitos guerreiros e servos.",
+      "realm": "svartalfheim",
+      "region": "Baía da Riqueza",
+      "giver": "Mimir",
+      "summary": "Liberte o Lyngbakr, uma criatura gigantesca presa por correntes de Asgard.",
+      "lore": "O Lyngbakr — uma baleia-ilha — foi acorrentado por Odin e usa suas costas como base de operações. Mimir pede a Kratos que quebre as correntes.",
       "steps": [
-        {"id": "s1", "title": "Encontre a prisão", "detail": "Nas cavernas ao norte da Floresta de Alfheim."},
-        {"id": "s2", "title": "Quebre os selhos", "detail": "Destrua os cristais que sustentam as correntes."}
+        {"id": "s1", "title": "Encontre as correntes", "detail": "Localize as três correntes que prendem o Lyngbakr."},
+        {"id": "s2", "title": "Quebre as correntes", "detail": "Destrua cada corrente usando a Lança Draupnir e a Machadinha de Leviatã."},
+        {"id": "s3", "title": "Liberte o Lyngbakr", "detail": "Quebre a última corrente e observe o Lyngbakr mergulhar na liberdade."}
       ],
-      "rewards": [{"name": "XP", "quantity": 3000}, {"name": "Hacksilver", "quantity": 4000}],
-      "needsReview": true
+      "rewards": [{"name": "1000 XP de Kratos"}, {"name": "250 XP de Atreus"}],
+      "needsReview": false
+    },
+    {
+      "id": "freyrs_gift",
+      "name": "O Dom de Freyr",
+      "realm": "alfheim",
+      "region": "Areias Proibidas",
+      "giver": "",
+      "summary": "Investigue o monumento de Freyr nas Areias Proibidas.",
+      "lore": "Um monumento antigo em honra a Freyr guarda um presente que o deus dos Vanir deixou para quem fosse digno.",
+      "steps": [
+        {"id": "s1", "title": "Encontre o monumento", "detail": "Localize o monumento de Freyr nas Areias Proibidas de Alfheim."},
+        {"id": "s2", "title": "Resolva o enigma", "detail": "Decifre o enigma do monumento para liberar o presente de Freyr."}
+      ],
+      "rewards": [{"name": "1000 XP de Kratos"}, {"name": "250 XP de Freya"}, {"name": "Invoke the Storm"}],
+      "needsReview": false
+    },
+    {
+      "id": "secret_of_the_sands",
+      "name": "Segredo das Areias",
+      "realm": "alfheim",
+      "region": "Areias Proibidas",
+      "giver": "Sindri",
+      "summary": "Encontre um caminho para alcançar a criatura em sofrimento nas areias.",
+      "lore": "Sindri ouviu os gritos de uma criatura presa sob as areias de Alfheim e pede a Kratos para investigar.",
+      "steps": [
+        {"id": "s1", "title": "Fale com Sindri", "detail": "Encontre Sindri nas Areias Proibidas e receba o pedido."},
+        {"id": "s2", "title": "Abra o caminho", "detail": "Encontre uma maneira de chegar até a criatura sofrendo sob as areias."},
+        {"id": "s3", "title": "Liberte a criatura", "detail": "Ajude a criatura presa a se libertar do aprisiono."}
+      ],
+      "rewards": [{"name": "1500 XP de Kratos"}, {"name": "375 XP de Atreus"}],
+      "needsReview": false
+    },
+    {
+      "id": "song_of_the_sands",
+      "name": "Canção das Areias",
+      "realm": "alfheim",
+      "region": "Areias Proibidas",
+      "giver": "",
+      "summary": "Continue a investigação após liberar a criatura — as areias guardam mais segredos.",
+      "lore": "As areias de Alfheim cantam com energia mágica; após liberar a criatura, novos caminhos se abrem.",
+      "steps": [
+        {"id": "s1", "title": "Siga a canção", "detail": "Siga o som misterioso que emana das areias agora que o caminho está aberto."},
+        {"id": "s2", "title": "Resolva o mistério", "detail": "Descubra a fonte da canção e resolva o enigma final."}
+      ],
+      "rewards": [{"name": "1500 XP de Kratos"}, {"name": "375 XP de Freya"}],
+      "needsReview": false
+    },
+    {
+      "id": "the_desert_door",
+      "name": "A Porta do Deserto",
+      "realm": "alfheim",
+      "region": "Areias Proibidas",
+      "giver": "",
+      "summary": "Abra a misteriosa porta selada no deserto de Alfheim.",
+      "lore": "Uma porta antiga e selada nas profundezas das areias promete revelar tesouros ou perigos esquecidos.",
+      "steps": [
+        {"id": "s1", "title": "Localize a porta", "detail": "Encontre a porta selada nas Areias Proibidas."},
+        {"id": "s2", "title": "Quebre os selos", "detail": "Destrua os três selos que mantêm a porta fechada."},
+        {"id": "s3", "title": "Explore o interior", "detail": "Entre e investigue o que há do outro lado da porta."}
+      ],
+      "rewards": [{"name": "1000 XP de Kratos"}, {"name": "250 XP de Freya"}, {"name": "Skirnir's Gambanteinn"}],
+      "needsReview": false
+    },
+    {
+      "id": "the_elven_sanctum",
+      "name": "O Santuário Élfico",
+      "realm": "alfheim",
+      "region": "Floresta de Alfheim",
+      "giver": "",
+      "summary": "Explore o Santuário Élfico e descubra seus segredos.",
+      "lore": "Um santuário antigo dos Elfos da Luz guarda conhecimentos sobre os rituais elfos e a natureza da Luz de Alfheim.",
+      "steps": [
+        {"id": "s1", "title": "Encontre o santuário", "detail": "Localize a entrada do Santuário Élfico nas florestas de Alfheim."},
+        {"id": "s2", "title": "Supere os desafios", "detail": "Enfrente as armadilhas e guardiões no interior do santuário."},
+        {"id": "s3", "title": "Recolha o conhecimento", "detail": "Colete os artefatos ou informações que o santuário guarda."}
+      ],
+      "rewards": [{"name": "1000 XP de Kratos"}, {"name": "250 XP de Freya"}],
+      "needsReview": false
+    },
+    {
+      "id": "the_crucible",
+      "name": "O Crisol",
+      "realm": "muspelheim",
+      "region": "O Crisol",
+      "giver": "",
+      "summary": "Complete os primeiros 6 desafios do Crisol de Muspelheim.",
+      "lore": "O Crisol é a arena de batalha de Muspelheim, onde os guerreiros se provam contra ondas de inimigos em desafios cada vez mais duros.",
+      "steps": [
+        {"id": "s1", "title": "Complete o desafio 1", "detail": "Termine o primeiro desafio do Crisol."},
+        {"id": "s2", "title": "Complete os desafios 2-5", "detail": "Avance pelos desafios intermediários."},
+        {"id": "s3", "title": "Complete o desafio 6", "detail": "Termine o sexto desafio para concluir o favor."}
+      ],
+      "rewards": [{"name": "10000 XP de Kratos"}, {"name": "2500 XP de Freya"}],
+      "needsReview": false
+    },
+    {
+      "id": "the_final_challenges",
+      "name": "Os Desafios Finais",
+      "realm": "muspelheim",
+      "region": "O Crisol",
+      "giver": "",
+      "summary": "Complete os 9 desafios finais do Crisol de Muspelheim.",
+      "lore": "Após provar-se nos primeiros desafios, os guerreiros verdadeiros enfrentam as provas finais do Crisol.",
+      "steps": [
+        {"id": "s1", "title": "Complete os desafios 7-9", "detail": "Enfrente os desafios intermediários avançados."},
+        {"id": "s2", "title": "Complete os desafios 10-15", "detail": "Termine todos os desafios restantes do Crisol."}
+      ],
+      "rewards": [{"name": "10000 XP de Kratos"}, {"name": "2500 XP de Freya"}],
+      "needsReview": false
+    },
+    {
+      "id": "defend_your_valor",
+      "name": "Defenda Seu Valor",
+      "realm": "muspelheim",
+      "region": "O Crisol",
+      "giver": "Freya",
+      "summary": "Derrote Gná, a nova Rainha das Valquírias, para provar seu valor.",
+      "lore": "Freya desafia Kratos a enfrentar Gná, a Valquíria que ocupa o trono deixado por Sigrun.",
+      "steps": [
+        {"id": "s1", "title": "Acesse o Crisol", "detail": "Chegue à arena principal do Crisol de Muspelheim."},
+        {"id": "s2", "title": "Derrote Gná", "detail": "Enfrente e vença a Rainha das Valquírias Gná.", "bossId": "gna"}
+      ],
+      "rewards": [{"name": "4000 XP de Kratos"}, {"name": "4000 XP de Freya"}, {"name": "Armadura da Rainha"}, {"name": "The Queen's Roar"}],
+      "needsReview": false
+    },
+    {
+      "id": "the_broken_prison",
+      "name": "A Prisão Quebrada",
+      "realm": "niflheim",
+      "region": "Niflheim",
+      "giver": "",
+      "summary": "Investigue a antiga prisão de Niflheim após o fim da história principal.",
+      "lore": "Com Ragnarök concluído, segredos que estavam trancados na prisão de Niflheim finalmente podem ser revelados.",
+      "steps": [
+        {"id": "s1", "title": "Acesse a prisão", "detail": "Vá até a prisão de Niflheim após completar a história principal."},
+        {"id": "s2", "title": "Explore os cômodos", "detail": "Investigue cada cômodo da prisão em busca de pistas e tesouros."}
+      ],
+      "rewards": [{"name": "3000 XP de Kratos"}, {"name": "1000 XP de Freya"}],
+      "needsReview": false
+    },
+    {
+      "id": "the_eyes_of_odin",
+      "name": "Os Olhos de Odin",
+      "realm": "niflheim",
+      "region": "Todos os Reinos",
+      "giver": "",
+      "summary": "Encontre e destrua todos os 48 corvos de Odin espalhados pelos reinos.",
+      "lore": "Os corvos de Odin espionam para o Pai de Todos. Destruí-los cega o deus da informação.",
+      "steps": [
+        {"id": "s1", "title": "Destrua corvos em Midgard", "detail": "Encontre e mate os corvos de Odin em Midgard."},
+        {"id": "s2", "title": "Destrua corvos nos outros reinos", "detail": "Continue a caçada aos corvos em todos os reinos visitados."},
+        {"id": "s3", "title": "Destrua o último corvo", "detail": "Encontre e destrua o 48° e último corvo de Odin."}
+      ],
+      "rewards": [{"name": "10000 XP de Kratos"}, {"name": "2500 XP de Freya"}],
+      "needsReview": false
+    },
+    {
+      "id": "cure_for_the_dead",
+      "name": "Cura para os Mortos",
+      "realm": "vanaheim",
+      "region": "Acampamento Vanir",
+      "giver": "Mari",
+      "summary": "Recolha ingredientes para a cura que Mari prepara para os mortos-vivos de Vanaheim.",
+      "lore": "Mari, uma curandeira Vanir, busca uma maneira de trazer paz aos guerreiros que não conseguem descansar.",
+      "steps": [
+        {"id": "s1", "title": "Fale com Mari", "detail": "Encontre Mari no acampamento e ouça o que ela precisa."},
+        {"id": "s2", "title": "Recolha os ingredientes", "detail": "Colete todos os ingredientes necessários para a cura."},
+        {"id": "s3", "title": "Entregue a Mari", "detail": "Leve os ingredientes de volta a Mari para que ela prepare a poção."}
+      ],
+      "rewards": [{"name": "500 XP de Kratos"}, {"name": "125 XP de Freya"}, {"name": "Svartalfheim's Fortune"}],
+      "needsReview": false
+    },
+    {
+      "id": "garden_for_the_dead",
+      "name": "Jardim para os Mortos",
+      "realm": "vanaheim",
+      "region": "Acampamento Vanir",
+      "giver": "Astrid",
+      "summary": "Destrua os totens de veneno que estão corrompendo o jardim memorial.",
+      "lore": "Astrid cuida de um jardim em memória dos caídos, mas totens venenosos ameaçam destruí-lo.",
+      "steps": [
+        {"id": "s1", "title": "Encontre os totens", "detail": "Localize os totens de veneno espalhados pelo jardim."},
+        {"id": "s2", "title": "Destrua os totens", "detail": "Elimine todos os totens de veneno que ameaçam o jardim."}
+      ],
+      "rewards": [{"name": "500 XP de Kratos"}, {"name": "125 XP de Freya"}, {"name": "Svartalfheim's Safety"}],
+      "needsReview": false
+    },
+    {
+      "id": "conscience_for_the_dead",
+      "name": "Consciência para os Mortos",
+      "realm": "vanaheim",
+      "region": "Acampamento Vanir",
+      "giver": "Gunhild",
+      "summary": "Elimine os Fanáticos Seidr que perturbam a paz dos mortos.",
+      "lore": "Fanáticos Seidr invadiram Vanaheim profanando os locais sagrados onde os guerreiros caídos descansam.",
+      "steps": [
+        {"id": "s1", "title": "Encontre os fanáticos", "detail": "Localize os Fanáticos Seidr em Vanaheim."},
+        {"id": "s2", "title": "Elimine os fanáticos", "detail": "Derrote todos os Fanáticos Seidr para restaurar a paz."}
+      ],
+      "rewards": [{"name": "500 XP de Kratos"}, {"name": "125 XP de Freya"}, {"name": "Svartalfheim's Honour"}],
+      "needsReview": false
     },
     {
       "id": "the_mysterious_orb",
       "name": "O Orbe Misterioso",
       "realm": "vanaheim",
-      "region": "Lago Pilgrim",
-      "giver": "Freyr",
-      "summary": "Investigue a origem do orbe mágico.",
-      "lore": "Os Vanir têm conhecimento de artefatos que os Aesir nunca compreenderam.",
+      "region": "Passagem Velada",
+      "giver": "Lunda",
+      "summary": "Recupere o orbe mágico da Passagem Velada para Lunda.",
+      "lore": "Lunda perdeu um artefato precioso na Passagem Velada e precisa que Kratos o recupere dos guardiões do local.",
       "steps": [
-        {"id": "s1", "title": "Encontre o orbe", "detail": "Mergulhe no Lago Pilgrim ao amanhecer.", "tip": "O orbe brilha sob a luz da lua."},
-        {"id": "s2", "title": "Consulte Freyr", "detail": "Leve o orbe a Freyr no Acampamento Vanaheim."},
-        {"id": "s3", "title": "Destrua o portão", "detail": "Use o orbe para abrir o portão selado.", "bossId": "einherjar_commander"}
+        {"id": "s1", "title": "Vá até a Passagem Velada", "detail": "Navegue até a Passagem Velada em Vanaheim."},
+        {"id": "s2", "title": "Recupere o orbe", "detail": "Enfrente os inimigos e recupere o orbe de Lunda."},
+        {"id": "s3", "title": "Retorne a Lunda", "detail": "Leve o orbe de volta a Lunda para receber a recompensa."}
       ],
-      "rewards": [{"name": "Olho de Odin", "rarity": "legendary"}, {"name": "Hacksilver", "quantity": 10000}],
+      "rewards": [{"name": "1000 XP de Kratos"}, {"name": "250 XP de Freya"}, {"name": "Conjunto de Armadura de Lunda"}],
+      "needsReview": false
+    },
+    {
+      "id": "freyrs_missing_peace",
+      "name": "A Paz Perdida de Freyr",
+      "realm": "vanaheim",
+      "region": "Quedas da Deusa",
+      "giver": "Freya",
+      "summary": "Visite as Quedas da Deusa — o lugar de paz de Freyr — acompanhando Freya.",
+      "lore": "Freya quer revisitar o lugar favorito de seu irmão Freyr para encontrar paz após os eventos traumáticos.",
+      "steps": [
+        {"id": "s1", "title": "Acompanhe Freya", "detail": "Navegue até as Quedas da Deusa junto com Freya."},
+        {"id": "s2", "title": "Explore as quedas", "detail": "Explore o local e descubra o que o perturbou."},
+        {"id": "s3", "title": "Restaure a paz", "detail": "Resolva o conflito que está perturbando a paz do local.", "bossId": "dreki_double_favor"}
+      ],
+      "rewards": [{"name": "1500 XP de Freya"}, {"name": "Mardoll"}, {"name": "Steel Harmony"}, {"name": "Regal Vanir Garments"}],
+      "needsReview": false
+    },
+    {
+      "id": "scent_of_survival",
+      "name": "Rastro de Sobrevivência",
+      "realm": "vanaheim",
+      "region": "Acampamento Vanir",
+      "giver": "",
+      "summary": "Siga Helka pela floresta de Vanaheim.",
+      "lore": "Helka, uma criatura senciente, foge de algo perigoso nas florestas de Vanaheim.",
+      "steps": [
+        {"id": "s1", "title": "Encontre Helka", "detail": "Localize Helka e comece a segui-la pela floresta."},
+        {"id": "s2", "title": "Siga o rastro", "detail": "Acompanhe Helka até seu destino final."}
+      ],
+      "rewards": [{"name": "1000 XP de Kratos"}, {"name": "250 XP de Atreus"}],
+      "needsReview": false
+    },
+    {
+      "id": "return_of_the_river",
+      "name": "O Retorno do Rio",
+      "realm": "vanaheim",
+      "region": "A Selva",
+      "giver": "",
+      "summary": "Abra a represa para inundar o Cráter de Vanaheim e revelar novas áreas.",
+      "lore": "Uma antiga represa bloqueia o fluxo natural de Vanaheim; liberar as águas abrirá caminhos inesperados.",
+      "steps": [
+        {"id": "s1", "title": "Localize a represa", "detail": "Encontre a represa que bloqueia o fluxo da água no Cráter."},
+        {"id": "s2", "title": "Abra as comportas", "detail": "Use a Lança Draupnir para detonar os mecanismos da represa."},
+        {"id": "s3", "title": "Observe a inundação", "detail": "Veja o Cráter se encher de água, revelando novas rotas."}
+      ],
+      "rewards": [{"name": "500 XP de Kratos"}, {"name": "125 XP de Atreus"}],
+      "needsReview": false
+    },
+    {
+      "id": "what_lies_below",
+      "name": "O Que Jaz Abaixo",
+      "realm": "vanaheim",
+      "region": "Área da Barragem",
+      "giver": "",
+      "summary": "Enfrente o Dreki que se esconde sob a estrutura da barragem.",
+      "lore": "Algo se move nas águas abaixo da barragem do Cráter — um Dreki aguarda na escuridão.",
+      "steps": [
+        {"id": "s1", "title": "Investigue a barragem", "detail": "Explore a área abaixo da barragem."},
+        {"id": "s2", "title": "Derrote o Dreki", "detail": "Elimine o Dreki que habita as profundezas.", "bossId": "dreki_what_lies_below"}
+      ],
+      "rewards": [{"name": "1500 XP de Kratos"}, {"name": "375 XP de Atreus"}, {"name": "Dragon Tooth"}],
+      "needsReview": false
+    },
+    {
+      "id": "trail_of_the_dead",
+      "name": "Rastro dos Mortos",
+      "realm": "vanaheim",
+      "region": "A Selva",
+      "giver": "",
+      "summary": "Mate o dragão na Selva do Cráter de Vanaheim.",
+      "lore": "Um dragão deixa um rastro de destruição e cadáveres pela Selva — sua ameaça deve ser eliminada.",
+      "steps": [
+        {"id": "s1", "title": "Siga o rastro", "detail": "Siga o rastro de destruição até o covil do dragão."},
+        {"id": "s2", "title": "Mate o dragão", "detail": "Enfrente e derrote o dragão na Selva.", "bossId": "the_corpse_eater"}
+      ],
+      "rewards": [{"name": "3000 XP de Kratos"}, {"name": "750 XP de Atreus"}, {"name": "Dragon Claw"}],
+      "needsReview": false
+    },
+    {
+      "id": "path_of_destruction",
+      "name": "Caminho de Destruição",
+      "realm": "vanaheim",
+      "region": "A Selva",
+      "giver": "",
+      "summary": "Navegue pelo buraco na parede da Selva causado por uma criatura gigante.",
+      "lore": "Algo enorme abriu um caminho pela parede da Selva — seguir esse rastro pode levar a tesouros ou perigos.",
+      "steps": [
+        {"id": "s1", "title": "Encontre o buraco", "detail": "Localize a abertura na parede da Selva causada pela criatura."},
+        {"id": "s2", "title": "Navegue o caminho", "detail": "Atravesse o caminho destruído e explore o que há além."}
+      ],
+      "rewards": [{"name": "6375 XP de Kratos"}, {"name": "1625 XP de Freya"}],
+      "needsReview": false
+    },
+    {
+      "id": "casualty_of_war_stein",
+      "name": "Vítima de Guerra: O Caneco",
+      "realm": "vanaheim",
+      "region": "A Selva",
+      "giver": "",
+      "summary": "Encontre as duas metades de um caneco perdido de um guerreiro caído.",
+      "lore": "Os guerreiros de Vanaheim deixaram pertences espalhados no campo de batalha — alguns ainda podem ser reunidos.",
+      "steps": [
+        {"id": "s1", "title": "Encontre a primeira metade", "detail": "Localize a primeira metade do caneco na Selva."},
+        {"id": "s2", "title": "Encontre a segunda metade", "detail": "Localize a segunda metade do caneco."}
+      ],
+      "rewards": [{"name": "500 XP de Kratos"}, {"name": "125 XP de Atreus"}, {"name": "Kinetic Resilience"}],
+      "needsReview": false
+    },
+    {
+      "id": "casualty_of_war_toy",
+      "name": "Vítima de Guerra: O Brinquedo",
+      "realm": "vanaheim",
+      "region": "A Selva",
+      "giver": "",
+      "summary": "Encontre as duas metades de um brinquedo que pertencia a um filho de guerreiro.",
+      "lore": "Um brinquedo infantil perdido no campo de batalha de Vanaheim — um lembrete triste do custo da guerra.",
+      "steps": [
+        {"id": "s1", "title": "Encontre a primeira metade", "detail": "Localize a primeira metade do brinquedo."},
+        {"id": "s2", "title": "Encontre a segunda metade", "detail": "Localize a segunda metade do brinquedo."}
+      ],
+      "rewards": [{"name": "500 XP de Kratos"}, {"name": "125 XP de Atreus"}, {"name": "Fossilised Keepsake"}],
+      "needsReview": false
+    },
+    {
+      "id": "quaking_hollow",
+      "name": "Oco Tremulante",
+      "realm": "vanaheim",
+      "region": "Os Sumidouros",
+      "giver": "",
+      "summary": "Encontre a fonte do tremor nos Sumidouros e lide com o responsável.",
+      "lore": "Os Sumidouros de Vanaheim tremem com algo enorme se movendo nas profundezas.",
+      "steps": [
+        {"id": "s1", "title": "Investigate o tremor", "detail": "Siga os tremores até sua origem nos Sumidouros."},
+        {"id": "s2", "title": "Enfrente o responsável", "detail": "Derrote a criatura causando os tremores.", "bossId": "crag_jaw"}
+      ],
+      "rewards": [{"name": "4500 XP de Kratos"}, {"name": "1125 XP de Atreus"}, {"name": "Regenerating Essence Amulet"}, {"name": "Dragon Claw"}],
+      "needsReview": false
+    },
+    {
+      "id": "the_burning_skies",
+      "name": "Os Céus em Chamas",
+      "realm": "vanaheim",
+      "region": "Os Sumidouros",
+      "giver": "",
+      "summary": "Alcance o covil do dragão nos Sumidouros e enfrente a ameaça.",
+      "lore": "Um dragão domina os Sumidouros do Cráter, cuspindo fogo e impedindo qualquer exploração.",
+      "steps": [
+        {"id": "s1", "title": "Alcance o covil", "detail": "Navegue pelos Sumidouros até o covil do dragão."},
+        {"id": "s2", "title": "Derrote o dragão", "detail": "Enfrente o dragão que amedronta os Sumidouros.", "bossId": "the_ash_tyrant"}
+      ],
+      "rewards": [{"name": "3000 XP de Kratos"}, {"name": "750 XP de Atreus"}, {"name": "Dragon Claw"}],
+      "needsReview": false
+    },
+    {
+      "id": "casualty_of_war_hourglass",
+      "name": "Vítima de Guerra: A Ampulheta",
+      "realm": "vanaheim",
+      "region": "Os Sumidouros",
+      "giver": "",
+      "summary": "Encontre as duas metades de uma ampulheta de um guerreiro caído.",
+      "lore": "Uma ampulheta de batalha partida ao meio — símbolo do tempo que o guerreiro não teve para vivê-lo.",
+      "steps": [
+        {"id": "s1", "title": "Encontre a primeira metade", "detail": "Localize a primeira metade da ampulheta."},
+        {"id": "s2", "title": "Encontre a segunda metade", "detail": "Localize a segunda metade da ampulheta."}
+      ],
+      "rewards": [{"name": "500 XP de Kratos"}, {"name": "125 XP de Atreus"}, {"name": "Attuned Runic Gem"}],
+      "needsReview": false
+    },
+    {
+      "id": "in_the_dead_of_night",
+      "name": "Na Calada da Noite",
+      "realm": "vanaheim",
+      "region": "As Planícies",
+      "giver": "",
+      "summary": "Rastreie e elimine o Dreki que caça à noite nas planícies.",
+      "lore": "Um Dreki predador emerge apenas à noite para caçar — os moradores do acampamento Vanir vivem com medo.",
+      "steps": [
+        {"id": "s1", "title": "Aguarde a noite", "detail": "Espere a noite cair nas Planícies do Cráter."},
+        {"id": "s2", "title": "Rastreie o Dreki", "detail": "Siga as pistas noturnas até localizar o Dreki."},
+        {"id": "s3", "title": "Elimine o Dreki", "detail": "Derrote o Dreki noturno.", "bossId": "dreki_in_the_dead_of_night"}
+      ],
+      "rewards": [{"name": "1500 XP de Kratos"}, {"name": "375 XP de Atreus"}, {"name": "Dragon Tooth"}],
+      "needsReview": false
+    },
+    {
+      "id": "in_plain_sight",
+      "name": "À Vista de Todos",
+      "realm": "vanaheim",
+      "region": "As Planícies",
+      "giver": "",
+      "summary": "Localize e elimine o Devorador de Almas escondido nas planícies.",
+      "lore": "Um Devorador de Almas se esconde em plena vista nas planícies do Cráter, absorvendo a energia dos mortos.",
+      "steps": [
+        {"id": "s1", "title": "Encontre o Devorador", "detail": "Localize o Devorador de Almas nas Planícies."},
+        {"id": "s2", "title": "Elimine o Devorador", "detail": "Destrua o Devorador de Almas para libertar as almas presas.", "bossId": "soul_eater_plains"}
+      ],
+      "rewards": [{"name": "3000 XP de Kratos"}, {"name": "750 XP de Atreus"}, {"name": "Hunter's Brand"}, {"name": "Eir's Armament"}],
+      "needsReview": false
+    },
+    {
+      "id": "for_vanaheim",
+      "name": "Por Vanaheim!",
+      "realm": "vanaheim",
+      "region": "O Cráter",
+      "giver": "",
+      "summary": "Resgate Birgir que está preso no Cráter.",
+      "lore": "Birgir, um guerreiro Vanir, ficou preso durante a exploração do Cráter e precisa de resgate urgente.",
+      "steps": [
+        {"id": "s1", "title": "Localize Birgir", "detail": "Navegue pelo Cráter e encontre Birgir preso."},
+        {"id": "s2", "title": "Liberte Birgir", "detail": "Elimine os inimigos e liberte Birgir do cativeiro."}
+      ],
+      "rewards": [{"name": "3000 XP de Kratos"}, {"name": "750 XP de Atreus"}, {"name": "Rond of the Nine Realms"}],
+      "needsReview": false
+    },
+    {
+      "id": "nocturnal_predator",
+      "name": "Predador Noturno",
+      "realm": "vanaheim",
+      "region": "As Planícies",
+      "giver": "",
+      "summary": "Capture os espíritos wisps que possuem animais inocentes nas planícies.",
+      "lore": "Wisps malignos possuem animais das planícies de Vanaheim, transformando-os em predadores violentos.",
+      "steps": [
+        {"id": "s1", "title": "Encontre os animais possessos", "detail": "Localize os animais controlados pelos wisps."},
+        {"id": "s2", "title": "Capture os wisps", "detail": "Expulse e capture os wisps que possuem os animais."},
+        {"id": "s3", "title": "Resolva o problema", "detail": "Lide com a fonte dos wisps para prevenir futuras possessões."}
+      ],
+      "rewards": [{"name": "3000 XP de Kratos"}, {"name": "750 XP de Atreus"}, {"name": "Hunter's Brand"}, {"name": "Gale Flame"}],
+      "needsReview": false
+    },
+    {
+      "id": "casualty_of_war_brooch",
+      "name": "Vítima de Guerra: O Broche",
+      "realm": "vanaheim",
+      "region": "As Planícies",
+      "giver": "",
+      "summary": "Encontre as duas metades de um broche de um guerreiro caído.",
+      "lore": "Um broche de família partido, espalhado pelo campo de batalha das planícies do Cráter.",
+      "steps": [
+        {"id": "s1", "title": "Encontre a primeira metade", "detail": "Localize a primeira metade do broche."},
+        {"id": "s2", "title": "Encontre a segunda metade", "detail": "Localize a segunda metade do broche."}
+      ],
+      "rewards": [{"name": "500 XP de Kratos"}, {"name": "125 XP de Atreus"}, {"name": "Crest of Desperate Heroic"}],
+      "needsReview": false
+    },
+    {
+      "id": "casualty_of_war_scroll",
+      "name": "Vítima de Guerra: O Pergaminho",
+      "realm": "vanaheim",
+      "region": "As Planícies",
+      "giver": "",
+      "summary": "Encontre as duas metades de um pergaminho de um guerreiro caído.",
+      "lore": "Um pergaminho contendo os últimos desejos de um guerreiro Vanir caído — partido pela batalha.",
+      "steps": [
+        {"id": "s1", "title": "Encontre a primeira metade", "detail": "Localize a primeira metade do pergaminho."},
+        {"id": "s2", "title": "Encontre a segunda metade", "detail": "Localize a segunda metade do pergaminho."}
+      ],
+      "rewards": [{"name": "500 XP de Kratos"}, {"name": "125 XP de Atreus"}, {"name": "Stunning Fang"}],
+      "needsReview": false
+    },
+    {
+      "id": "a_stag_for_all_seasons",
+      "name": "Um Cervo para Todas as Estações",
+      "realm": "vanaheim",
+      "region": "O Cráter",
+      "giver": "Ratatoskr",
+      "summary": "Recupere os Quatro Cervos sagrados que foram dispersados pelo Cráter.",
+      "lore": "Os Quatro Cervos que sustentam Yggdrasil foram dispersados pelo caos de Ragnarök — Ratatoskr pede ajuda para reuni-los.",
+      "steps": [
+        {"id": "s1", "title": "Localize o primeiro cervo", "detail": "Encontre e capture o primeiro cervo sagrado."},
+        {"id": "s2", "title": "Localize o segundo cervo", "detail": "Encontre e capture o segundo cervo sagrado."},
+        {"id": "s3", "title": "Localize o terceiro cervo", "detail": "Encontre e capture o terceiro cervo sagrado."},
+        {"id": "s4", "title": "Localize o quarto cervo", "detail": "Encontre e capture o quarto e último cervo sagrado."}
+      ],
+      "rewards": [{"name": "4500 XP de Kratos"}, {"name": "1125 XP de Atreus"}, {"name": "Rond of Disruption"}],
+      "needsReview": false
+    },
+    {
+      "id": "born_from_fire",
+      "name": "Nascido do Fogo",
+      "realm": "vanaheim",
+      "region": "Múltiplos Reinos",
+      "giver": "",
+      "summary": "Feche todos os 6 Buracos de Draugr eliminando A Horrível em cada local.",
+      "lore": "Buracos de Draugr espalhados pelos reinos liberam um Draugr de fogo letal — cada um deve ser fechado.",
+      "steps": [
+        {"id": "s1", "title": "Feche o buraco em Svartalfheim (Posto de Vigia)", "detail": "Elimine A Horrível no Posto de Vigia.", "bossId": "the_hateful_svartalfheim_watchtower"},
+        {"id": "s2", "title": "Feche o buraco em Svartalfheim (A Maçãneta)", "detail": "Elimine A Horrível na Maçãneta.", "bossId": "the_hateful_svartalfheim_applecore"},
+        {"id": "s3", "title": "Feche o buraco em Alfheim", "detail": "Elimine A Horrível nos Baldios de Alfheim.", "bossId": "the_hateful_alfheim"},
+        {"id": "s4", "title": "Feche o buraco em Midgard", "detail": "Elimine A Horrível no Lago dos Nove.", "bossId": "the_hateful_midgard"},
+        {"id": "s5", "title": "Feche o buraco em Vanaheim (Vila Abandonada)", "detail": "Elimine A Horrível na Vila Abandonada.", "bossId": "the_hateful_vanaheim_village"},
+        {"id": "s6", "title": "Feche o buraco em Vanaheim (Sumidouros)", "detail": "Elimine A Horrível nos Sumidouros.", "bossId": "the_hateful_vanaheim_sinkholes"}
+      ],
+      "rewards": [{"name": "4500 XP de Kratos"}, {"name": "1125 XP de Freya"}, {"name": "Chaos Spark"}],
+      "needsReview": false
+    },
+    {
+      "id": "fit_for_a_king",
+      "name": "Digno de um Rei",
+      "realm": "midgard",
+      "region": "Múltiplos Reinos",
+      "giver": "",
+      "summary": "Derrote os 12 Berserkers e enfrente o Rei Hrólf Kraki.",
+      "lore": "As almas dos 12 Berserkers devem ser libertas antes que o Rei Hrólf Kraki possa ser desafiado na Tumba do Rei.",
+      "steps": [
+        {"id": "s1", "title": "Derrote Fraekni", "detail": "Elimine Fraekni, a Zelosa, no Lago dos Nove.", "bossId": "fraekni_the_zealous"},
+        {"id": "s2", "title": "Derrote Bodvar e Starolfr", "detail": "Elimine o par em Svartalfheim.", "bossId": "bodvar_and_starolfr"},
+        {"id": "s3", "title": "Derrote Hardrefill", "detail": "Elimine Hardrefill em Nidavellir.", "bossId": "hardrefill_the_callous"},
+        {"id": "s4", "title": "Derrote Beigadr", "detail": "Elimine Beigadr na Ilha Alberich.", "bossId": "beigadr_the_feared"},
+        {"id": "s5", "title": "Derrote Svipdagr e Irmãs", "detail": "Elimine o trio nos Baldios de Alfheim.", "bossId": "svipdagr_and_sisters"},
+        {"id": "s6", "title": "Derrote Hjalti", "detail": "Elimine Hjalti nas Areias Proibidas.", "bossId": "hjalti_the_stolid"},
+        {"id": "s7", "title": "Derrote Hvitserkr", "detail": "Elimine Hvitserkr no Porto do Peregrino.", "bossId": "hvitserkr_the_bold"},
+        {"id": "s8", "title": "Derrote Haklangr", "detail": "Elimine Haklangr nos Sumidouros.", "bossId": "haklangr_the_bearded"},
+        {"id": "s9", "title": "Derrote Skjorthendi", "detail": "Elimine Skjorthendi nos Campos de Névoa.", "bossId": "skjorthendi_the_unerring"},
+        {"id": "s10", "title": "Enfrente o Rei Hrólf Kraki", "detail": "Vá até a Tumba do Rei em Midgard e derrote o Rei Berserker.", "bossId": "king_hrolf_kraki"}
+      ],
+      "rewards": [{"name": "15000 XP de Kratos"}, {"name": "3750 XP de Freya"}, {"name": "Hilt of Skofnung"}, {"name": "Frozen Spark"}],
+      "needsReview": false
+    },
+    {
+      "id": "hel_to_pay",
+      "name": "O Preço de Hel",
+      "realm": "helheim",
+      "region": "Múltiplos Reinos",
+      "giver": "",
+      "summary": "Feche os 6 rasgos de Hel espalhados pelos reinos.",
+      "lore": "Rasgos no tecido entre Helheim e os outros reinos deixam escapar energias mortais. Kratos deve selá-los.",
+      "steps": [
+        {"id": "s1", "title": "Feche o 1° rasgo", "detail": "Localize e feche o primeiro rasgo de Hel."},
+        {"id": "s2", "title": "Feche os rasgos 2-5", "detail": "Localize e feche os rasgos intermediários."},
+        {"id": "s3", "title": "Feche o 6° rasgo", "detail": "Feche o último rasgo de Hel para completar o favor."}
+      ],
+      "rewards": [{"name": "4500 XP de Kratos"}, {"name": "1125 XP de Freya"}, {"name": "Essence of Hel"}, {"name": "Frozen Spark"}],
       "needsReview": true
+    },
+    {
+      "id": "nine_realms_in_bloom",
+      "name": "Nove Reinos em Flor",
+      "realm": "midgard",
+      "region": "Todos os Reinos",
+      "giver": "",
+      "summary": "Colete flores raras de todos os nove reinos.",
+      "lore": "Flores únicas florescem em cada um dos nove reinos — coletá-las requer uma jornada por todos os planos de existência.",
+      "steps": [
+        {"id": "s1", "title": "Colete flores em Midgard", "detail": "Encontre as flores específicas de Midgard."},
+        {"id": "s2", "title": "Colete flores nos outros reinos", "detail": "Visite cada reino e colete as flores correspondentes."}
+      ],
+      "rewards": [{"name": "750 XP de Kratos"}, {"name": "750 XP de Freya"}],
+      "needsReview": false
+    },
+    {
+      "id": "last_remnants_of_asgard",
+      "name": "Os Últimos Vestígios de Asgard",
+      "realm": "asgard",
+      "region": "Múltiplos Reinos",
+      "giver": "",
+      "summary": "Destrua todos os vestígios de Asgard deixados após a queda de Odin.",
+      "lore": "Com Ragnarök concluído, os fragmentos de Asgard espalhados pelos reinos representam uma ameaça residual que deve ser eliminada.",
+      "steps": [
+        {"id": "s1", "title": "Encontre os vestígios", "detail": "Localize os fragmentos de Asgard espalhados pelos reinos."},
+        {"id": "s2", "title": "Destrua os vestígios", "detail": "Elimine todos os vestígios de Asgard encontrados."}
+      ],
+      "rewards": [{"name": "10000 XP de Kratos"}, {"name": "2500 XP de Freya"}],
+      "needsReview": false
+    },
+    {
+      "id": "the_lost_lindwyrms",
+      "name": "Os Lindwyrms Perdidos",
+      "realm": "vanaheim",
+      "region": "Todos os Reinos",
+      "giver": "Ratatoskr",
+      "summary": "Capture os Lindwyrms — criaturas sagradas de Yggdrasil — espalhados pelos reinos.",
+      "lore": "Os Lindwyrms são criaturas mágicas ligadas a Yggdrasil. Ratatoskr pede a Kratos que as reúna antes que se percam para sempre.",
+      "steps": [
+        {"id": "s1", "title": "Receba os frascos de Ratatoskr", "detail": "Obtenha os frascos especiais para capturar os Lindwyrms."},
+        {"id": "s2", "title": "Capture os Lindwyrms", "detail": "Localize e capture todos os Lindwyrms espalhados pelos reinos."},
+        {"id": "s3", "title": "Retorne a Ratatoskr", "detail": "Entregue os Lindwyrms capturados a Ratatoskr."}
+      ],
+      "rewards": [{"name": "4500 XP de Kratos"}, {"name": "1125 XP de Freya"}],
+      "needsReview": false
     }
   ]
 }
