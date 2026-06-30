@@ -7,6 +7,10 @@ import 'boss/domain/repository/progress_repository.dart';
 import 'boss/domain/usecase/load_progress_usecase.dart';
 import 'boss/domain/usecase/set_map_revealed_usecase.dart';
 import 'boss/domain/usecase/toggle_defeated_usecase.dart';
+import 'favors/data/repository/favors_repository_impl.dart';
+import 'favors/domain/repository/favors_repository.dart';
+import 'favors/domain/usecase/load_favors_usecase.dart';
+import 'favors/domain/usecase/toggle_favor_step_usecase.dart';
 import 'settings/data/repository/settings_repository_impl.dart';
 import 'settings/domain/repository/settings_repository.dart';
 import 'settings/domain/usecase/load_settings_usecase.dart';
@@ -37,4 +41,11 @@ void setupLocator() {
       () => LoadSettingsUsecaseImpl(repository: locator<SettingsRepository>()));
   locator.registerFactory<SetBlurPendingUsecase>(() =>
       SetBlurPendingUsecaseImpl(repository: locator<SettingsRepository>()));
+
+  // Favors
+  locator.registerLazySingleton<FavorsRepository>(() => FavorsRepositoryImpl());
+  locator.registerFactory<LoadFavorsUsecase>(
+      () => LoadFavorsUsecaseImpl(repository: locator<FavorsRepository>()));
+  locator.registerFactory<ToggleFavorStepUsecase>(() =>
+      ToggleFavorStepUsecaseImpl(repository: locator<ProgressRepository>()));
 }
