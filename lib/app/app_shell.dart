@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../album/presenter/album/album_screen.dart';
 import '../album/presenter/search/search_screen.dart';
+import '../dev/dev_flags.dart';
+import '../dev/map_editor/map_editor_screen.dart';
 import '../favors/presenter/favor_album/favor_album_screen.dart';
 import '../theme/app_theme.dart';
 
@@ -12,7 +14,11 @@ class AppShell extends StatefulWidget {
 
 class _AppShellState extends State<AppShell> {
   int _index = 0;
-  static const _screens = [AlbumScreen(), FavorAlbumScreen(), SearchScreen()];
+  static const _baseScreens = [AlbumScreen(), FavorAlbumScreen(), SearchScreen()];
+  List<Widget> get _screens => [
+        ..._baseScreens,
+        if (kMapEditor) const MapEditorScreen(),
+      ];
 
   @override
   Widget build(BuildContext context) {
@@ -41,13 +47,18 @@ class _AppShellState extends State<AppShell> {
                 color: selected ? AppColors.strong : AppColors.textMuted,
               );
             }),
-            destinations: const [
-              NavigationDestination(icon: _OmegaIcon(), label: 'Chefes'),
-              NavigationDestination(icon: _FavorsIcon(), label: 'Favores'),
-              NavigationDestination(
+            destinations: [
+              const NavigationDestination(icon: _OmegaIcon(), label: 'Chefes'),
+              const NavigationDestination(icon: _FavorsIcon(), label: 'Favores'),
+              const NavigationDestination(
                 icon: Icon(Icons.search, color: AppColors.textBody),
                 label: 'Busca',
               ),
+              if (kMapEditor)
+                const NavigationDestination(
+                  icon: Icon(Icons.edit_location_alt),
+                  label: 'MapEd',
+                ),
             ],
           ),
           // The rail: 1/3-width frost line pinned to the bar's top edge,
