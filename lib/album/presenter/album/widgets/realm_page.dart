@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../theme/app_theme.dart';
+import '../../../../theme/realm_theme.dart';
 import '../../../domain/entity/boss.dart';
 import '../../../domain/entity/realm.dart';
 import 'sticker_slot.dart';
@@ -19,8 +20,7 @@ class RealmPage extends StatelessWidget {
     required this.isDefeated,
     required this.onBossTap,
     required this.onQuickDefeat,
-    this.revealBossId,
-    this.onRevealDone,
+    this.revealingBossId,
     this.slotKeyFor,
     this.bottomInset = 0,
   });
@@ -34,8 +34,9 @@ class RealmPage extends StatelessWidget {
   final void Function(Boss) onBossTap;
   final void Function(Boss) onQuickDefeat;
 
-  final String? revealBossId;
-  final VoidCallback? onRevealDone;
+  /// Boss whose slot is currently mid-reveal. That slot keeps its pending look
+  /// (the full-screen overlay owns the animation and "sticks" it at the end).
+  final String? revealingBossId;
   final GlobalKey Function(String bossId)? slotKeyFor;
 
   /// Extra bottom padding so the last row clears the floating page indicator.
@@ -45,22 +46,36 @@ class RealmPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final pct = totalCount == 0 ? 0.0 : defeatedCount / totalCount;
     final hasMain = mainBosses.isNotEmpty;
+    // This page's characteristic colour, from the realm's identity.
+    final accent = RealmTheme.of(realm.id).accent;
     return CustomScrollView(
       slivers: [
-        _header(context, pct),
+        _header(context, pct, accent),
         if (hasMain) ...[
-          _sectionLabel('★ Chefes principais', highlighted: true),
-          _grid(mainBosses, crossAxisCount: 2),
+          _sectionLabel(
+            '★ Chefes principais',
+            highlighted: true,
+            accent: accent,
+          ),
+          _grid(mainBosses, crossAxisCount: 2, accent: accent),
         ],
-        _sectionLabel(hasMain ? 'Demais chefes' : 'Chefes',
-            highlighted: false),
-        _grid(otherBosses,
-            crossAxisCount: 3, bottomInset: 16 + bottomInset),
+        _sectionLabel(
+          hasMain ? 'Demais chefes' : 'Chefes',
+          highlighted: false,
+          accent: accent,
+        ),
+        _grid(
+          otherBosses,
+          crossAxisCount: 3,
+          accent: accent,
+          bottomInset: 16 + bottomInset,
+        ),
       ],
     );
   }
 
-  Widget _header(BuildContext context, double pct) => SliverAppBar(
+  Widget _header(BuildContext context, double pct, Color accent) =>
+      SliverAppBar(
         expandedHeight: 132,
         pinned: true,
         automaticallyImplyLeading: false,
@@ -71,31 +86,46 @@ class RealmPage extends StatelessWidget {
             final collapsed =
                 top <= kToolbarHeight + MediaQuery.of(context).padding.top + 8;
             return FlexibleSpaceBar(
-              titlePadding:
-                  const EdgeInsetsDirectional.only(start: 16, bottom: 14),
+              titlePadding: const EdgeInsetsDirectional.only(
+                start: 16,
+                bottom: 14,
+              ),
               title: AnimatedOpacity(
                 duration: const Duration(milliseconds: 150),
                 opacity: collapsed ? 1 : 0,
-                child: Text('${realm.name}  ·  $defeatedCount/$totalCount',
-                    style: AppText.regionLabel),
+                child: Text(
+                  '${realm.name}  ·  $defeatedCount/$totalCount',
+                  style: AppText.regionLabel,
+                ),
               ),
               background: Padding(
                 padding: EdgeInsets.fromLTRB(
-                    16, MediaQuery.of(context).padding.top + 18, 16, 14),
+                  16,
+                  MediaQuery.of(context).padding.top + 18,
+                  16,
+                  14,
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(realm.name,
-                        style: const TextStyle(
-                            color: AppColors.gold,
-                            fontSize: 22,
-                            fontWeight: FontWeight.w800,
-                            letterSpacing: .5)),
+                    Text(
+                      realm.name,
+                      style: TextStyle(
+                        color: accent,
+                        fontSize: 22,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: .5,
+                      ),
+                    ),
                     const SizedBox(height: 4),
-                    Text('$defeatedCount de $totalCount derrotados',
-                        style: const TextStyle(
-                            color: AppColors.textMuted, fontSize: 12)),
+                    Text(
+                      '$defeatedCount de $totalCount derrotados',
+                      style: const TextStyle(
+                        color: AppColors.textMuted,
+                        fontSize: 12,
+                      ),
+                    ),
                     const SizedBox(height: 11),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(4),
@@ -103,8 +133,7 @@ class RealmPage extends StatelessWidget {
                         value: pct,
                         minHeight: 6,
                         backgroundColor: AppColors.surfaceAlt,
-                        valueColor:
-                            const AlwaysStoppedAnimation(AppColors.gold),
+                        valueColor: AlwaysStoppedAnimation(accent),
                       ),
                     ),
                   ],
@@ -115,64 +144,70 @@ class RealmPage extends StatelessWidget {
         ),
       );
 
-  Widget _sectionLabel(String text, {required bool highlighted}) =>
-      SliverToBoxAdapter(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 10),
-          child: Row(
-            children: [
-              Text(text,
-                  style: TextStyle(
-                      color: highlighted
-                          ? AppColors.gold
-                          : const Color(0xFF6B5D44),
-                      fontSize: 11,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: 1.2)),
-              const SizedBox(width: 8),
-              Expanded(
-                child: Container(
-                  height: 1,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(colors: [
-                      highlighted ? AppColors.gold : AppColors.border,
-                      Colors.transparent,
-                    ]),
-                  ),
+  Widget _sectionLabel(
+    String text, {
+    required bool highlighted,
+    required Color accent,
+  }) => SliverToBoxAdapter(
+    child: Padding(
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 10),
+      child: Row(
+        children: [
+          Text(
+            text,
+            style: TextStyle(
+              color: highlighted ? accent : const Color(0xFF6B5D44),
+              fontSize: 11,
+              fontWeight: FontWeight.w800,
+              letterSpacing: 1.2,
+            ),
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Container(
+              height: 1,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    highlighted ? accent : AppColors.border,
+                    Colors.transparent,
+                  ],
                 ),
               ),
-            ],
+            ),
           ),
-        ),
-      );
+        ],
+      ),
+    ),
+  );
 
-  Widget _grid(List<Boss> bosses,
-          {required int crossAxisCount, double bottomInset = 0}) =>
-      SliverPadding(
-        padding: EdgeInsets.fromLTRB(16, 0, 16, bottomInset),
-        sliver: SliverGrid(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: crossAxisCount,
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 10,
-            childAspectRatio: 3 / 4,
-          ),
-          delegate: SliverChildBuilderDelegate(
-            (context, i) {
-              final boss = bosses[i];
-              return StickerSlot(
-                key: slotKeyFor?.call(boss.id),
-                boss: boss,
-                defeated: isDefeated(boss.id),
-                isMain: boss.isMainBoss,
-                animateReveal: boss.id == revealBossId,
-                onRevealDone: boss.id == revealBossId ? onRevealDone : null,
-                onTap: () => onBossTap(boss),
-                onQuickDefeat: () => onQuickDefeat(boss),
-              );
-            },
-            childCount: bosses.length,
-          ),
-        ),
-      );
+  Widget _grid(
+    List<Boss> bosses, {
+    required int crossAxisCount,
+    required Color accent,
+    double bottomInset = 0,
+  }) => SliverPadding(
+    padding: EdgeInsets.fromLTRB(16, 0, 16, bottomInset),
+    sliver: SliverGrid(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: crossAxisCount,
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
+        childAspectRatio: 3 / 4,
+      ),
+      delegate: SliverChildBuilderDelegate((context, i) {
+        final boss = bosses[i];
+        return StickerSlot(
+          key: slotKeyFor?.call(boss.id),
+          boss: boss,
+          defeated: isDefeated(boss.id),
+          accent: accent,
+          isMain: boss.isMainBoss,
+          revealing: boss.id == revealingBossId,
+          onTap: () => onBossTap(boss),
+          onQuickDefeat: () => onQuickDefeat(boss),
+        );
+      }, childCount: bosses.length),
+    ),
+  );
 }
