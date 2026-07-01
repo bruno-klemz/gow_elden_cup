@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-/// Per-realm visual identity for the favors feature: an accent colour and a
-/// rune image (the "seal" that fills like a pool). The shrine backdrop is a
-/// single shared image used behind every realm's detail screen.
+/// Per-realm visual identity, shared across the app (album pages, boss detail,
+/// favors): an accent colour and a rune image (the "seal" that fills like a
+/// pool). The shrine backdrop is a single shared image used behind every
+/// realm's detail screen.
 ///
 /// Each realm's [accent] matches the dominant colour of its rune's ring, so
 /// filling the pool reads as the water "colouring in" the rune. Accents were
