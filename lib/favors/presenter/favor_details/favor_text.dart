@@ -9,8 +9,8 @@ import 'package:flutter/material.dart';
 /// pubspec under `fonts:` and set [_displayFamily] / [_bodyFamily] here — every
 /// style below picks them up, no widget changes needed.
 class FavorText {
-  /// Medieval/epic display family for titles & section headers. Null = default.
-  static const String? _displayFamily = null;
+  /// Medieval/epic display family for titles & section headers.
+  static const String _displayFamily = 'Cinzel';
 
   /// Book serif family for body copy. Null = default.
   static const String? _bodyFamily = null;
