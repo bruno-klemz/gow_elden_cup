@@ -139,9 +139,12 @@ class _MapCanvas extends StatelessWidget {
           child: Stack(
             children: [
               Positioned.fill(
+                // Mirror FullscreenMap geometry (cover + full box) so coords round-trip.
                 child: Image.asset(
                   'assets/$mapImage',
-                  fit: BoxFit.contain,
+                  fit: BoxFit.cover,
+                  width: constraints.maxWidth,
+                  height: constraints.maxHeight,
                   errorBuilder: (c, e, s) =>
                       const ColoredBox(color: Color(0xFF14201A)),
                 ),
