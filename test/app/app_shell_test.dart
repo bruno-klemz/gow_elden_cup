@@ -49,8 +49,13 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 100));
 
-      // Tap the 'Favores' NavigationDestination by icon to be unambiguous.
-      await tester.tap(find.byIcon(Icons.menu_book_outlined));
+      // Tap the 'Favores' NavigationDestination via its label inside the
+      // NavigationBar (its icon is an image asset that doesn't load in tests).
+      final favoresNavLabel = find.descendant(
+        of: find.byType(NavigationBar),
+        matching: find.text('Favores'),
+      );
+      await tester.tap(favoresNavLabel);
       // Pump instead of pumpAndSettle to avoid timing out on ongoing
       // animations (CircularProgressIndicator during async data load).
       await tester.pump();
