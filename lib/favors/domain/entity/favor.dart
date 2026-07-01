@@ -36,35 +36,35 @@ class Favor extends Equatable {
   List<String> get stepIds => steps.map((s) => s.id).toList();
 
   factory Favor.fromJson(Map<String, dynamic> json) => Favor(
-        id: json['id'] as String,
-        name: json['name'] as String,
-        realm: json['realm'] as String,
-        region: json['region'] as String?,
-        giver: json['giver'] as String?,
-        summary: json['summary'] as String,
-        lore: json['lore'] as String,
-        steps: ((json['steps'] as List?) ?? const [])
-            .map((e) => FavorStep.fromJson(e as Map<String, dynamic>))
-            .toList(),
-        rewards: ((json['rewards'] as List?) ?? const [])
-            .map((e) => Reward.fromJson(e as Map<String, dynamic>))
-            .toList(),
-        needsReview: json['needsReview'] as bool? ?? false,
-        isMainQuest: json['isMainQuest'] as bool? ?? false,
-      );
+    id: json['id'] as String,
+    name: json['name'] as String,
+    realm: json['realm'] as String,
+    region: json['region'] as String?,
+    giver: json['giver'] as String?,
+    summary: json['summary'] as String,
+    lore: json['lore'] as String,
+    steps: ((json['steps'] as List?) ?? const [])
+        .map((e) => FavorStep.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    rewards: ((json['rewards'] as List?) ?? const [])
+        .map((e) => Reward.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    needsReview: json['needsReview'] as bool? ?? false,
+    isMainQuest: json['isMainQuest'] as bool? ?? false,
+  );
 
   @override
   List<Object?> get props => [
-        id,
-        name,
-        realm,
-        region,
-        giver,
-        summary,
-        lore,
-        steps,
-        rewards,
-        needsReview,
-        isMainQuest,
-      ];
+    id,
+    name,
+    realm,
+    region,
+    giver,
+    summary,
+    lore,
+    steps,
+    rewards,
+    needsReview,
+    isMainQuest,
+  ];
 }

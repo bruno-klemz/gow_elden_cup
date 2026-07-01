@@ -24,28 +24,38 @@ void setupLocator() {
   // Repositories (singletons — stateless data access)
   locator.registerLazySingleton<BossRepository>(() => BossRepositoryImpl());
   locator.registerLazySingleton<ProgressRepository>(
-      () => ProgressRepositoryImpl());
+    () => ProgressRepositoryImpl(),
+  );
   locator.registerLazySingleton<SettingsRepository>(
-      () => SettingsRepositoryImpl());
+    () => SettingsRepositoryImpl(),
+  );
 
   // Use cases (factories)
   locator.registerFactory<LoadAlbumUsecase>(
-      () => LoadAlbumUsecaseImpl(repository: locator<BossRepository>()));
+    () => LoadAlbumUsecaseImpl(repository: locator<BossRepository>()),
+  );
   locator.registerFactory<LoadProgressUsecase>(
-      () => LoadProgressUsecaseImpl(repository: locator<ProgressRepository>()));
-  locator.registerFactory<ToggleDefeatedUsecase>(() =>
-      ToggleDefeatedUsecaseImpl(repository: locator<ProgressRepository>()));
-  locator.registerFactory<SetMapRevealedUsecase>(() =>
-      SetMapRevealedUsecaseImpl(repository: locator<ProgressRepository>()));
+    () => LoadProgressUsecaseImpl(repository: locator<ProgressRepository>()),
+  );
+  locator.registerFactory<ToggleDefeatedUsecase>(
+    () => ToggleDefeatedUsecaseImpl(repository: locator<ProgressRepository>()),
+  );
+  locator.registerFactory<SetMapRevealedUsecase>(
+    () => SetMapRevealedUsecaseImpl(repository: locator<ProgressRepository>()),
+  );
   locator.registerFactory<LoadSettingsUsecase>(
-      () => LoadSettingsUsecaseImpl(repository: locator<SettingsRepository>()));
-  locator.registerFactory<SetBlurPendingUsecase>(() =>
-      SetBlurPendingUsecaseImpl(repository: locator<SettingsRepository>()));
+    () => LoadSettingsUsecaseImpl(repository: locator<SettingsRepository>()),
+  );
+  locator.registerFactory<SetBlurPendingUsecase>(
+    () => SetBlurPendingUsecaseImpl(repository: locator<SettingsRepository>()),
+  );
 
   // Favors
   locator.registerLazySingleton<FavorsRepository>(() => FavorsRepositoryImpl());
   locator.registerFactory<LoadFavorsUsecase>(
-      () => LoadFavorsUsecaseImpl(repository: locator<FavorsRepository>()));
-  locator.registerFactory<ToggleFavorStepUsecase>(() =>
-      ToggleFavorStepUsecaseImpl(repository: locator<ProgressRepository>()));
+    () => LoadFavorsUsecaseImpl(repository: locator<FavorsRepository>()),
+  );
+  locator.registerFactory<ToggleFavorStepUsecase>(
+    () => ToggleFavorStepUsecaseImpl(repository: locator<ProgressRepository>()),
+  );
 }

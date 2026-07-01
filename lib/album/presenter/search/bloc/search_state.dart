@@ -21,7 +21,8 @@ class SearchState extends Equatable {
   int bossCount() => data?.bosses.length ?? 0;
 
   int defeatedIn(String realmId) => progress.defeatedCountIn(
-      (data?.bossesIn(realmId) ?? const []).map((b) => b.id));
+    (data?.bossesIn(realmId) ?? const []).map((b) => b.id),
+  );
 
   /// Realms sorted by most defeated (desc); ties keep the game order.
   List<Realm> realms() {
@@ -39,13 +40,15 @@ class SearchState extends Equatable {
   List<Boss> otherBosses() => _sortedBosses(mainOnly: false);
 
   List<Boss> _sortedBosses({required bool mainOnly}) {
-    final all = [...?data?.bosses]
-        .where((b) => b.isMainBoss == mainOnly)
-        .where((b) => searchMatches(b.name, query))
-        .where((b) => typeFilter == null || b.type == typeFilter)
-        .toList()
-      ..sort((a, b) =>
-          a.name.toLowerCase().compareTo(b.name.toLowerCase()));
+    final all =
+        [...?data?.bosses]
+            .where((b) => b.isMainBoss == mainOnly)
+            .where((b) => searchMatches(b.name, query))
+            .where((b) => typeFilter == null || b.type == typeFilter)
+            .toList()
+          ..sort(
+            (a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()),
+          );
     return all;
   }
 

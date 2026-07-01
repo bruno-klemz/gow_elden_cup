@@ -52,8 +52,9 @@ class AlbumState extends Equatable {
       status: status ?? this.status,
       data: data ?? this.data,
       progress: progress ?? this.progress,
-      justRevealedBossId:
-          clearReveal ? null : (justRevealedBossId ?? this.justRevealedBossId),
+      justRevealedBossId: clearReveal
+          ? null
+          : (justRevealedBossId ?? this.justRevealedBossId),
     );
   }
 

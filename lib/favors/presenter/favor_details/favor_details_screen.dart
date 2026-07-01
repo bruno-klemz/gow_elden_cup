@@ -17,9 +17,7 @@ class FavorDetailsScreen extends StatelessWidget {
   /// Pushes the favor details as a full-screen route.
   static Future<void> push(BuildContext context, Favor favor) {
     return Navigator.of(context).push<void>(
-      MaterialPageRoute(
-        builder: (_) => FavorDetailsScreen(favor: favor),
-      ),
+      MaterialPageRoute(builder: (_) => FavorDetailsScreen(favor: favor)),
     );
   }
 

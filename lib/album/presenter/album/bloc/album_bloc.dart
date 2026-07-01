@@ -20,10 +20,10 @@ class AlbumBloc extends Bloc<AlbumEvent, AlbumState> {
     required LoadAlbumUsecase loadAlbum,
     required LoadProgressUsecase loadProgress,
     required ToggleDefeatedUsecase toggleDefeated,
-  })  : _loadAlbum = loadAlbum,
-        _loadProgress = loadProgress,
-        _toggleDefeated = toggleDefeated,
-        super(const AlbumState()) {
+  }) : _loadAlbum = loadAlbum,
+       _loadProgress = loadProgress,
+       _toggleDefeated = toggleDefeated,
+       super(const AlbumState()) {
     on<AlbumStarted>(_onStarted);
     on<AlbumProgressRefreshed>(_onProgressRefreshed);
     on<AlbumRevealRequested>(_onRevealRequested);
@@ -35,21 +35,27 @@ class AlbumBloc extends Bloc<AlbumEvent, AlbumState> {
     emit(state.copyWith(status: AlbumStatus.loading));
     final data = await _loadAlbum();
     final progress = await _loadProgress();
-    emit(state.copyWith(
-      status: AlbumStatus.loaded,
-      data: data,
-      progress: progress,
-    ));
+    emit(
+      state.copyWith(
+        status: AlbumStatus.loaded,
+        data: data,
+        progress: progress,
+      ),
+    );
   }
 
   Future<void> _onProgressRefreshed(
-      AlbumProgressRefreshed event, Emitter<AlbumState> emit) async {
+    AlbumProgressRefreshed event,
+    Emitter<AlbumState> emit,
+  ) async {
     final progress = await _loadProgress();
     emit(state.copyWith(progress: progress));
   }
 
   void _onRevealRequested(
-      AlbumRevealRequested event, Emitter<AlbumState> emit) {
+    AlbumRevealRequested event,
+    Emitter<AlbumState> emit,
+  ) {
     emit(state.copyWith(justRevealedBossId: event.bossId));
   }
 
@@ -58,7 +64,9 @@ class AlbumBloc extends Bloc<AlbumEvent, AlbumState> {
   }
 
   Future<void> _onBossQuickDefeated(
-      AlbumBossQuickDefeated event, Emitter<AlbumState> emit) async {
+    AlbumBossQuickDefeated event,
+    Emitter<AlbumState> emit,
+  ) async {
     // Guard: only mark a pending boss; never toggle off via the quick button.
     if (state.progress.isDefeated(event.bossId)) return;
     final next = await _toggleDefeated(state.progress, event.bossId);

@@ -10,7 +10,7 @@ class SetBlurPendingUsecaseImpl implements SetBlurPendingUsecase {
   final SettingsRepository _repository;
 
   SetBlurPendingUsecaseImpl({required SettingsRepository repository})
-      : _repository = repository;
+    : _repository = repository;
 
   @override
   Future<Settings> call({required bool blurPending}) async {

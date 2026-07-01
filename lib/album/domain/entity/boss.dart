@@ -4,9 +4,14 @@ import 'loot_item.dart';
 import 'map_coord.dart';
 
 enum BossType {
-  story('História'), berserker('Berserker'), valkyrie('Valquíria'),
-  dragon('Dragão'), dreki('Dreki'), phantom('Fantasma'),
-  favor('Favor'), misc('Diversos');
+  story('História'),
+  berserker('Berserker'),
+  valkyrie('Valquíria'),
+  dragon('Dragão'),
+  dreki('Dreki'),
+  phantom('Fantasma'),
+  favor('Favor'),
+  misc('Diversos');
 
   const BossType(this.label);
   final String label;
@@ -83,6 +88,21 @@ class Boss extends Equatable {
   }
 
   @override
-  List<Object?> get props => [id, name, subtitle, realm, type, art, locationName,
-        mapCoord, weaknesses, immunities, strategy, loot, lore, mainOrder, needsReview];
+  List<Object?> get props => [
+    id,
+    name,
+    subtitle,
+    realm,
+    type,
+    art,
+    locationName,
+    mapCoord,
+    weaknesses,
+    immunities,
+    strategy,
+    loot,
+    lore,
+    mainOrder,
+    needsReview,
+  ];
 }

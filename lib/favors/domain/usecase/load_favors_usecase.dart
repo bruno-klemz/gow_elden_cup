@@ -9,7 +9,7 @@ class LoadFavorsUsecaseImpl implements LoadFavorsUsecase {
   final FavorsRepository _repository;
 
   LoadFavorsUsecaseImpl({required FavorsRepository repository})
-      : _repository = repository;
+    : _repository = repository;
 
   @override
   Future<FavorsData> call() => _repository.load();

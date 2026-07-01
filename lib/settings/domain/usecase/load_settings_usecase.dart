@@ -9,7 +9,7 @@ class LoadSettingsUsecaseImpl implements LoadSettingsUsecase {
   final SettingsRepository _repository;
 
   LoadSettingsUsecaseImpl({required SettingsRepository repository})
-      : _repository = repository;
+    : _repository = repository;
 
   @override
   Future<Settings> call() => _repository.load();

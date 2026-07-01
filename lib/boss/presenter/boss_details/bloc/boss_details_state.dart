@@ -17,10 +17,7 @@ class BossDetailsState extends Equatable {
   bool get isDefeated => progress.isDefeated(boss.id);
   bool get isMapRevealed => progress.isMapRevealed(boss.id);
 
-  BossDetailsState copyWith({
-    Progress? progress,
-    bool? justRevealed,
-  }) {
+  BossDetailsState copyWith({Progress? progress, bool? justRevealed}) {
     return BossDetailsState(
       boss: boss,
       progress: progress ?? this.progress,

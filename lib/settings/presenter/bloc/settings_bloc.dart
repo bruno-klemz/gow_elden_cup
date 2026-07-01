@@ -13,21 +13,25 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   SettingsBloc({
     required LoadSettingsUsecase loadSettings,
     required SetBlurPendingUsecase setBlurPending,
-  })  : _loadSettings = loadSettings,
-        _setBlurPending = setBlurPending,
-        super(const SettingsState()) {
+  }) : _loadSettings = loadSettings,
+       _setBlurPending = setBlurPending,
+       super(const SettingsState()) {
     on<SettingsStarted>(_onStarted);
     on<SettingsBlurToggled>(_onBlurToggled);
   }
 
   Future<void> _onStarted(
-      SettingsStarted event, Emitter<SettingsState> emit) async {
+    SettingsStarted event,
+    Emitter<SettingsState> emit,
+  ) async {
     final settings = await _loadSettings();
     emit(SettingsState(blurPending: settings.blurPending));
   }
 
   Future<void> _onBlurToggled(
-      SettingsBlurToggled event, Emitter<SettingsState> emit) async {
+    SettingsBlurToggled event,
+    Emitter<SettingsState> emit,
+  ) async {
     final next = !state.blurPending;
     final settings = await _setBlurPending(blurPending: next);
     emit(SettingsState(blurPending: settings.blurPending));

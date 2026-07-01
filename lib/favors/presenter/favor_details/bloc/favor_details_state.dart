@@ -3,9 +3,7 @@ part of 'favor_details_bloc.dart';
 class FavorDetailsState extends Equatable {
   final Progress progress;
 
-  const FavorDetailsState({
-    this.progress = const Progress(),
-  });
+  const FavorDetailsState({this.progress = const Progress()});
 
   int completedCount(Favor favor) =>
       progress.completedStepCount(favor.id, favor.stepIds);

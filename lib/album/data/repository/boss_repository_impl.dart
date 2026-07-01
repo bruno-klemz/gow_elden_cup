@@ -19,10 +19,11 @@ class BossRepositoryImpl implements BossRepository {
   Future<AlbumData> load() async {
     final raw = await _loader(_kAssetPath);
     final map = jsonDecode(raw) as Map<String, dynamic>;
-    final realms = (map['realms'] as List)
-        .map((e) => Realm.fromJson(e as Map<String, dynamic>))
-        .toList()
-      ..sort((a, b) => a.order.compareTo(b.order));
+    final realms =
+        (map['realms'] as List)
+            .map((e) => Realm.fromJson(e as Map<String, dynamic>))
+            .toList()
+          ..sort((a, b) => a.order.compareTo(b.order));
     final bosses = (map['bosses'] as List)
         .map((e) => Boss.fromJson(e as Map<String, dynamic>))
         .toList();

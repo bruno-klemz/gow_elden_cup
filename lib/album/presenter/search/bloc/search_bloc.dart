@@ -20,9 +20,9 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   SearchBloc({
     required LoadAlbumUsecase loadAlbum,
     required LoadProgressUsecase loadProgress,
-  })  : _loadAlbum = loadAlbum,
-        _loadProgress = loadProgress,
-        super(const SearchState()) {
+  }) : _loadAlbum = loadAlbum,
+       _loadProgress = loadProgress,
+       super(const SearchState()) {
     on<SearchStarted>(_onStarted);
     on<SearchTabChanged>(_onTabChanged);
     on<SearchQueryChanged>(_onQueryChanged);
@@ -43,12 +43,15 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
       emit(state.copyWith(query: e.query));
 
   void _onTypeFilterChanged(
-          SearchTypeFilterChanged e, Emitter<SearchState> emit) =>
-      emit(state.copyWith(
-          typeFilter: e.type, clearTypeFilter: e.type == null));
+    SearchTypeFilterChanged e,
+    Emitter<SearchState> emit,
+  ) =>
+      emit(state.copyWith(typeFilter: e.type, clearTypeFilter: e.type == null));
 
   Future<void> _onProgressRefreshed(
-      SearchProgressRefreshed e, Emitter<SearchState> emit) async {
+    SearchProgressRefreshed e,
+    Emitter<SearchState> emit,
+  ) async {
     final progress = await _loadProgress();
     emit(state.copyWith(progress: progress));
   }

@@ -30,9 +30,9 @@ class FavorAlbumBloc extends Bloc<FavorAlbumEvent, FavorAlbumState> {
   FavorAlbumBloc({
     required LoadFavorsUsecase loadFavors,
     required LoadProgressUsecase loadProgress,
-  })  : _loadFavors = loadFavors,
-        _loadProgress = loadProgress,
-        super(const FavorAlbumState()) {
+  }) : _loadFavors = loadFavors,
+       _loadProgress = loadProgress,
+       super(const FavorAlbumState()) {
     on<FavorAlbumStarted>(_onStarted);
     on<FavorAlbumProgressRefreshed>(_onProgressRefreshed);
     on<FavorAlbumRealmFilterChanged>(_onRealmFilterChanged);
@@ -40,36 +40,50 @@ class FavorAlbumBloc extends Bloc<FavorAlbumEvent, FavorAlbumState> {
   }
 
   Future<void> _onStarted(
-      FavorAlbumStarted event, Emitter<FavorAlbumState> emit) async {
+    FavorAlbumStarted event,
+    Emitter<FavorAlbumState> emit,
+  ) async {
     emit(state.copyWith(status: FavorAlbumStatus.loading));
     final favorsData = await _loadFavors();
     final progress = await _loadProgress();
-    emit(state.copyWith(
-      status: FavorAlbumStatus.loaded,
-      favorsData: favorsData,
-      progress: progress,
-    ));
+    emit(
+      state.copyWith(
+        status: FavorAlbumStatus.loaded,
+        favorsData: favorsData,
+        progress: progress,
+      ),
+    );
   }
 
   Future<void> _onProgressRefreshed(
-      FavorAlbumProgressRefreshed event, Emitter<FavorAlbumState> emit) async {
+    FavorAlbumProgressRefreshed event,
+    Emitter<FavorAlbumState> emit,
+  ) async {
     final progress = await _loadProgress();
     emit(state.copyWith(progress: progress));
   }
 
   void _onRealmFilterChanged(
-      FavorAlbumRealmFilterChanged event, Emitter<FavorAlbumState> emit) {
-    emit(state.copyWith(
-      realmFilter: event.realmId,
-      clearRealmFilter: event.realmId == null,
-    ));
+    FavorAlbumRealmFilterChanged event,
+    Emitter<FavorAlbumState> emit,
+  ) {
+    emit(
+      state.copyWith(
+        realmFilter: event.realmId,
+        clearRealmFilter: event.realmId == null,
+      ),
+    );
   }
 
   void _onStatusFilterChanged(
-      FavorAlbumStatusFilterChanged event, Emitter<FavorAlbumState> emit) {
-    emit(state.copyWith(
-      statusFilter: event.status,
-      clearStatusFilter: event.status == null,
-    ));
+    FavorAlbumStatusFilterChanged event,
+    Emitter<FavorAlbumState> emit,
+  ) {
+    emit(
+      state.copyWith(
+        statusFilter: event.status,
+        clearStatusFilter: event.status == null,
+      ),
+    );
   }
 }

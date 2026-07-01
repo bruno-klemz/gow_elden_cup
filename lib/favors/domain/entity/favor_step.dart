@@ -16,12 +16,12 @@ class FavorStep extends Equatable {
   });
 
   factory FavorStep.fromJson(Map<String, dynamic> json) => FavorStep(
-        id: json['id'] as String,
-        title: json['title'] as String,
-        detail: json['detail'] as String,
-        tip: json['tip'] as String?,
-        bossId: json['bossId'] as String?,
-      );
+    id: json['id'] as String,
+    title: json['title'] as String,
+    detail: json['detail'] as String,
+    tip: json['tip'] as String?,
+    bossId: json['bossId'] as String?,
+  );
 
   @override
   List<Object?> get props => [id, title, detail, tip, bossId];

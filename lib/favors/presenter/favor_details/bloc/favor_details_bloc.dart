@@ -18,21 +18,25 @@ class FavorDetailsBloc extends Bloc<FavorDetailsEvent, FavorDetailsState> {
     required Favor favor,
     required LoadProgressUsecase loadProgress,
     required ToggleFavorStepUsecase toggleStep,
-  })  : _favor = favor,
-        _loadProgress = loadProgress,
-        _toggleStep = toggleStep,
-        super(const FavorDetailsState()) {
+  }) : _favor = favor,
+       _loadProgress = loadProgress,
+       _toggleStep = toggleStep,
+       super(const FavorDetailsState()) {
     on<FavorDetailsStarted>(_onStarted);
     on<FavorStepToggled>(_onToggled);
   }
 
   Future<void> _onStarted(
-      FavorDetailsStarted e, Emitter<FavorDetailsState> emit) async {
+    FavorDetailsStarted e,
+    Emitter<FavorDetailsState> emit,
+  ) async {
     emit(state.copyWith(progress: await _loadProgress()));
   }
 
   Future<void> _onToggled(
-      FavorStepToggled e, Emitter<FavorDetailsState> emit) async {
+    FavorStepToggled e,
+    Emitter<FavorDetailsState> emit,
+  ) async {
     final next = await _toggleStep(state.progress, _favor.id, e.stepId);
     emit(state.copyWith(progress: next));
   }

@@ -49,8 +49,10 @@ class _RewardRow extends StatelessWidget {
           if (qty != null)
             Text(
               'x$qty',
-              style: FavorText.body
-                  .copyWith(color: RewardsFooter._inkBody, height: 1.2),
+              style: FavorText.body.copyWith(
+                color: RewardsFooter._inkBody,
+                height: 1.2,
+              ),
             ),
           if (rarity != null) ...[
             const SizedBox(width: 8),

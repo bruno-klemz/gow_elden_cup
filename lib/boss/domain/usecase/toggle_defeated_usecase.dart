@@ -11,7 +11,7 @@ class ToggleDefeatedUsecaseImpl implements ToggleDefeatedUsecase {
   final ProgressRepository _repository;
 
   ToggleDefeatedUsecaseImpl({required ProgressRepository repository})
-      : _repository = repository;
+    : _repository = repository;
 
   /// Reloads fresh progress from the repository before mutating so that a
   /// stale in-memory [current] snapshot from a sibling bloc can never clobber

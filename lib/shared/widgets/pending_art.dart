@@ -6,10 +6,26 @@ import '../../theme/app_theme.dart';
 
 // Standard luminance grayscale matrix for ColorFilter.matrix.
 const List<double> _kGrayscaleMatrix = <double>[
-  0.2126, 0.7152, 0.0722, 0, 0,
-  0.2126, 0.7152, 0.0722, 0, 0,
-  0.2126, 0.7152, 0.0722, 0, 0,
-  0, 0, 0, 1, 0,
+  0.2126,
+  0.7152,
+  0.0722,
+  0,
+  0,
+  0.2126,
+  0.7152,
+  0.0722,
+  0,
+  0,
+  0.2126,
+  0.7152,
+  0.0722,
+  0,
+  0,
+  0,
+  0,
+  0,
+  1,
+  0,
 ];
 
 /// Renders not-yet-defeated boss art with the "pending" treatment. The blur
@@ -45,16 +61,20 @@ class PendingArt extends StatelessWidget {
   Widget build(BuildContext context) {
     final blur = context.watch<SettingsBloc>().state.blurPending;
 
-    Widget artWidget = Image.asset('assets/$art',
-        fit: fit,
-        alignment: alignment,
-        errorBuilder: (context, error, stack) =>
-            Container(color: AppColors.surfaceAlt));
+    Widget artWidget = Image.asset(
+      'assets/$art',
+      fit: fit,
+      alignment: alignment,
+      errorBuilder: (context, error, stack) =>
+          Container(color: AppColors.surfaceAlt),
+    );
 
     if (darken > 0) {
       artWidget = ColorFiltered(
         colorFilter: ColorFilter.mode(
-            Colors.black.withValues(alpha: darken), BlendMode.darken),
+          Colors.black.withValues(alpha: darken),
+          BlendMode.darken,
+        ),
         child: artWidget,
       );
     }

@@ -46,8 +46,7 @@ class StepEntry extends StatelessWidget {
                     step.title,
                     style: FavorText.stepTitle.copyWith(
                       color: isChecked ? _inkDim : _ink,
-                      decoration:
-                          isChecked ? TextDecoration.lineThrough : null,
+                      decoration: isChecked ? TextDecoration.lineThrough : null,
                     ),
                   ),
                   const SizedBox(height: 3),

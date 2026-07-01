@@ -9,7 +9,7 @@ class LoadAlbumUsecaseImpl implements LoadAlbumUsecase {
   final BossRepository _repository;
 
   LoadAlbumUsecaseImpl({required BossRepository repository})
-      : _repository = repository;
+    : _repository = repository;
 
   @override
   Future<AlbumData> call() => _repository.load();

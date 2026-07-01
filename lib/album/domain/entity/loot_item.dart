@@ -7,10 +7,10 @@ class LootItem extends Equatable {
   const LootItem({required this.name, this.icon, this.quantity});
 
   factory LootItem.fromJson(Map<String, dynamic> json) => LootItem(
-        name: json['name'] as String,
-        icon: json['icon'] as String?,
-        quantity: json['quantity'] as int?,
-      );
+    name: json['name'] as String,
+    icon: json['icon'] as String?,
+    quantity: json['quantity'] as int?,
+  );
 
   @override
   List<Object?> get props => [name, icon, quantity];

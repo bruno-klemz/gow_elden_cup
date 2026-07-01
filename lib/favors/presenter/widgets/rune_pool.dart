@@ -41,8 +41,7 @@ class RunePool extends StatefulWidget {
   State<RunePool> createState() => _RunePoolState();
 }
 
-class _RunePoolState extends State<RunePool>
-    with TickerProviderStateMixin {
+class _RunePoolState extends State<RunePool> with TickerProviderStateMixin {
   late final AnimationController _wave;
 
   /// 0 while incomplete, animates to 1 on completion — drives the water toward
@@ -75,7 +74,8 @@ class _RunePoolState extends State<RunePool>
     } else if (!widget.showWave && _wave.isAnimating) {
       _wave.stop();
     }
-    if (_isComplete && _complete.status != AnimationStatus.forward &&
+    if (_isComplete &&
+        _complete.status != AnimationStatus.forward &&
         _complete.value != 1) {
       _complete.forward();
     } else if (!_isComplete && _complete.value != 0) {
@@ -95,14 +95,14 @@ class _RunePoolState extends State<RunePool>
     final p = widget.progress.clamp(0.0, 1.0);
 
     Widget rune({required bool lit}) => Positioned.fromRelativeRect(
-          rect: widget.runeRect,
-          child: lit
-              ? Image.asset(widget.runeAsset, fit: BoxFit.contain)
-              : ColorFiltered(
-                  colorFilter: const ColorFilter.matrix(_desaturateDim),
-                  child: Image.asset(widget.runeAsset, fit: BoxFit.contain),
-                ),
-        );
+      rect: widget.runeRect,
+      child: lit
+          ? Image.asset(widget.runeAsset, fit: BoxFit.contain)
+          : ColorFiltered(
+              colorFilter: const ColorFilter.matrix(_desaturateDim),
+              child: Image.asset(widget.runeAsset, fit: BoxFit.contain),
+            ),
+    );
 
     return Stack(
       fit: StackFit.expand,
@@ -248,11 +248,10 @@ class _SurfacePainter extends CustomPainter {
     canvas.drawPath(
       foam,
       Paint()
-        ..shader = ui.Gradient.linear(
-          Offset(0, y),
-          Offset(0, y + foamHeight),
-          [color.withValues(alpha: 0.55), color.withValues(alpha: 0.0)],
-        )
+        ..shader = ui.Gradient.linear(Offset(0, y), Offset(0, y + foamHeight), [
+          color.withValues(alpha: 0.55),
+          color.withValues(alpha: 0.0),
+        ])
         ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 3),
     );
 

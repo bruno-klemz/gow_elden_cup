@@ -11,8 +11,9 @@ class CoordPickerScreen extends StatelessWidget {
   /// `images/map/midgard.webp`. Falls back to a generic placeholder when null.
   final String? realmMapImage;
 
-  String get _mapAsset =>
-      realmMapImage != null ? 'assets/$realmMapImage' : 'assets/images/map/base_map.webp';
+  String get _mapAsset => realmMapImage != null
+      ? 'assets/$realmMapImage'
+      : 'assets/images/map/base_map.webp';
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +24,10 @@ class CoordPickerScreen extends StatelessWidget {
         builder: (context, constraints) {
           return GestureDetector(
             onTapDown: (details) {
-              final x = (details.localPosition.dx / constraints.maxWidth)
-                  .clamp(0.0, 1.0);
+              final x = (details.localPosition.dx / constraints.maxWidth).clamp(
+                0.0,
+                1.0,
+              );
               final y = (details.localPosition.dy / constraints.maxHeight)
                   .clamp(0.0, 1.0);
               final text =
@@ -34,13 +37,18 @@ class CoordPickerScreen extends StatelessWidget {
                 ..clearSnackBars()
                 ..showSnackBar(SnackBar(content: Text(text)));
             },
-            child: Image.asset(_mapAsset,
-                fit: BoxFit.cover,
-                width: constraints.maxWidth,
-                height: constraints.maxHeight,
-                errorBuilder: (context, error, stack) => const Center(
-                    child: Text('Mapa ausente (placeholder)',
-                        style: TextStyle(color: AppColors.textMuted)))),
+            child: Image.asset(
+              _mapAsset,
+              fit: BoxFit.cover,
+              width: constraints.maxWidth,
+              height: constraints.maxHeight,
+              errorBuilder: (context, error, stack) => const Center(
+                child: Text(
+                  'Mapa ausente (placeholder)',
+                  style: TextStyle(color: AppColors.textMuted),
+                ),
+              ),
+            ),
           );
         },
       ),

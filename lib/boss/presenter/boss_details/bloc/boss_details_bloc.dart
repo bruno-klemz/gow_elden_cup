@@ -19,10 +19,10 @@ class BossDetailsBloc extends Bloc<BossDetailsEvent, BossDetailsState> {
     required LoadProgressUsecase loadProgress,
     required ToggleDefeatedUsecase toggleDefeated,
     required SetMapRevealedUsecase setMapRevealed,
-  })  : _loadProgress = loadProgress,
-        _toggleDefeated = toggleDefeated,
-        _setMapRevealed = setMapRevealed,
-        super(BossDetailsState(boss: boss)) {
+  }) : _loadProgress = loadProgress,
+       _toggleDefeated = toggleDefeated,
+       _setMapRevealed = setMapRevealed,
+       super(BossDetailsState(boss: boss)) {
     on<BossDetailsStarted>(_onStarted);
     on<BossDefeatToggled>(_onDefeatToggled);
     on<BossMapRevealed>(_onMapRevealed);
@@ -30,33 +30,49 @@ class BossDetailsBloc extends Bloc<BossDetailsEvent, BossDetailsState> {
   }
 
   Future<void> _onStarted(
-      BossDetailsStarted event, Emitter<BossDetailsState> emit) async {
+    BossDetailsStarted event,
+    Emitter<BossDetailsState> emit,
+  ) async {
     final progress = await _loadProgress();
     emit(state.copyWith(progress: progress));
   }
 
   Future<void> _onDefeatToggled(
-      BossDefeatToggled event, Emitter<BossDetailsState> emit) async {
+    BossDefeatToggled event,
+    Emitter<BossDetailsState> emit,
+  ) async {
     final wasDefeated = state.isDefeated;
     final next = await _toggleDefeated(state.progress, state.boss.id);
-    emit(state.copyWith(
-      progress: next,
-      // play the reveal animation only on the pending -> defeated transition
-      justRevealed: !wasDefeated && next.isDefeated(state.boss.id),
-    ));
+    emit(
+      state.copyWith(
+        progress: next,
+        // play the reveal animation only on the pending -> defeated transition
+        justRevealed: !wasDefeated && next.isDefeated(state.boss.id),
+      ),
+    );
   }
 
   Future<void> _onMapRevealed(
-      BossMapRevealed event, Emitter<BossDetailsState> emit) async {
-    final next =
-        await _setMapRevealed(state.progress, state.boss.id, revealed: true);
+    BossMapRevealed event,
+    Emitter<BossDetailsState> emit,
+  ) async {
+    final next = await _setMapRevealed(
+      state.progress,
+      state.boss.id,
+      revealed: true,
+    );
     emit(state.copyWith(progress: next, justRevealed: false));
   }
 
   Future<void> _onMapHidden(
-      BossMapHidden event, Emitter<BossDetailsState> emit) async {
-    final next =
-        await _setMapRevealed(state.progress, state.boss.id, revealed: false);
+    BossMapHidden event,
+    Emitter<BossDetailsState> emit,
+  ) async {
+    final next = await _setMapRevealed(
+      state.progress,
+      state.boss.id,
+      revealed: false,
+    );
     emit(state.copyWith(progress: next, justRevealed: false));
   }
 }

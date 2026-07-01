@@ -10,11 +10,7 @@ import 'boss_details_view.dart';
 
 /// Composition root for the full-screen boss details.
 class BossDetailsScreen extends StatelessWidget {
-  const BossDetailsScreen({
-    super.key,
-    required this.boss,
-    this.realmMapImage,
-  });
+  const BossDetailsScreen({super.key, required this.boss, this.realmMapImage});
 
   final Boss boss;
 
@@ -29,10 +25,12 @@ class BossDetailsScreen extends StatelessWidget {
     Boss boss, {
     String? realmMapImage,
   }) {
-    return Navigator.of(context).push<String>(MaterialPageRoute(
-      builder: (_) =>
-          BossDetailsScreen(boss: boss, realmMapImage: realmMapImage),
-    ));
+    return Navigator.of(context).push<String>(
+      MaterialPageRoute(
+        builder: (_) =>
+            BossDetailsScreen(boss: boss, realmMapImage: realmMapImage),
+      ),
+    );
   }
 
   @override

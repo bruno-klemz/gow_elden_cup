@@ -26,10 +26,7 @@ class FavorAlbumState extends Equatable {
     final data = favorsData;
     if (data == null) return const [];
     final seen = <String>{};
-    return data.favors
-        .map((f) => f.realm)
-        .where(seen.add)
-        .toList();
+    return data.favors.map((f) => f.realm).where(seen.add).toList();
   }
 
   /// Favors after applying both filters.
@@ -46,8 +43,7 @@ class FavorAlbumState extends Equatable {
 
     final status = statusFilter;
     if (status != null) {
-      favors =
-          favors.where((f) => favorStatus(f, progress) == status).toList();
+      favors = favors.where((f) => favorStatus(f, progress) == status).toList();
     }
 
     return favors;
@@ -67,12 +63,18 @@ class FavorAlbumState extends Equatable {
       favorsData: favorsData ?? this.favorsData,
       progress: progress ?? this.progress,
       realmFilter: clearRealmFilter ? null : (realmFilter ?? this.realmFilter),
-      statusFilter:
-          clearStatusFilter ? null : (statusFilter ?? this.statusFilter),
+      statusFilter: clearStatusFilter
+          ? null
+          : (statusFilter ?? this.statusFilter),
     );
   }
 
   @override
-  List<Object?> get props =>
-      [status, favorsData, progress, realmFilter, statusFilter];
+  List<Object?> get props => [
+    status,
+    favorsData,
+    progress,
+    realmFilter,
+    statusFilter,
+  ];
 }
