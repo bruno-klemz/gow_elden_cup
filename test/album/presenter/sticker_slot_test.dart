@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gow_elden_cup/album/domain/entity/boss.dart';
 import 'package:gow_elden_cup/album/domain/entity/map_coord.dart';
-import 'package:gow_elden_cup/album/presenter/album/widgets/reveal_overlay.dart';
+import 'package:gow_elden_cup/album/presenter/album/widgets/main_boss_border.dart';
 import 'package:gow_elden_cup/album/presenter/album/widgets/sticker_slot.dart';
 import 'package:gow_elden_cup/album/presenter/album/widgets/type_badge.dart';
 
@@ -39,28 +39,26 @@ void main() {
     expect(tapped, isTrue);
   });
 
-  testWidgets('animateReveal plays the reveal and calls onRevealDone',
+  testWidgets('while revealing, a defeated slot keeps the pending look',
       (tester) async {
-    var done = false;
+    // A defeated+revealing typed boss must NOT show its colored reward yet: the
+    // full-screen overlay owns the animation and the slot "sticks" it only when
+    // revealing clears. The TypeBadge (a defeated-only marker) is the tell.
     await tester.pumpWidget(_host(StickerSlot(
-      boss: _boss,
+      boss: _typedBoss,
       defeated: true,
-      animateReveal: true,
+      revealing: true,
       onTap: () {},
-      onRevealDone: () => done = true,
     )));
-    // the reveal overlay is mounted while animating
-    expect(find.byType(RevealOverlay), findsOneWidget);
-    // animation finishes -> onRevealDone fires
-    await tester.pumpAndSettle();
-    expect(done, isTrue);
-  });
+    expect(find.byType(TypeBadge), findsNothing);
 
-  testWidgets('without animateReveal there is no reveal overlay',
-      (tester) async {
-    await tester.pumpWidget(_host(
-        StickerSlot(boss: _boss, defeated: true, onTap: () {})));
-    expect(find.byType(RevealOverlay), findsNothing);
+    // once the reveal finishes (revealing = false), the reward shows
+    await tester.pumpWidget(_host(StickerSlot(
+      boss: _typedBoss,
+      defeated: true,
+      onTap: () {},
+    )));
+    expect(find.byType(TypeBadge), findsOneWidget);
   });
 
   testWidgets('pending slot shows quick-check button that fires onQuickDefeat',
@@ -88,21 +86,40 @@ void main() {
     expect(find.byKey(const Key('slot-quick-check')), findsNothing);
   });
 
-  testWidgets('main boss shows a crown only when defeated', (tester) async {
-    // defeated main -> crown
+  testWidgets('defeated main boss gets the living border; pending does not',
+      (tester) async {
+    // defeated main -> living MainBossBorder (the headline reward)
     await tester.pumpWidget(_host(
         StickerSlot(boss: _boss, defeated: true, isMain: true, onTap: () {})));
-    expect(find.text('👑'), findsOneWidget);
+    expect(find.byType(MainBossBorder), findsOneWidget);
 
-    // pending main -> no crown (no gold reward while locked)
+    // pending main -> no reward frame while still locked
     await tester.pumpWidget(_host(
         StickerSlot(boss: _boss, defeated: false, isMain: true, onTap: () {})));
-    expect(find.text('👑'), findsNothing);
+    expect(find.byType(MainBossBorder), findsNothing);
+
+    // and a defeated regular boss never gets it either
+    await tester.pumpWidget(_host(
+        StickerSlot(boss: _boss, defeated: true, onTap: () {})));
+    expect(find.byType(MainBossBorder), findsNothing);
+  });
+
+  testWidgets('main-boss living border paints across the whole pulse/glint cycle',
+      (tester) async {
+    // The glint builds LinearGradient stops from an animated value; bad stops
+    // (non-monotonic) throw during paint. Pump through a full cycle to catch it.
+    await tester.pumpWidget(_host(
+        StickerSlot(boss: _boss, defeated: true, isMain: true, onTap: () {})));
+    for (var i = 0; i < 20; i++) {
+      await tester.pump(const Duration(milliseconds: 250));
+    }
+    expect(tester.takeException(), isNull);
+    expect(find.byType(MainBossBorder), findsOneWidget);
   });
 
   testWidgets('TypeBadge shows on a defeated slot and is hidden on a pending slot',
       (tester) async {
-    // ARRANGE + ACT: defeated (revealed) slot — defeated: true, animateReveal defaults to false
+    // ARRANGE + ACT: defeated (revealed) slot — defeated: true, revealing defaults to false
     await tester.pumpWidget(_host(
         StickerSlot(boss: _typedBoss, defeated: true, onTap: () {})));
     // ASSERT: badge is visible on a revealed slot
