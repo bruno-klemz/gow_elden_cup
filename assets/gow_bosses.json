@@ -1,14 +1,59 @@
 {
   "realms": [
-    {"id": "midgard", "name": "Midgard", "order": 1, "mapImage": "images/map/midgard.webp"},
-    {"id": "svartalfheim", "name": "Svartalfheim", "order": 2, "mapImage": "images/map/svartalfheim.webp"},
-    {"id": "vanaheim", "name": "Vanaheim", "order": 3, "mapImage": "images/map/vanaheim.webp"},
-    {"id": "alfheim", "name": "Alfheim", "order": 4, "mapImage": "images/map/alfheim.webp"},
-    {"id": "muspelheim", "name": "Muspelheim", "order": 5, "mapImage": "images/map/muspelheim.webp"},
-    {"id": "helheim", "name": "Helheim", "order": 6, "mapImage": "images/map/helheim.webp"},
-    {"id": "niflheim", "name": "Niflheim", "order": 7, "mapImage": "images/map/niflheim.webp"},
-    {"id": "asgard", "name": "Asgard", "order": 8, "mapImage": "images/map/asgard.webp"},
-    {"id": "jotunheim", "name": "Jötunheim", "order": 9, "mapImage": "images/map/jotunheim.webp"}
+    {
+      "id": "midgard",
+      "name": "Midgard",
+      "order": 1,
+      "mapImage": "images/map/midgard.webp"
+    },
+    {
+      "id": "svartalfheim",
+      "name": "Svartalfheim",
+      "order": 2,
+      "mapImage": "images/map/svartalfheim.webp"
+    },
+    {
+      "id": "vanaheim",
+      "name": "Vanaheim",
+      "order": 3,
+      "mapImage": "images/map/vanaheim.webp"
+    },
+    {
+      "id": "alfheim",
+      "name": "Alfheim",
+      "order": 4,
+      "mapImage": "images/map/alfheim.webp"
+    },
+    {
+      "id": "muspelheim",
+      "name": "Muspelheim",
+      "order": 5,
+      "mapImage": "images/map/muspelheim.webp"
+    },
+    {
+      "id": "helheim",
+      "name": "Helheim",
+      "order": 6,
+      "mapImage": "images/map/helheim.webp"
+    },
+    {
+      "id": "niflheim",
+      "name": "Niflheim",
+      "order": 7,
+      "mapImage": "images/map/niflheim.webp"
+    },
+    {
+      "id": "asgard",
+      "name": "Asgard",
+      "order": 8,
+      "mapImage": "images/map/asgard.webp"
+    },
+    {
+      "id": "jotunheim",
+      "name": "Jötunheim",
+      "order": 9,
+      "mapImage": "images/map/jotunheim.webp"
+    }
   ],
   "bosses": [
     {
@@ -19,11 +64,20 @@
       "type": "story",
       "art": "images/placeholder.webp",
       "locationName": "Fimbulwinter – The Woods",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["physical"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "physical"
+      ],
       "immunities": [],
       "strategy": "Bloqueie os ataques normais com o escudo e esquive dos ataques especiais. Puna após o salto.",
-      "loot": [{"name": "250 Kratos XP"}],
+      "loot": [
+        {
+          "name": "250 Kratos XP"
+        }
+      ],
       "lore": "Um urso gigantesco que Kratos e Atreus enfrentam logo no início de Fimbulwinter.",
       "mainOrder": 1,
       "needsReview": false
@@ -34,13 +88,24 @@
       "subtitle": "God of Thunder (1st encounter)",
       "realm": "midgard",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/thor_first.webp",
       "locationName": "Fimbulwinter – Kratos' Home",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun"],
-      "immunities": ["lightning"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun"
+      ],
+      "immunities": [
+        "lightning"
+      ],
       "strategy": "Três fases com checkpoint; utilize Spartan Fury e pare os combos de Mjolnir no momento certo.",
-      "loot": [{"name": "500 Kratos XP"}],
+      "loot": [
+        {
+          "name": "500 Kratos XP"
+        }
+      ],
       "lore": "O Deus do Trovão de Asgard aparece em Midgard exigindo satisfações de Kratos.",
       "mainOrder": 2,
       "needsReview": false
@@ -51,13 +116,29 @@
       "subtitle": "Beast of the Snows",
       "realm": "midgard",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/the_huntress.png",
       "locationName": "Fimbulwinter – The Flatlands",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["axe", "physical"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "axe",
+        "physical"
+      ],
       "immunities": [],
       "strategy": "Ataque os chifres brilhantes para atordoar e então aplique dano corpo-a-corpo.",
-      "loot": [{"name": "250 Kratos XP"}, {"name": "372 Atreus XP"}, {"name": "Winter's Bite"}],
+      "loot": [
+        {
+          "name": "250 Kratos XP"
+        },
+        {
+          "name": "372 Atreus XP"
+        },
+        {
+          "name": "Winter's Bite"
+        }
+      ],
       "lore": "Uma criatura colossal que protege os segredos das planícies geladas.",
       "mainOrder": 3,
       "needsReview": false
@@ -68,13 +149,31 @@
       "subtitle": "Dreki of the Forge",
       "realm": "svartalfheim",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/dreki_story.png",
       "locationName": "The Forge – Svartalfheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["axe", "frost"],
-      "immunities": ["lightning"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "axe",
+        "frost"
+      ],
+      "immunities": [
+        "lightning"
+      ],
       "strategy": "Esquive da cusparada e dos ataques de cauda. Na fase 2, desvie da AoE elétrica indefensável.",
-      "loot": [{"name": "500 Kratos XP"}, {"name": "500 Atreus XP"}, {"name": "Flames of Anguish"}],
+      "loot": [
+        {
+          "name": "500 Kratos XP"
+        },
+        {
+          "name": "500 Atreus XP"
+        },
+        {
+          "name": "Flames of Anguish"
+        }
+      ],
       "lore": "Um Dreki guardando a Forja em Svartalfheim durante a busca por Tyr.",
       "mainOrder": 4,
       "needsReview": false
@@ -85,13 +184,29 @@
       "subtitle": "Light Elf Warrior",
       "realm": "alfheim",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/alva.png",
       "locationName": "Temple of Light – Alfheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "blades"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "blades"
+      ],
       "immunities": [],
       "strategy": "Contra-ataque golpes de escudo; esquive dos arremessos de lança; use Serpent's Snare para imobilizá-la.",
-      "loot": [{"name": "500 Kratos XP"}, {"name": "332 Atreus XP"}, {"name": "Frozen Flame"}],
+      "loot": [
+        {
+          "name": "500 Kratos XP"
+        },
+        {
+          "name": "332 Atreus XP"
+        },
+        {
+          "name": "Frozen Flame"
+        }
+      ],
       "lore": "Uma poderosa guerreira élfica que protege o segredo do Templo da Luz.",
       "mainOrder": 5,
       "needsReview": false
@@ -102,13 +217,23 @@
       "subtitle": "Witch of Jotunheim",
       "realm": "vanaheim",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/gryla.png",
       "locationName": "The Lost Sanctuary – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["blades", "burn"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "blades",
+        "burn"
+      ],
       "immunities": [],
       "strategy": "Atinja o caldeirão com runa púrpura quando exposto; use velas para atordoar; evite a magia roxa.",
-      "loot": [{"name": "Bronze Trophy"}],
+      "loot": [
+        {
+          "name": "Bronze Trophy"
+        }
+      ],
       "lore": "Uma bruxa anciã que usa um caldeirão mágico para punir quem invade seu domínio.",
       "mainOrder": 6,
       "needsReview": false
@@ -119,13 +244,23 @@
       "subtitle": "Freya – The Vanir Warrior",
       "realm": "vanaheim",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/vanadis.png",
       "locationName": "After The Lost Sanctuary",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "spear"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "spear"
+      ],
       "immunities": [],
       "strategy": "Duas fases com checkpoint; bloqueie em vez de esquivar; use Spartan Valour; gerencie o veneno de Atreus.",
-      "loot": [{"name": "Bronze Trophy"}],
+      "loot": [
+        {
+          "name": "Bronze Trophy"
+        }
+      ],
       "lore": "Freya em sua forma de guerreira Vanir, furiosa com Kratos por ter matado Baldur.",
       "mainOrder": 7,
       "needsReview": false
@@ -136,13 +271,29 @@
       "subtitle": "Ancient of Vanaheim",
       "realm": "vanaheim",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/forest_ancient.png",
       "locationName": "Freyr's Camp – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["axe", "spear"],
-      "immunities": ["burn", "frost"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "axe",
+        "spear"
+      ],
+      "immunities": [
+        "burn",
+        "frost"
+      ],
       "strategy": "Acerte o núcleo com a machadinha; arremesse os orbes brancos para atordoar; pressione R3 para causar dano extra.",
-      "loot": [{"name": "500 Kratos XP"}, {"name": "Chaos Flame"}],
+      "loot": [
+        {
+          "name": "500 Kratos XP"
+        },
+        {
+          "name": "Chaos Flame"
+        }
+      ],
       "lore": "Um colossal ser de pedra que guarda a floresta sagrada de Vanaheim.",
       "mainOrder": 8,
       "needsReview": false
@@ -153,13 +304,26 @@
       "subtitle": "Odin's Champion",
       "realm": "vanaheim",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/fiske.png",
       "locationName": "Abandoned Village – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["bifrost", "stun"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "bifrost",
+        "stun"
+      ],
       "immunities": [],
       "strategy": "Esquive dos ataques em área; pare os combos; use Spartan Valour para se curar durante a batalha.",
-      "loot": [{"name": "500 Kratos XP"}, {"name": "Glaive of Dodher"}],
+      "loot": [
+        {
+          "name": "500 Kratos XP"
+        },
+        {
+          "name": "Glaive of Dodher"
+        }
+      ],
       "lore": "Um guerreiro leal a Odin enviado para impedir Kratos de avançar.",
       "mainOrder": 9,
       "needsReview": false
@@ -170,13 +334,29 @@
       "subtitle": "Serpent of Yggdrasil",
       "realm": "vanaheim",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/nidhogg.png",
       "locationName": "Realm Tear – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["bifrost", "blades"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "bifrost",
+        "blades"
+      ],
       "immunities": [],
       "strategy": "Quatro fases com checkpoints; esquive de mordidas e raios; destrua os pilares marcados com sigilo.",
-      "loot": [{"name": "2000 Kratos XP"}, {"name": "Frozen Flame"}, {"name": "Amulet of Yggdrasil"}],
+      "loot": [
+        {
+          "name": "2000 Kratos XP"
+        },
+        {
+          "name": "Frozen Flame"
+        },
+        {
+          "name": "Amulet of Yggdrasil"
+        }
+      ],
       "lore": "O dragão cósmico que corroe as raízes de Yggdrasil há eras.",
       "mainOrder": 10,
       "needsReview": false
@@ -187,13 +367,31 @@
       "subtitle": "Phantom – Story",
       "realm": "midgard",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/frost_phantom.png",
       "locationName": "The Word of Fate – Midgard",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["axe", "frost"],
-      "immunities": ["burn"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "axe",
+        "frost"
+      ],
+      "immunities": [
+        "burn"
+      ],
       "strategy": "Acerte o orbe rúnico com arremessos de machadinha; destrua os 2 pilares roxos quando atordoado.",
-      "loot": [{"name": "1400 Kratos XP"}, {"name": "500 Freya XP"}, {"name": "Chaos Flame"}],
+      "loot": [
+        {
+          "name": "1400 Kratos XP"
+        },
+        {
+          "name": "500 Freya XP"
+        },
+        {
+          "name": "Chaos Flame"
+        }
+      ],
       "lore": "Uma entidade fantasmagórica de gelo conjurada para impedir o acesso à Palavra do Destino.",
       "mainOrder": 11,
       "needsReview": false
@@ -204,13 +402,29 @@
       "subtitle": "Hound of Hel",
       "realm": "helheim",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/garm.webp",
       "locationName": "Helheim – The Chains",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["frost", "axe"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "frost",
+        "axe"
+      ],
       "immunities": [],
       "strategy": "Esquive dos pisões de gelo; ataque o focinho; congele a corrente com a machadinha. Duas lutas com checkpoint; segunda termina em QTE.",
-      "loot": [{"name": "2500 Kratos XP"}, {"name": "1250 Atreus XP"}, {"name": "Bronze Trophy"}],
+      "loot": [
+        {
+          "name": "2500 Kratos XP"
+        },
+        {
+          "name": "1250 Atreus XP"
+        },
+        {
+          "name": "Bronze Trophy"
+        }
+      ],
       "lore": "O lobo guardião de Helheim, preso por correntes mágicas até o início de Ragnarök.",
       "mainOrder": 12,
       "needsReview": false
@@ -221,13 +435,23 @@
       "subtitle": "Heimdall's Steed",
       "realm": "vanaheim",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/gulltoppr.png",
       "locationName": "Creatures of Prophecy – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["spear", "physical"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "spear",
+        "physical"
+      ],
       "immunities": [],
       "strategy": "Arremesse e detone as lanças três vezes para atordoar; depois melee. Luta separada antes de Heimdall.",
-      "loot": [{"name": "3000 Kratos XP"}],
+      "loot": [
+        {
+          "name": "3000 Kratos XP"
+        }
+      ],
       "lore": "O magnífico corcel de Heimdall, tão arrogante quanto seu dono.",
       "mainOrder": 13,
       "needsReview": false
@@ -238,13 +462,28 @@
       "subtitle": "Watcher of Asgard",
       "realm": "asgard",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/heimdall.png",
       "locationName": "Asgard",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["spear", "stun"],
-      "immunities": ["frost"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "spear",
+        "stun"
+      ],
+      "immunities": [
+        "frost"
+      ],
       "strategy": "Use a Lança Draupnir — ele prevê ataques que enxerga; ataques de lança contornam sua presciência. Detone lanças cravadasfor stagger.",
-      "loot": [{"name": "Hilt of Hofud"}, {"name": "Emblem of the Nine Realms"}],
+      "loot": [
+        {
+          "name": "Hilt of Hofud"
+        },
+        {
+          "name": "Emblem of the Nine Realms"
+        }
+      ],
       "lore": "O arrogante guardião de Asgard, dotado de presciência que o torna quase invencível para quem não usa a Lança.",
       "mainOrder": 14,
       "needsReview": false
@@ -255,13 +494,25 @@
       "subtitle": "Ancient – Story",
       "realm": "midgard",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/frost_ancient.png",
       "locationName": "Unlocking the Mask",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["sonic", "blades"],
-      "immunities": ["frost"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "sonic",
+        "blades"
+      ],
+      "immunities": [
+        "frost"
+      ],
       "strategy": "Use Flechas Sônicas para causar dano e atordoar; pressione R3 quando colapsar; ignore os Hel-Walkers.",
-      "loot": [{"name": "500 Atreus XP"}],
+      "loot": [
+        {
+          "name": "500 Atreus XP"
+        }
+      ],
       "lore": "Um Antigo de gelo conjurado pelos Aesir para impedir o acesso à segunda peça da Máscara.",
       "mainOrder": 15,
       "needsReview": false
@@ -272,13 +523,31 @@
       "subtitle": "Phantom – Story",
       "realm": "asgard",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/frost_phantom.png",
       "locationName": "The Summoning – Asgard",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["axe", "frost"],
-      "immunities": ["burn"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "axe",
+        "frost"
+      ],
+      "immunities": [
+        "burn"
+      ],
       "strategy": "Acerte o orbe rúnico; destrua os 3 pilares roxos quando atordoado. Igual ao Fantasma de Gelo.",
-      "loot": [{"name": "500 Kratos XP"}, {"name": "500 Atreus XP"}, {"name": "Chaos Flame"}],
+      "loot": [
+        {
+          "name": "500 Kratos XP"
+        },
+        {
+          "name": "500 Atreus XP"
+        },
+        {
+          "name": "Chaos Flame"
+        }
+      ],
       "lore": "Uma entidade de fogo conjurada durante o ritual de invocação em Asgard.",
       "mainOrder": 16,
       "needsReview": false
@@ -289,13 +558,32 @@
       "subtitle": "Ancients – Story",
       "realm": "asgard",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/double_soul_eater.png",
       "locationName": "The Summoning – Asgard",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["axe", "spear"],
-      "immunities": ["burn", "frost"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "axe",
+        "spear"
+      ],
+      "immunities": [
+        "burn",
+        "frost"
+      ],
       "strategy": "Ataque os núcleos expostos; arremesse orbes brancos para causar dano; pressione R3 quando atordoados.",
-      "loot": [{"name": "500 Kratos XP"}, {"name": "500 Atreus XP"}, {"name": "Chaos Flame"}],
+      "loot": [
+        {
+          "name": "500 Kratos XP"
+        },
+        {
+          "name": "500 Atreus XP"
+        },
+        {
+          "name": "Chaos Flame"
+        }
+      ],
       "lore": "Dois Devoradores de Almas invocados para proteger o ritual final em Asgard.",
       "mainOrder": 17,
       "needsReview": false
@@ -306,13 +594,29 @@
       "subtitle": "Odin's Valkyries",
       "realm": "asgard",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/hrist_and_mist.png",
       "locationName": "The Summoning – Asgard",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "sonic"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "sonic"
+      ],
       "immunities": [],
       "strategy": "Barra de vida compartilhada; 3 checkpoints. Esquive das penas e pedras; arremesse a lança se Atreus for capturado.",
-      "loot": [{"name": "5000 Kratos XP"}, {"name": "2500 Atreus XP"}, {"name": "Gale Flame"}],
+      "loot": [
+        {
+          "name": "5000 Kratos XP"
+        },
+        {
+          "name": "2500 Atreus XP"
+        },
+        {
+          "name": "Gale Flame"
+        }
+      ],
       "lore": "Duas Valquírias irmãs enviadas por Odin, possivelmente as mais perigosas entre suas servas.",
       "mainOrder": 18,
       "needsReview": false
@@ -323,11 +627,19 @@
       "subtitle": "God of Thunder (2nd encounter)",
       "realm": "asgard",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/thor_first.webp",
       "locationName": "Asgard – The Lodge",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "spear"],
-      "immunities": ["lightning"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "spear"
+      ],
+      "immunities": [
+        "lightning"
+      ],
       "strategy": "Três fases com checkpoints; pare os golpes de escudo; esquive dos arremessos de Mjolnir e dos campos elétricos.",
       "loot": [],
       "lore": "Thor redimido enfrenta Kratos de forma diferente, mas é interrompido por Odin.",
@@ -340,13 +652,25 @@
       "subtitle": "Allfather",
       "realm": "asgard",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/odin.webp",
       "locationName": "The Realms at War – Asgard",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["spear", "blades"],
-      "immunities": ["frost"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "spear",
+        "blades"
+      ],
+      "immunities": [
+        "frost"
+      ],
       "strategy": "Duas lutas: primeira com Atreus (quebre escudos); segunda com Atreus/Freya (quebre escudos, esquive dos corvos).",
-      "loot": [{"name": "Gold Trophy"}],
+      "loot": [
+        {
+          "name": "Gold Trophy"
+        }
+      ],
       "lore": "O Pai de Todos, manipulador e paranóico, que teme a profecia de Ragnarök acima de tudo.",
       "mainOrder": 20,
       "needsReview": false
@@ -357,13 +681,31 @@
       "subtitle": "Drekis – Creatures of Prophecy",
       "realm": "vanaheim",
       "type": "story",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/dreki_story.png",
       "locationName": "Creatures of Prophecy – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["frost", "axe"],
-      "immunities": ["lightning"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "frost",
+        "axe"
+      ],
+      "immunities": [
+        "lightning"
+      ],
       "strategy": "Use Spartan Wrath em um; termine com ataque carregado; esquive e bloqueie os ataques.",
-      "loot": [{"name": "500 Kratos XP"}, {"name": "350 Atreus XP"}, {"name": "Artillery of the Ancients"}],
+      "loot": [
+        {
+          "name": "500 Kratos XP"
+        },
+        {
+          "name": "350 Atreus XP"
+        },
+        {
+          "name": "Artillery of the Ancients"
+        }
+      ],
       "lore": "Dois Drekis que bloqueiam o caminho durante a busca pelas Criaturas da Profecia.",
       "mainOrder": 21,
       "needsReview": false
@@ -376,11 +718,27 @@
       "type": "berserker",
       "art": "images/placeholder.webp",
       "locationName": "Lake of Nine – Midgard",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "blades"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "blades"
+      ],
       "immunities": [],
       "strategy": "Fique perto da parede para punir o esquive; pare/esquive dos combos; encha a barra de atordoamento com flechas de Atreus.",
-      "loot": [{"name": "1500 Kratos XP"}, {"name": "375 Freya XP"}, {"name": "Berserker Waist Guard"}],
+      "loot": [
+        {
+          "name": "1500 Kratos XP"
+        },
+        {
+          "name": "375 Freya XP"
+        },
+        {
+          "name": "Berserker Waist Guard"
+        }
+      ],
       "lore": "Uma berserker que assombra o Lago dos Nove, aguerrida mesmo na morte.",
       "mainOrder": 0,
       "needsReview": false
@@ -393,11 +751,27 @@
       "type": "berserker",
       "art": "images/placeholder.webp",
       "locationName": "Jarnsmida Pitmines – Svartalfheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "blades"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "blades"
+      ],
       "immunities": [],
       "strategy": "Foque nas irmãs primeiro (barra compartilhada); evite os flashes e golpes de escudo de Bodvar; esquive dos slams.",
-      "loot": [{"name": "1500 Kratos XP"}, {"name": "375 Freya XP"}, {"name": "Gale Flame"}],
+      "loot": [
+        {
+          "name": "1500 Kratos XP"
+        },
+        {
+          "name": "375 Freya XP"
+        },
+        {
+          "name": "Gale Flame"
+        }
+      ],
       "lore": "Um par de berserkers implacáveis que assombram as minas de Svartalfheim.",
       "mainOrder": 0,
       "needsReview": false
@@ -410,11 +784,27 @@
       "type": "berserker",
       "art": "images/placeholder.webp",
       "locationName": "Nidavellir – Svartalfheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "spear"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "spear"
+      ],
       "immunities": [],
       "strategy": "Bloqueie/pare os combos; esquive do indicador verde no chão (salto). Sem cristais de saúde.",
-      "loot": [{"name": "1500 Kratos XP"}, {"name": "375 Freya XP"}, {"name": "Asgard's Fortitude"}],
+      "loot": [
+        {
+          "name": "1500 Kratos XP"
+        },
+        {
+          "name": "375 Freya XP"
+        },
+        {
+          "name": "Asgard's Fortitude"
+        }
+      ],
       "lore": "Um berserker frio e calculista que assombra os arredores de Nidavellir.",
       "mainOrder": 0,
       "needsReview": false
@@ -427,11 +817,29 @@
       "type": "berserker",
       "art": "images/placeholder.webp",
       "locationName": "Alberich Island – Svartalfheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "physical"],
-      "immunities": ["lightning"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "physical"
+      ],
+      "immunities": [
+        "lightning"
+      ],
       "strategy": "Esquive dos orbes e raios elétricos indefensáveis; escape do choque fazendo spam no círculo; pare ataques corpo-a-corpo.",
-      "loot": [{"name": "1500 Kratos XP"}, {"name": "375 Freya XP"}, {"name": "Asgard's Might"}],
+      "loot": [
+        {
+          "name": "1500 Kratos XP"
+        },
+        {
+          "name": "375 Freya XP"
+        },
+        {
+          "name": "Asgard's Might"
+        }
+      ],
       "lore": "Um berserker temido por sua capacidade de canalizar o poder do trovão.",
       "mainOrder": 0,
       "needsReview": false
@@ -442,13 +850,29 @@
       "subtitle": "Berserkers – Trio",
       "realm": "alfheim",
       "type": "berserker",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/svipdagr_and_sisters.png",
       "locationName": "The Barrens – Alfheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "blades"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "blades"
+      ],
       "immunities": [],
       "strategy": "Foque nas irmãs (barra compartilhada); esquive dos lançamentos de AoE elemental; pare ataques; termine Svipdagr.",
-      "loot": [{"name": "1500 Kratos XP"}, {"name": "375 Freya XP"}, {"name": "Berserker Cuirass"}],
+      "loot": [
+        {
+          "name": "1500 Kratos XP"
+        },
+        {
+          "name": "375 Freya XP"
+        },
+        {
+          "name": "Berserker Cuirass"
+        }
+      ],
       "lore": "Um trio de berserkers que espalhou o caos entre os elfos de Alfheim.",
       "mainOrder": 0,
       "needsReview": false
@@ -459,13 +883,29 @@
       "subtitle": "Berserker",
       "realm": "alfheim",
       "type": "berserker",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/hjalti_the_stolid.png",
       "locationName": "Forbidden Sands – Alfheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "spear"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "spear"
+      ],
       "immunities": [],
       "strategy": "Fique perto para contra-atacar os golpes de escudo; esquive/pare os saltos; bloqueie o melee; use habilidades rúnicas.",
-      "loot": [{"name": "1500 Kratos XP"}, {"name": "375 Freya XP"}, {"name": "Grip of Nine Realms"}],
+      "loot": [
+        {
+          "name": "1500 Kratos XP"
+        },
+        {
+          "name": "375 Freya XP"
+        },
+        {
+          "name": "Grip of Nine Realms"
+        }
+      ],
       "lore": "Um berserker sólido como rocha que domina as areias proibidas de Alfheim.",
       "mainOrder": 0,
       "needsReview": false
@@ -478,11 +918,29 @@
       "type": "berserker",
       "art": "images/placeholder.webp",
       "locationName": "Pilgrim's Landing – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "physical"],
-      "immunities": ["poison"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "physical"
+      ],
+      "immunities": [
+        "poison"
+      ],
       "strategy": "Ignore os minions invocados; esquive dos tiros de veneno; repita contra os ataques de invocação; use habilidades.",
-      "loot": [{"name": "1500 Kratos XP"}, {"name": "375 Freya XP"}, {"name": "Pommels of Nine Realms"}],
+      "loot": [
+        {
+          "name": "1500 Kratos XP"
+        },
+        {
+          "name": "375 Freya XP"
+        },
+        {
+          "name": "Pommels of Nine Realms"
+        }
+      ],
       "lore": "Um berserker audaz que usa veneno e invocações para subjugar seus inimigos.",
       "mainOrder": 0,
       "needsReview": false
@@ -493,13 +951,29 @@
       "subtitle": "Berserker",
       "realm": "vanaheim",
       "type": "berserker",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/haklangr_the_bearded.png",
       "locationName": "The Sinkholes – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "blades"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "blades"
+      ],
       "immunities": [],
       "strategy": "Quebre escudos com elemento oposto ou lança; esquive de todos os ataques; esquive dos slams AoE massivos.",
-      "loot": [{"name": "1500 Kratos XP"}, {"name": "375 Freya XP"}, {"name": "Chaos Flame"}],
+      "loot": [
+        {
+          "name": "1500 Kratos XP"
+        },
+        {
+          "name": "375 Freya XP"
+        },
+        {
+          "name": "Chaos Flame"
+        }
+      ],
       "lore": "Um berserker imponente que barbudo que assombra os sumidouros das planícies de Vanaheim.",
       "mainOrder": 0,
       "needsReview": false
@@ -512,11 +986,29 @@
       "type": "berserker",
       "art": "images/placeholder.webp",
       "locationName": "Mist Fields – Niflheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "physical"],
-      "immunities": ["bifrost"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "physical"
+      ],
+      "immunities": [
+        "bifrost"
+      ],
       "strategy": "Use Elemental Siphon II para resistência a Bifrost; esquive do AoE de Bifrost ou arremesse a arma para cancelar; evite o teleporte.",
-      "loot": [{"name": "1500 Kratos XP"}, {"name": "375 Freya XP"}, {"name": "Berserker Gauntlets"}],
+      "loot": [
+        {
+          "name": "1500 Kratos XP"
+        },
+        {
+          "name": "375 Freya XP"
+        },
+        {
+          "name": "Berserker Gauntlets"
+        }
+      ],
       "lore": "Um berserker preciso como um arqueiro, que domina os Campos de Névoa de Niflheim.",
       "mainOrder": 0,
       "needsReview": false
@@ -529,11 +1021,30 @@
       "type": "berserker",
       "art": "images/placeholder.webp",
       "locationName": "King's Grave – Midgard",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "blades"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "blades"
+      ],
       "immunities": [],
       "strategy": "Imensa quantidade de vida; esquive de rajadas/cargas; esquive de ataques AoE elementais; contra-ataque escudos com Onslaught Shield; use Hilt of Hofud + L1+Triangle.",
-      "loot": [{"name": "15000 Kratos XP"}, {"name": "3750 Freya XP"}, {"name": "Hilt of Skofnung"}, {"name": "Gold Trophy"}],
+      "loot": [
+        {
+          "name": "15000 Kratos XP"
+        },
+        {
+          "name": "3750 Freya XP"
+        },
+        {
+          "name": "Hilt of Skofnung"
+        },
+        {
+          "name": "Gold Trophy"
+        }
+      ],
       "lore": "O lendário Rei Berserker, o mais poderoso de todos os berserkers e o maior desafio opcional do jogo.",
       "mainOrder": 0,
       "needsReview": false
@@ -544,13 +1055,29 @@
       "subtitle": "Queen of the Valkyries",
       "realm": "muspelheim",
       "type": "valkyrie",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/gna.png",
       "locationName": "The Crucible – Muspelheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["sonic", "stun"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "sonic",
+        "stun"
+      ],
       "immunities": [],
       "strategy": "A chefe mais difícil; ataques muito rápidos com janelas mínimas; esquive/pare com precisão; contra-ataque golpes de escudo; quebre escudos elementais.",
-      "loot": [{"name": "Rond of Obliteration"}, {"name": "The Queen's Armor (Freya)"}, {"name": "Gold Trophy"}],
+      "loot": [
+        {
+          "name": "Rond of Obliteration"
+        },
+        {
+          "name": "The Queen's Armor (Freya)"
+        },
+        {
+          "name": "Gold Trophy"
+        }
+      ],
       "lore": "A recém-coroada Rainha das Valquírias, o maior desafio de combate em Ragnarök.",
       "mainOrder": 0,
       "needsReview": false
@@ -561,13 +1088,35 @@
       "subtitle": "Red Dragon – Vanaheim",
       "realm": "vanaheim",
       "type": "dragon",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/the_crimson_dread.png",
       "locationName": "The Plains – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["axe", "frost"],
-      "immunities": ["burn"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "axe",
+        "frost"
+      ],
+      "immunities": [
+        "burn"
+      ],
       "strategy": "Esquive dos ataques de fogo e cargas; atire na cabeça quando voando para atordoar; despeje habilidades durante o stun.",
-      "loot": [{"name": "500 Kratos XP"}, {"name": "500 Atreus XP"}, {"name": "Dragon Claw", "quantity": 2}, {"name": "Frozen Flame"}],
+      "loot": [
+        {
+          "name": "500 Kratos XP"
+        },
+        {
+          "name": "500 Atreus XP"
+        },
+        {
+          "name": "Dragon Claw",
+          "quantity": 2
+        },
+        {
+          "name": "Frozen Flame"
+        }
+      ],
       "lore": "Um dragão vermelho feroz que domina as planícies abertas do Cráter de Vanaheim.",
       "mainOrder": 0,
       "needsReview": false
@@ -578,13 +1127,32 @@
       "subtitle": "Blue Dragon – Vanaheim",
       "realm": "vanaheim",
       "type": "dragon",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/the_corpse_eater.png",
       "locationName": "The Jungle – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["blades", "burn"],
-      "immunities": ["frost"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "blades",
+        "burn"
+      ],
+      "immunities": [
+        "frost"
+      ],
       "strategy": "Esquive dos ataques de gelo; atire quando voando; esquive da agarrada; despeje habilidades durante os stuns.",
-      "loot": [{"name": "500 Kratos XP"}, {"name": "500 Atreus XP"}, {"name": "Dragon Claw", "quantity": 2}],
+      "loot": [
+        {
+          "name": "500 Kratos XP"
+        },
+        {
+          "name": "500 Atreus XP"
+        },
+        {
+          "name": "Dragon Claw",
+          "quantity": 2
+        }
+      ],
       "lore": "Um dragão azul que se alimenta dos mortos na densa selva do Cráter.",
       "mainOrder": 0,
       "needsReview": false
@@ -595,13 +1163,32 @@
       "subtitle": "White Dragon – Vanaheim",
       "realm": "vanaheim",
       "type": "dragon",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/the_ash_tyrant.png",
       "locationName": "The Sinkholes – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["axe", "frost"],
-      "immunities": ["burn"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "axe",
+        "frost"
+      ],
+      "immunities": [
+        "burn"
+      ],
       "strategy": "Ataque o ponto fraco no pescoço quando cuspindo fogo; destrua pilares quando o dragão pousar; esquive das chamas.",
-      "loot": [{"name": "1400 Kratos XP"}, {"name": "500 Atreus XP"}, {"name": "Dragon Claw", "quantity": 2}],
+      "loot": [
+        {
+          "name": "1400 Kratos XP"
+        },
+        {
+          "name": "500 Atreus XP"
+        },
+        {
+          "name": "Dragon Claw",
+          "quantity": 2
+        }
+      ],
       "lore": "Um poderoso dragão branco que domina os Sumidouros com seu sopro de cinzas ardentes.",
       "mainOrder": 0,
       "needsReview": false
@@ -612,13 +1199,31 @@
       "subtitle": "Ice Dragon – Niflheim",
       "realm": "niflheim",
       "type": "dragon",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/the_pale_one.png",
       "locationName": "The Raven Tree – Niflheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["blades", "burn"],
-      "immunities": ["frost"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "blades",
+        "burn"
+      ],
+      "immunities": [
+        "frost"
+      ],
       "strategy": "Use Flechas Sônicas no Guardião dos Corvos; esquive do gelo; atire no Pálido quando voando; gerencie as ondas de inimigos.",
-      "loot": [{"name": "200 Kratos XP"}, {"name": "50 Freya XP"}, {"name": "Niflheim's Justice"}],
+      "loot": [
+        {
+          "name": "200 Kratos XP"
+        },
+        {
+          "name": "50 Freya XP"
+        },
+        {
+          "name": "Niflheim's Justice"
+        }
+      ],
       "lore": "Um dragão alvo gelado que serve como guardião da Árvore dos Corvos em Niflheim.",
       "mainOrder": 0,
       "needsReview": false
@@ -629,13 +1234,29 @@
       "subtitle": "Drake – Alfheim",
       "realm": "alfheim",
       "type": "dragon",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/gravel_belly.png",
       "locationName": "Forbidden Sands – Alfheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["axe", "stun"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "axe",
+        "stun"
+      ],
       "immunities": [],
       "strategy": "Esquive de garras e mordidas; pare a carga para derrubá-lo; esquive dos slams; posicione-se perto das pernas.",
-      "loot": [{"name": "2400 Kratos XP"}, {"name": "750 Freya XP"}, {"name": "Alfheim's Fortune"}],
+      "loot": [
+        {
+          "name": "2400 Kratos XP"
+        },
+        {
+          "name": "750 Freya XP"
+        },
+        {
+          "name": "Alfheim's Fortune"
+        }
+      ],
       "lore": "Um drake sem asas que caça nas areias de Alfheim com sua carga devastadora.",
       "mainOrder": 0,
       "needsReview": false
@@ -646,13 +1267,29 @@
       "subtitle": "Drake – Vanaheim",
       "realm": "vanaheim",
       "type": "dragon",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/crag_jaw.png",
       "locationName": "The Sinkholes – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["axe", "stun"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "axe",
+        "stun"
+      ],
       "immunities": [],
       "strategy": "Idêntico ao Ventre de Cascalho; esquive dos slams/ataques; pare as cargas; posicione-se nas pernas.",
-      "loot": [{"name": "1875 Kratos XP"}, {"name": "500 Atreus XP"}, {"name": "Regenerating Essence"}],
+      "loot": [
+        {
+          "name": "1875 Kratos XP"
+        },
+        {
+          "name": "500 Atreus XP"
+        },
+        {
+          "name": "Regenerating Essence"
+        }
+      ],
       "lore": "Um drake robusto que domina os Sumidouros do Cráter de Vanaheim.",
       "mainOrder": 0,
       "needsReview": false
@@ -663,13 +1300,29 @@
       "subtitle": "Drake – Vanaheim",
       "realm": "vanaheim",
       "type": "dragon",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/slag_horn.png",
       "locationName": "The Jungle – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["axe", "stun"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "axe",
+        "stun"
+      ],
       "immunities": [],
       "strategy": "Idêntico ao Ventre de Cascalho e Mandíbula de Penhasco; esquive/pare ataques; posicione-se nas pernas.",
-      "loot": [{"name": "2500 Kratos XP"}, {"name": "1125 Atreus XP"}, {"name": "Greater Regenerating Essence"}],
+      "loot": [
+        {
+          "name": "2500 Kratos XP"
+        },
+        {
+          "name": "1125 Atreus XP"
+        },
+        {
+          "name": "Greater Regenerating Essence"
+        }
+      ],
       "lore": "O maior e mais feroz dos drakes da Selva, com chifres cobertos de escória.",
       "mainOrder": 0,
       "needsReview": false
@@ -680,13 +1333,31 @@
       "subtitle": "Drekis – Goddess Falls",
       "realm": "vanaheim",
       "type": "dreki",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/dreki_story.png",
       "locationName": "Goddess Falls – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["frost", "axe"],
-      "immunities": ["lightning"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "frost",
+        "axe"
+      ],
+      "immunities": [
+        "lightning"
+      ],
       "strategy": "Foque em um por vez; Freya auxilia; esquive/bloqueie os ataques elétricos.",
-      "loot": [{"name": "500 Kratos XP"}, {"name": "500 Freya XP"}, {"name": "Seal of Falling Star"}],
+      "loot": [
+        {
+          "name": "500 Kratos XP"
+        },
+        {
+          "name": "500 Freya XP"
+        },
+        {
+          "name": "Seal of Falling Star"
+        }
+      ],
       "lore": "Um par de Drekis que guarda as Quedas da Deusa em Vanaheim.",
       "mainOrder": 0,
       "needsReview": false
@@ -697,13 +1368,28 @@
       "subtitle": "Drekis – The Jungle",
       "realm": "vanaheim",
       "type": "dreki",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/dreki_story.png",
       "locationName": "The Jungle – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["frost", "axe"],
-      "immunities": ["lightning"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "frost",
+        "axe"
+      ],
+      "immunities": [
+        "lightning"
+      ],
       "strategy": "Foque em um com todas as habilidades; use ataque carregado para terminar o primeiro; esquive/bloqueie o segundo.",
-      "loot": [{"name": "500 Kratos XP"}, {"name": "500 Atreus XP"}],
+      "loot": [
+        {
+          "name": "500 Kratos XP"
+        },
+        {
+          "name": "500 Atreus XP"
+        }
+      ],
       "lore": "Dois Drekis que dominam as profundezas da Selva do Cráter.",
       "mainOrder": 0,
       "needsReview": true
@@ -714,13 +1400,28 @@
       "subtitle": "Poison Dreki",
       "realm": "vanaheim",
       "type": "dreki",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/dreki_story.png",
       "locationName": "The Plains – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["frost", "axe"],
-      "immunities": ["poison"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "frost",
+        "axe"
+      ],
+      "immunities": [
+        "poison"
+      ],
       "strategy": "Esquive dos ataques de veneno; foque em um dreki por vez; use upgrades de Permafrost/Imolação.",
-      "loot": [{"name": "500 Kratos XP"}, {"name": "500 Atreus XP"}],
+      "loot": [
+        {
+          "name": "500 Kratos XP"
+        },
+        {
+          "name": "500 Atreus XP"
+        }
+      ],
       "lore": "Um Dreki de variante venenosa encontrado nas planícies abertas do Cráter.",
       "mainOrder": 0,
       "needsReview": true
@@ -731,13 +1432,31 @@
       "subtitle": "Dreki – What Lies Below",
       "realm": "vanaheim",
       "type": "dreki",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/dreki_story.png",
       "locationName": "The Jungle Dam Area – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["frost", "axe"],
-      "immunities": ["lightning"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "frost",
+        "axe"
+      ],
+      "immunities": [
+        "lightning"
+      ],
       "strategy": "Esquive dos ataques de cusparada elétrica; ataque a barriga exposta; mantenha distância nas fases de carga.",
-      "loot": [{"name": "1500 Kratos XP"}, {"name": "375 Atreus XP"}, {"name": "Dragon Tooth"}],
+      "loot": [
+        {
+          "name": "1500 Kratos XP"
+        },
+        {
+          "name": "375 Atreus XP"
+        },
+        {
+          "name": "Dragon Tooth"
+        }
+      ],
       "lore": "Um Dreki que se esconde sob a estrutura da barragem no Cráter de Vanaheim.",
       "mainOrder": 0,
       "needsReview": false
@@ -748,13 +1467,31 @@
       "subtitle": "Dreki – In the Dead of Night",
       "realm": "vanaheim",
       "type": "dreki",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/dreki_story.png",
       "locationName": "The Plains – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["frost", "axe"],
-      "immunities": ["lightning"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "frost",
+        "axe"
+      ],
+      "immunities": [
+        "lightning"
+      ],
       "strategy": "Rastreie e mate o Dreki que caça à noite. Use as sombras para se aproximar e então ataque.",
-      "loot": [{"name": "1500 Kratos XP"}, {"name": "375 Atreus XP"}, {"name": "Dragon Tooth"}],
+      "loot": [
+        {
+          "name": "1500 Kratos XP"
+        },
+        {
+          "name": "375 Atreus XP"
+        },
+        {
+          "name": "Dragon Tooth"
+        }
+      ],
       "lore": "Um Dreki predador que emerge à noite para caçar nas planícies do Cráter.",
       "mainOrder": 0,
       "needsReview": false
@@ -765,13 +1502,28 @@
       "subtitle": "Fire Draugr – The Watchtower",
       "realm": "svartalfheim",
       "type": "favor",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/the_hateful_svartalfheim_watchtower.png",
       "locationName": "The Watchtower – Svartalfheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["frost", "axe"],
-      "immunities": ["burn"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "frost",
+        "axe"
+      ],
+      "immunities": [
+        "burn"
+      ],
       "strategy": "Esquive da rajada e da parede de chamas; mate os draugrs invocados com Spartan Fury; foque na Horrível.",
-      "loot": [{"name": "Cursed Empress Handles"}, {"name": "Chaos Spark"}],
+      "loot": [
+        {
+          "name": "Cursed Empress Handles"
+        },
+        {
+          "name": "Chaos Spark"
+        }
+      ],
       "lore": "Um Draugr de fogo invocado de um buraco de Draugr em Svartalfheim.",
       "mainOrder": 0,
       "needsReview": false
@@ -782,13 +1534,25 @@
       "subtitle": "Fire Draugr – The Applecore",
       "realm": "svartalfheim",
       "type": "favor",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/the_hateful_svartalfheim_watchtower.png",
       "locationName": "The Applecore – Svartalfheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["frost", "axe"],
-      "immunities": ["burn"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "frost",
+        "axe"
+      ],
+      "immunities": [
+        "burn"
+      ],
       "strategy": "Esquive da rajada e da parede de chamas; mate os draugrs invocados; foque na Horrível para fechar o buraco.",
-      "loot": [{"name": "Chaos Spark"}],
+      "loot": [
+        {
+          "name": "Chaos Spark"
+        }
+      ],
       "lore": "A segunda manifestação da Horrível, encontrada nas profundezas da Maçãneta.",
       "mainOrder": 0,
       "needsReview": false
@@ -799,13 +1563,25 @@
       "subtitle": "Fire Draugr – Alfheim",
       "realm": "alfheim",
       "type": "favor",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/the_hateful_svartalfheim_watchtower.png",
       "locationName": "The Barrens – Alfheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["frost", "axe"],
-      "immunities": ["burn"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "frost",
+        "axe"
+      ],
+      "immunities": [
+        "burn"
+      ],
       "strategy": "Idêntica às outras versões; esquive das chamas; mate os inimigos invocados rapidamente.",
-      "loot": [{"name": "Chaos Spark"}],
+      "loot": [
+        {
+          "name": "Chaos Spark"
+        }
+      ],
       "lore": "A terceira manifestação da Horrível, nas areias áridas de Alfheim.",
       "mainOrder": 0,
       "needsReview": false
@@ -816,13 +1592,25 @@
       "subtitle": "Fire Draugr – Midgard",
       "realm": "midgard",
       "type": "favor",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/the_hateful_svartalfheim_watchtower.png",
       "locationName": "Lake of Nine – Midgard",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["frost", "axe"],
-      "immunities": ["burn"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "frost",
+        "axe"
+      ],
+      "immunities": [
+        "burn"
+      ],
       "strategy": "Perto do caminho para a Tumba do Rei; mesma estratégia das outras versões.",
-      "loot": [{"name": "Chaos Spark"}],
+      "loot": [
+        {
+          "name": "Chaos Spark"
+        }
+      ],
       "lore": "A quarta manifestação da Horrível, escondida no nordeste do Lago dos Nove.",
       "mainOrder": 0,
       "needsReview": false
@@ -833,13 +1621,25 @@
       "subtitle": "Fire Draugr – Abandoned Village",
       "realm": "vanaheim",
       "type": "favor",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/the_hateful_svartalfheim_watchtower.png",
       "locationName": "Abandoned Village – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["frost", "axe"],
-      "immunities": ["burn"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "frost",
+        "axe"
+      ],
+      "immunities": [
+        "burn"
+      ],
       "strategy": "Requer manipulação de uma grua para acessar; mesma estratégia das outras versões.",
-      "loot": [{"name": "Chaos Spark"}],
+      "loot": [
+        {
+          "name": "Chaos Spark"
+        }
+      ],
       "lore": "A quinta manifestação da Horrível, na Vila Abandonada ao norte do Acampamento de Freyr.",
       "mainOrder": 0,
       "needsReview": false
@@ -850,13 +1650,28 @@
       "subtitle": "Fire Draugr – The Sinkholes",
       "realm": "vanaheim",
       "type": "favor",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/the_hateful_svartalfheim_watchtower.png",
       "locationName": "The Sinkholes – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["frost", "axe"],
-      "immunities": ["burn"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "frost",
+        "axe"
+      ],
+      "immunities": [
+        "burn"
+      ],
       "strategy": "Requer completar o favor Retorno do Rio para inundar o Cráter; mesma estratégia. Os 6 Chaos Sparks viram Chaos Flame.",
-      "loot": [{"name": "Chaos Spark"}, {"name": "Chaos Flame"}],
+      "loot": [
+        {
+          "name": "Chaos Spark"
+        },
+        {
+          "name": "Chaos Flame"
+        }
+      ],
       "lore": "A sexta e última manifestação da Horrível, inacessível antes do final do jogo.",
       "mainOrder": 0,
       "needsReview": false
@@ -867,13 +1682,29 @@
       "subtitle": "Ancient – Vanir Shrine",
       "realm": "vanaheim",
       "type": "favor",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/soul_eater_vanir_shrine.png",
       "locationName": "Vanir Shrine – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["axe", "spear"],
-      "immunities": ["burn", "frost"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "axe",
+        "spear"
+      ],
+      "immunities": [
+        "burn",
+        "frost"
+      ],
       "strategy": "Arremesse a machadinha no núcleo; agarre e arremesse os orbes brancos; pressione R3 para dano. Ignore os adds.",
-      "loot": [{"name": "500 Kratos XP"}, {"name": "345 Freya XP"}],
+      "loot": [
+        {
+          "name": "500 Kratos XP"
+        },
+        {
+          "name": "345 Freya XP"
+        }
+      ],
       "lore": "Um Devorador de Almas que se alimenta da energia espiritual do Santuário Vanir.",
       "mainOrder": 0,
       "needsReview": false
@@ -884,13 +1715,32 @@
       "subtitle": "Ancient – The Plains",
       "realm": "vanaheim",
       "type": "favor",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/soul_eater_plains.png",
       "locationName": "The Plains – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["axe", "spear"],
-      "immunities": ["burn", "frost"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "axe",
+        "spear"
+      ],
+      "immunities": [
+        "burn",
+        "frost"
+      ],
       "strategy": "Arremesse a machadinha/lança no núcleo; agarre e arremesse os orbes brancos; pressione R3 para dano.",
-      "loot": [{"name": "1400 Kratos XP"}, {"name": "330 Atreus XP"}, {"name": "Hunter's Brand"}],
+      "loot": [
+        {
+          "name": "1400 Kratos XP"
+        },
+        {
+          "name": "330 Atreus XP"
+        },
+        {
+          "name": "Hunter's Brand"
+        }
+      ],
       "lore": "Um Devorador de Almas das planícies do Cráter, mais poderoso que o do Santuário.",
       "mainOrder": 0,
       "needsReview": false
@@ -901,13 +1751,28 @@
       "subtitle": "Phantom – The Plains",
       "realm": "vanaheim",
       "type": "favor",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/frost_phantom.png",
       "locationName": "The Plains – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["axe", "frost"],
-      "immunities": ["burn"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "axe",
+        "frost"
+      ],
+      "immunities": [
+        "burn"
+      ],
       "strategy": "Acerte o orbe com arremessos; destrua 5 pilares roxos quando atordoado. Mais pilares que o Fantasma de Fogo da história.",
-      "loot": [{"name": "Hunter's Brand"}, {"name": "Gale Flame"}],
+      "loot": [
+        {
+          "name": "Hunter's Brand"
+        },
+        {
+          "name": "Gale Flame"
+        }
+      ],
       "lore": "Uma entidade de chamas que assombra as planícies abertas do Cráter de Vanaheim.",
       "mainOrder": 0,
       "needsReview": false
@@ -918,10 +1783,16 @@
       "subtitle": "Warrior of the Sands",
       "realm": "alfheim",
       "type": "favor",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/the_maven.png",
       "locationName": "Forbidden Sands – Alfheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "physical"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "physical"
+      ],
       "immunities": [],
       "strategy": "Pare os arremessos de armas; bloqueie a rajada e esquive do slam; esquive dos ataques à distância; contra-ataque os golpes de escudo.",
       "loot": [],
@@ -937,11 +1808,21 @@
       "type": "favor",
       "art": "images/placeholder.webp",
       "locationName": "Raider Stronghold – Svartalfheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "physical"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "physical"
+      ],
       "immunities": [],
       "strategy": "Atraia os ataques; esquive dos ataques amplos; puna os slams e as tentativas de cura com dano pesado.",
-      "loot": [{"name": "Token of Elemental Evasion"}],
+      "loot": [
+        {
+          "name": "Token of Elemental Evasion"
+        }
+      ],
       "lore": "O líder de um grupo de invasores que saqueia Svartalfheim.",
       "mainOrder": 0,
       "needsReview": false
@@ -952,13 +1833,29 @@
       "subtitle": "Grim – Alberich Hollow",
       "realm": "svartalfheim",
       "type": "favor",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/ormstunga.png",
       "locationName": "Alberich Hollow – Svartalfheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["blades", "burn"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "blades",
+        "burn"
+      ],
       "immunities": [],
       "strategy": "Jogue defensivamente à distância; esquive do ataque de salto; bloqueie/pare as rajadas de perto; use bombas de fogo.",
-      "loot": [{"name": "500 Kratos XP"}, {"name": "405 Freya XP"}, {"name": "Emblem of Elusion"}],
+      "loot": [
+        {
+          "name": "500 Kratos XP"
+        },
+        {
+          "name": "405 Freya XP"
+        },
+        {
+          "name": "Emblem of Elusion"
+        }
+      ],
       "lore": "Um Grim enorme que assombra o Oco de Alberich, famoso por sua língua venenosa.",
       "mainOrder": 0,
       "needsReview": false
@@ -971,11 +1868,24 @@
       "type": "favor",
       "art": "images/placeholder.webp",
       "locationName": "The Barrens – Alfheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "physical"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "physical"
+      ],
       "immunities": [],
       "strategy": "Despeje habilidades rúnicas em um; use Spartan Wrath no segundo; há um cristal de saúde disponível.",
-      "loot": [{"name": "500 Kratos XP"}, {"name": "150 Freya XP"}],
+      "loot": [
+        {
+          "name": "500 Kratos XP"
+        },
+        {
+          "name": "150 Freya XP"
+        }
+      ],
       "lore": "Um par de guerreiros que dominam os baldios de Alfheim.",
       "mainOrder": 0,
       "needsReview": false
@@ -986,13 +1896,31 @@
       "subtitle": "Hel-Revenant – Niflheim",
       "realm": "niflheim",
       "type": "favor",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/the_raven_keeper.png",
       "locationName": "The Raven Tree – Niflheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["sonic", "blades"],
-      "immunities": ["frost"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "sonic",
+        "blades"
+      ],
+      "immunities": [
+        "frost"
+      ],
       "strategy": "Use Flechas Sônicas no Guardião; esquive do gelo; atire no Pálido (O Dragão) quando voando; gerencie as ondas de inimigos.",
-      "loot": [{"name": "200 Kratos XP"}, {"name": "50 Freya XP"}, {"name": "Niflheim's Justice"}],
+      "loot": [
+        {
+          "name": "200 Kratos XP"
+        },
+        {
+          "name": "50 Freya XP"
+        },
+        {
+          "name": "Niflheim's Justice"
+        }
+      ],
       "lore": "O guardião espectral da Árvore dos Corvos em Niflheim, comanda um dragão de gelo.",
       "mainOrder": 0,
       "needsReview": false
@@ -1005,8 +1933,14 @@
       "type": "misc",
       "art": "images/placeholder.webp",
       "locationName": "Lake of Nine – Midgard",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "physical"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "physical"
+      ],
       "immunities": [],
       "strategy": "Combate corpo-a-corpo padrão; esquive, bloqueie e pare os ataques.",
       "loot": [],
@@ -1022,8 +1956,14 @@
       "type": "misc",
       "art": "images/placeholder.webp",
       "locationName": "Abandoned Village – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "physical"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "physical"
+      ],
       "immunities": [],
       "strategy": "Combate corpo-a-corpo padrão; esquive, bloqueie e pare os ataques.",
       "loot": [],
@@ -1039,8 +1979,14 @@
       "type": "misc",
       "art": "images/placeholder.webp",
       "locationName": "The Plains – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "physical"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "physical"
+      ],
       "immunities": [],
       "strategy": "Combate corpo-a-corpo padrão; esquive, bloqueie e pare os ataques.",
       "loot": [],
@@ -1056,8 +2002,14 @@
       "type": "misc",
       "art": "images/placeholder.webp",
       "locationName": "The Plains – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "physical"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "physical"
+      ],
       "immunities": [],
       "strategy": "Combate corpo-a-corpo padrão; esquive, bloqueie e pare os ataques.",
       "loot": [],
@@ -1073,8 +2025,14 @@
       "type": "misc",
       "art": "images/placeholder.webp",
       "locationName": "The Crater – Vanaheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "physical"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "physical"
+      ],
       "immunities": [],
       "strategy": "Combate corpo-a-corpo padrão; esquive, bloqueie e pare os ataques.",
       "loot": [],
@@ -1088,10 +2046,16 @@
       "subtitle": "Miscellaneous Warrior",
       "realm": "svartalfheim",
       "type": "misc",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/miklimunnr.png",
       "locationName": "The Applecore – Svartalfheim",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "physical"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "physical"
+      ],
       "immunities": [],
       "strategy": "Combate corpo-a-corpo padrão; esquive, bloqueie e pare os ataques.",
       "loot": [],
@@ -1105,10 +2069,16 @@
       "subtitle": "Beast of the Realms",
       "realm": "vanaheim",
       "type": "misc",
-      "art": "images/placeholder.webp",
+      "art": "images/bosses/the_everlasting.png",
       "locationName": "Vanaheim – The Crater",
-      "mapCoord": {"x": 0, "y": 0},
-      "weaknesses": ["stun", "physical"],
+      "mapCoord": {
+        "x": 0,
+        "y": 0
+      },
+      "weaknesses": [
+        "stun",
+        "physical"
+      ],
       "immunities": [],
       "strategy": "Combate corpo-a-corpo padrão; esquive, bloqueie e pare os ataques.",
       "loot": [],
