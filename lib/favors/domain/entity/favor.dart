@@ -15,6 +15,10 @@ class Favor extends Equatable {
   final List<Reward> rewards;
   final bool needsReview;
 
+  /// Whether this is a main-quest favor (gold marker) vs a side quest (blue).
+  /// All favors are side quests for now; the JSON may set `isMainQuest` later.
+  final bool isMainQuest;
+
   const Favor({
     required this.id,
     required this.name,
@@ -26,6 +30,7 @@ class Favor extends Equatable {
     this.steps = const [],
     this.rewards = const [],
     this.needsReview = false,
+    this.isMainQuest = false,
   });
 
   List<String> get stepIds => steps.map((s) => s.id).toList();
@@ -45,9 +50,21 @@ class Favor extends Equatable {
             .map((e) => Reward.fromJson(e as Map<String, dynamic>))
             .toList(),
         needsReview: json['needsReview'] as bool? ?? false,
+        isMainQuest: json['isMainQuest'] as bool? ?? false,
       );
 
   @override
-  List<Object?> get props =>
-      [id, name, realm, region, giver, summary, lore, steps, rewards, needsReview];
+  List<Object?> get props => [
+        id,
+        name,
+        realm,
+        region,
+        giver,
+        summary,
+        lore,
+        steps,
+        rewards,
+        needsReview,
+        isMainQuest,
+      ];
 }

@@ -30,3 +30,7 @@ flutter:
     - assets/images/
     - assets/images/map/
     - assets/images/loot/
+    - assets/images/runes/
+    - assets/images/shrines/
+    - assets/images/ui/
+    - assets/images/bosses/

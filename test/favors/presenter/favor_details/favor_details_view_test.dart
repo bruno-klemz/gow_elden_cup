@@ -9,6 +9,7 @@ import 'package:gow_elden_cup/favors/domain/entity/favor_step.dart';
 import 'package:gow_elden_cup/favors/domain/entity/reward.dart';
 import 'package:gow_elden_cup/favors/presenter/favor_details/bloc/favor_details_bloc.dart';
 import 'package:gow_elden_cup/favors/presenter/favor_details/favor_details_view.dart';
+import 'package:gow_elden_cup/favors/presenter/favor_details/widgets/step_entry.dart';
 
 class _MockFavorDetailsBloc
     extends MockBloc<FavorDetailsEvent, FavorDetailsState>
@@ -47,68 +48,52 @@ void main() {
   Widget buildSubject() => MaterialApp(
         home: BlocProvider<FavorDetailsBloc>.value(
           value: bloc,
-          child: FavorDetailsView(favor: _favor),
+          child: const FavorDetailsView(favor: _favor),
         ),
       );
 
-  testWidgets(
-    'tapping the first step checkbox dispatches FavorStepToggled',
-    (tester) async {
-      tester.view.physicalSize = const Size(1080, 3000);
-      tester.view.devicePixelRatio = 3.0;
-      addTearDown(() {
-        tester.view.resetPhysicalSize();
-        tester.view.resetDevicePixelRatio();
-      });
-
-      // Initial state: no steps done → seal shows "Não iniciada"
-      when(() => bloc.state).thenReturn(const FavorDetailsState());
-      when(() => bloc.stream).thenAnswer((_) => const Stream.empty());
-
-      await tester.pumpWidget(buildSubject());
-      await tester.pump();
-
-      expect(find.text('Não iniciada'), findsOneWidget);
-
-      // Tap the first step checkbox
-      final checkboxes = find.byType(Checkbox);
-      await tester.tap(checkboxes.first);
-      await tester.pump();
-
-      // Verify the toggle event was dispatched for step s1
-      verify(() => bloc.add(const FavorStepToggled('s1'))).called(1);
-    },
-  );
-
-  testWidgets(
-    'seal text shows "Em progresso 1 de 2" when one step is done',
-    (tester) async {
-      tester.view.physicalSize = const Size(1080, 3000);
-      tester.view.devicePixelRatio = 3.0;
-      addTearDown(() {
-        tester.view.resetPhysicalSize();
-        tester.view.resetDevicePixelRatio();
-      });
-
-      const progressWithS1 = Progress(completedFavorSteps: {'f1:s1'});
-      when(() => bloc.state)
-          .thenReturn(const FavorDetailsState(progress: progressWithS1));
-      when(() => bloc.stream).thenAnswer((_) => const Stream.empty());
-
-      await tester.pumpWidget(buildSubject());
-      await tester.pump();
-
-      expect(find.text('Em progresso 1 de 2'), findsOneWidget);
-    },
-  );
-
-  testWidgets('shows favor name, realm, and giver in the header', (tester) async {
+  void sizeTall(WidgetTester tester) {
     tester.view.physicalSize = const Size(1080, 3000);
     tester.view.devicePixelRatio = 3.0;
     addTearDown(() {
       tester.view.resetPhysicalSize();
       tester.view.resetDevicePixelRatio();
     });
+  }
+
+  testWidgets('tapping the first step dispatches FavorStepToggled',
+      (tester) async {
+    sizeTall(tester);
+
+    await tester.pumpWidget(buildSubject());
+    await tester.pump();
+
+    // Status badge uppercases the seal text.
+    expect(find.text('NÃO INICIADA'), findsOneWidget);
+
+    // Steps are tappable rows (no Checkbox). Tap the first one.
+    await tester.tap(find.byType(StepEntry).first);
+    await tester.pump();
+
+    verify(() => bloc.add(const FavorStepToggled('s1'))).called(1);
+  });
+
+  testWidgets('badge shows "EM PROGRESSO 1 DE 2" when one step is done',
+      (tester) async {
+    sizeTall(tester);
+
+    const progressWithS1 = Progress(completedFavorSteps: {'f1:s1'});
+    when(() => bloc.state)
+        .thenReturn(const FavorDetailsState(progress: progressWithS1));
+
+    await tester.pumpWidget(buildSubject());
+    await tester.pump();
+
+    expect(find.text('EM PROGRESSO 1 DE 2'), findsOneWidget);
+  });
+
+  testWidgets('shows favor name, giver, and rewards', (tester) async {
+    sizeTall(tester);
 
     await tester.pumpWidget(buildSubject());
     await tester.pump();
@@ -118,13 +103,8 @@ void main() {
     expect(find.text('Hacksilver'), findsOneWidget);
   });
 
-  testWidgets('shows "Completa" seal when all steps are done', (tester) async {
-    tester.view.physicalSize = const Size(1080, 3000);
-    tester.view.devicePixelRatio = 3.0;
-    addTearDown(() {
-      tester.view.resetPhysicalSize();
-      tester.view.resetDevicePixelRatio();
-    });
+  testWidgets('shows completion badge when all steps are done', (tester) async {
+    sizeTall(tester);
 
     const allDone = Progress(completedFavorSteps: {'f1:s1', 'f1:s2'});
     when(() => bloc.state)
@@ -133,6 +113,6 @@ void main() {
     await tester.pumpWidget(buildSubject());
     await tester.pump();
 
-    expect(find.text('Completa'), findsOneWidget);
+    expect(find.text('✦ FAVOR CONCLUÍDO ✦'), findsOneWidget);
   });
 }
