@@ -18,6 +18,7 @@ void main() {
 
   test('exportCoords writes map_coords.json to the given dir', () async {
     final tmp = await Directory.systemTemp.createTemp('mapcoords');
+    addTearDown(() => tmp.delete(recursive: true));
     final path = await exportCoords(
       {'boss_a': const MapCoord(0.2, 0.3)},
       getDir: () async => tmp,
@@ -27,6 +28,5 @@ void main() {
       await File(path).readAsString(),
       '{"boss_a":{"x":0.2,"y":0.3}}',
     );
-    await tmp.delete(recursive: true);
   });
 }
