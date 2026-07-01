@@ -32,7 +32,7 @@ class GowAlbumApp extends StatelessWidget {
         theme: ThemeData(
           scaffoldBackgroundColor: AppColors.background,
           colorScheme: ColorScheme.fromSeed(
-            seedColor: AppColors.gold,
+            seedColor: AppColors.frost,
             brightness: Brightness.dark,
           ),
           useMaterial3: true,

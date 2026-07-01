@@ -41,7 +41,7 @@ class RealmFavorPage extends StatelessWidget {
                   height: 1,
                   decoration: const BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [AppColors.gold, Colors.transparent],
+                      colors: [AppColors.frost, Colors.transparent],
                     ),
                   ),
                 ),
@@ -72,8 +72,10 @@ class RealmFavorPage extends StatelessWidget {
               final favor = favors[i];
               return FavorPoolCard(
                 favor: favor,
-                done:
-                    state.progress.completedStepCount(favor.id, favor.stepIds),
+                done: state.progress.completedStepCount(
+                  favor.id,
+                  favor.stepIds,
+                ),
                 onTap: () => onFavorTap(favor),
               );
             },

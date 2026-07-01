@@ -24,15 +24,19 @@ class BlurToggleButton extends StatelessWidget {
           border: Border.all(color: AppColors.border),
           boxShadow: [
             BoxShadow(
-                color: Colors.black.withValues(alpha: 0.5),
-                blurRadius: 8,
-                offset: const Offset(0, 2)),
+              color: Colors.black.withValues(alpha: 0.5),
+              blurRadius: 8,
+              offset: const Offset(0, 2),
+            ),
           ],
         ),
         // Eye icon, like password/sensitive-info reveal toggles: crossed-out
         // when art is hidden (blurred), open when it's revealed.
-        child: Icon(blur ? Icons.visibility_off : Icons.visibility,
-            color: AppColors.goldLight, size: 19),
+        child: Icon(
+          blur ? Icons.visibility_off : Icons.visibility,
+          color: AppColors.frostLight,
+          size: 19,
+        ),
       ),
     );
   }

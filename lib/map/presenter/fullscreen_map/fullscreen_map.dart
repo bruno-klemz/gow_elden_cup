@@ -22,11 +22,15 @@ class FullscreenMap extends StatelessWidget {
       realmMapImage != null ? 'assets/$realmMapImage' : _kFallbackMap;
 
   static Future<void> show(
-          BuildContext context, Boss boss, {String? realmMapImage}) =>
-      Navigator.of(context).push(MaterialPageRoute(
-          fullscreenDialog: true,
-          builder: (_) =>
-              FullscreenMap(boss: boss, realmMapImage: realmMapImage)));
+    BuildContext context,
+    Boss boss, {
+    String? realmMapImage,
+  }) => Navigator.of(context).push(
+    MaterialPageRoute(
+      fullscreenDialog: true,
+      builder: (_) => FullscreenMap(boss: boss, realmMapImage: realmMapImage),
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -42,17 +46,18 @@ class FullscreenMap extends StatelessWidget {
                 builder: (context, constraints) {
                   return Stack(
                     children: [
-                      Image.asset(_mapAsset,
-                          fit: BoxFit.cover,
-                          width: constraints.maxWidth,
-                          height: constraints.maxHeight,
-                          errorBuilder: (context, error, stack) =>
-                              Container(color: const Color(0xFF14201A))),
+                      Image.asset(
+                        _mapAsset,
+                        fit: BoxFit.cover,
+                        width: constraints.maxWidth,
+                        height: constraints.maxHeight,
+                        errorBuilder: (context, error, stack) =>
+                            Container(color: const Color(0xFF14201A)),
+                      ),
                       Positioned(
                         left: boss.mapCoord.x * constraints.maxWidth - 14,
                         top: boss.mapCoord.y * constraints.maxHeight - 28,
-                        child: const Text('📍',
-                            style: TextStyle(fontSize: 28)),
+                        child: const Text('📍', style: TextStyle(fontSize: 28)),
                       ),
                     ],
                   );
@@ -63,18 +68,22 @@ class FullscreenMap extends StatelessWidget {
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.all(12),
-              child: Row(children: [
-                IconButton(
-                  icon:
-                      const Icon(Icons.close, color: AppColors.goldLight),
-                  onPressed: () => Navigator.of(context).pop(),
-                ),
-                Text('Localização de ${boss.name}',
+              child: Row(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.close, color: AppColors.frostLight),
+                    onPressed: () => Navigator.of(context).pop(),
+                  ),
+                  Text(
+                    'Localização de ${boss.name}',
                     style: const TextStyle(
-                        color: AppColors.goldLight,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 15)),
-              ]),
+                      color: AppColors.frostLight,
+                      fontWeight: FontWeight.w800,
+                      fontSize: 15,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

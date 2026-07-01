@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../theme/app_theme.dart';
 import '../../domain/entity/favor.dart';
-import '../theme/realm_theme.dart';
+import '../../../theme/realm_theme.dart';
 import '../widgets/rune_pool.dart';
 import 'bloc/favor_details_bloc.dart';
 import 'favor_text.dart';
@@ -50,7 +50,7 @@ class _FavorDetailsViewState extends State<FavorDetailsView> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: const IconThemeData(color: AppColors.goldLight),
+        iconTheme: const IconThemeData(color: AppColors.frostLight),
       ),
       body: BlocListener<FavorDetailsBloc, FavorDetailsState>(
         listenWhen: (prev, next) =>
@@ -118,8 +118,10 @@ class _FavorDetailsViewState extends State<FavorDetailsView> {
                       ...favor.steps.map(
                         (step) => StepEntry(
                           step: step,
-                          isChecked:
-                              state.progress.isStepDone(favor.id, step.id),
+                          isChecked: state.progress.isStepDone(
+                            favor.id,
+                            step.id,
+                          ),
                           accent: theme.accent,
                           onChanged: (_) => bloc.add(FavorStepToggled(step.id)),
                         ),
@@ -345,11 +347,11 @@ class _Rule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        height: 1,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.transparent, Color(0xFFB58A3E), Colors.transparent],
-          ),
-        ),
-      );
+    height: 1,
+    decoration: const BoxDecoration(
+      gradient: LinearGradient(
+        colors: [Colors.transparent, Color(0xFFB58A3E), Colors.transparent],
+      ),
+    ),
+  );
 }

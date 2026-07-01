@@ -45,11 +45,9 @@ class TypeFilterChips extends StatelessWidget {
         fontSize: 11,
         fontWeight: FontWeight.w700,
       ),
-      selectedColor: AppColors.gold,
+      selectedColor: AppColors.frost,
       backgroundColor: AppColors.surfaceAlt,
-      side: BorderSide(
-        color: active ? AppColors.gold : AppColors.border,
-      ),
+      side: BorderSide(color: active ? AppColors.frost : AppColors.border),
       showCheckmark: false,
       visualDensity: VisualDensity.compact,
     );

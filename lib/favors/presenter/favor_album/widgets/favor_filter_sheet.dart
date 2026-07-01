@@ -138,13 +138,13 @@ class _FilterSheetState extends State<_FilterSheet> {
                 Expanded(
                   child: FilledButton(
                     style: FilledButton.styleFrom(
-                      backgroundColor: AppColors.gold,
+                      backgroundColor: AppColors.frost,
                       foregroundColor: AppColors.background,
                       padding: const EdgeInsets.symmetric(vertical: 12),
                     ),
-                    onPressed: () => Navigator.of(context).pop(
-                      FavorFilterResult(realm: _realm, status: _status),
-                    ),
+                    onPressed: () => Navigator.of(
+                      context,
+                    ).pop(FavorFilterResult(realm: _realm, status: _status)),
                     child: const Text(
                       'Aplicar',
                       style: TextStyle(fontWeight: FontWeight.w800),
@@ -169,17 +169,17 @@ class _GroupLabel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.only(bottom: 8),
-        child: Text(
-          text,
-          style: const TextStyle(
-            color: AppColors.textMuted,
-            fontSize: 10,
-            fontWeight: FontWeight.w800,
-            letterSpacing: 1.2,
-          ),
-        ),
-      );
+    padding: const EdgeInsets.only(bottom: 8),
+    child: Text(
+      text,
+      style: const TextStyle(
+        color: AppColors.textMuted,
+        fontSize: 10,
+        fontWeight: FontWeight.w800,
+        letterSpacing: 1.2,
+      ),
+    ),
+  );
 }
 
 class _Choice extends StatelessWidget {
@@ -200,10 +200,10 @@ class _Choice extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
         decoration: BoxDecoration(
-          color: selected ? AppColors.gold : AppColors.surfaceAlt,
+          color: selected ? AppColors.frost : AppColors.surfaceAlt,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            color: selected ? AppColors.gold : AppColors.border,
+            color: selected ? AppColors.frost : AppColors.border,
           ),
         ),
         child: Text(

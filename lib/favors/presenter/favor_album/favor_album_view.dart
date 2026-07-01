@@ -72,12 +72,13 @@ class _FavorAlbumViewState extends State<FavorAlbumView> {
         builder: (context, state) {
           if (!state.isLoaded) {
             return const Center(
-              child: CircularProgressIndicator(color: AppColors.gold),
+              child: CircularProgressIndicator(color: AppColors.frost),
             );
           }
 
           final realms = _visibleRealms(state);
-          final activeFilters = (state.realmFilter != null ? 1 : 0) +
+          final activeFilters =
+              (state.realmFilter != null ? 1 : 0) +
               (state.statusFilter != null ? 1 : 0);
 
           return Column(
@@ -166,7 +167,7 @@ class _FilterBar extends StatelessWidget {
               decoration: BoxDecoration(
                 color: AppColors.surfaceAlt,
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: AppColors.gold),
+                border: Border.all(color: AppColors.frost),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -174,7 +175,7 @@ class _FilterBar extends StatelessWidget {
                   const Text(
                     'Filtros',
                     style: TextStyle(
-                      color: AppColors.goldLight,
+                      color: AppColors.frostLight,
                       fontSize: 13,
                       fontWeight: FontWeight.w700,
                     ),
@@ -187,7 +188,7 @@ class _FilterBar extends StatelessWidget {
                       alignment: Alignment.center,
                       padding: const EdgeInsets.symmetric(horizontal: 5),
                       decoration: BoxDecoration(
-                        color: AppColors.gold,
+                        color: AppColors.frost,
                         borderRadius: BorderRadius.circular(9),
                       ),
                       child: Text(
@@ -215,11 +216,7 @@ class _FilterBar extends StatelessWidget {
 }
 
 class _Pager extends StatelessWidget {
-  const _Pager({
-    required this.count,
-    required this.index,
-    required this.label,
-  });
+  const _Pager({required this.count, required this.index, required this.label});
 
   final int count;
   final int index;
@@ -239,7 +236,7 @@ class _Pager extends StatelessWidget {
               width: i == index ? 20 : 7,
               height: 7,
               decoration: BoxDecoration(
-                color: i == index ? AppColors.gold : AppColors.border,
+                color: i == index ? AppColors.frost : AppColors.border,
                 borderRadius: BorderRadius.circular(4),
               ),
             ),

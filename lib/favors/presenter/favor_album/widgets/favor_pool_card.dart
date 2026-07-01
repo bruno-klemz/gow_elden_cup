@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../theme/app_theme.dart';
 import '../../../domain/entity/favor.dart';
-import '../../theme/realm_theme.dart';
+import '../../../../theme/realm_theme.dart';
 import '../../widgets/rune_pool.dart';
 
 /// Album card for a single favor: a 3/4 portrait "seal" that fills like a pool
@@ -146,7 +146,11 @@ class _CardFrameState extends State<_CardFrame>
   Widget build(BuildContext context) {
     if (!widget.complete) {
       return DecoratedBox(
-        decoration: _decoration(glowAlpha: 0.35 * widget.progress, glowBlur: 6 + 10 * widget.progress, width: 1),
+        decoration: _decoration(
+          glowAlpha: 0.35 * widget.progress,
+          glowBlur: 6 + 10 * widget.progress,
+          width: 1,
+        ),
         child: widget.child,
       );
     }
@@ -227,7 +231,7 @@ class _MetaStrip extends StatelessWidget {
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(
-              color: AppColors.goldLight,
+              color: AppColors.frostLight,
               fontSize: 11,
               fontWeight: FontWeight.w800,
               height: 1.15,

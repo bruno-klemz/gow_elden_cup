@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../boss/presenter/boss_details/boss_details_screen.dart';
 import '../../../shared/widgets/pending_art.dart';
 import '../../../theme/app_theme.dart';
-import '../../../favors/presenter/theme/realm_theme.dart';
+import '../../../theme/realm_theme.dart';
 import '../../domain/entity/boss.dart';
 import '../../domain/entity/realm.dart';
 import 'bloc/search_bloc.dart';
@@ -22,10 +22,15 @@ class SearchView extends StatelessWidget {
       backgroundColor: AppColors.background,
       appBar: AppBar(
         backgroundColor: AppColors.background,
-        iconTheme: const IconThemeData(color: AppColors.goldLight),
-        title: const Text('Buscar',
-            style: TextStyle(
-                color: AppColors.goldLight, fontWeight: FontWeight.w800)),
+        iconTheme: const IconThemeData(color: AppColors.frostLight),
+        title: const Text(
+          'Buscar',
+          style: TextStyle(
+            fontFamily: AppText.displayFamily,
+            color: AppColors.frostLight,
+            fontWeight: FontWeight.w800,
+          ),
+        ),
       ),
       body: BlocBuilder<SearchBloc, SearchState>(
         builder: (context, state) {
@@ -52,45 +57,53 @@ class SearchView extends StatelessWidget {
   }
 
   Widget _field(SearchBloc bloc) => Padding(
-        padding: const EdgeInsets.fromLTRB(14, 8, 14, 8),
-        child: TextField(
-          autofocus: false,
-          style: const TextStyle(color: AppColors.goldLight, fontSize: 14),
-          cursorColor: AppColors.gold,
-          onChanged: (v) => bloc.add(SearchQueryChanged(v)),
-          decoration: InputDecoration(
-            hintText: 'Buscar reino ou boss...',
-            hintStyle: const TextStyle(color: Color(0xFF6B5D44)),
-            prefixIcon:
-                const Icon(Icons.search, color: AppColors.textMuted, size: 20),
-            filled: true,
-            fillColor: AppColors.surfaceAlt,
-            contentPadding: const EdgeInsets.symmetric(vertical: 0),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: AppColors.border),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: AppColors.border),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: AppColors.gold),
-            ),
-          ),
+    padding: const EdgeInsets.fromLTRB(14, 8, 14, 8),
+    child: TextField(
+      autofocus: false,
+      style: const TextStyle(color: AppColors.frostLight, fontSize: 14),
+      cursorColor: AppColors.frost,
+      onChanged: (v) => bloc.add(SearchQueryChanged(v)),
+      decoration: InputDecoration(
+        hintText: 'Buscar reino ou boss...',
+        hintStyle: const TextStyle(color: Color(0xFF6B5D44)),
+        prefixIcon: const Icon(
+          Icons.search,
+          color: AppColors.textMuted,
+          size: 20,
         ),
-      );
+        filled: true,
+        fillColor: AppColors.surfaceAlt,
+        contentPadding: const EdgeInsets.symmetric(vertical: 0),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: AppColors.border),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: AppColors.border),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: AppColors.frost),
+        ),
+      ),
+    ),
+  );
 
   Widget _tabs(BuildContext context, SearchState state, SearchBloc bloc) => Row(
-        children: [
-          _tab(state, bloc, SearchTab.realms, 'Reinos', state.realmCount()),
-          _tab(state, bloc, SearchTab.bosses, 'Bosses', state.bossCount()),
-        ],
-      );
+    children: [
+      _tab(state, bloc, SearchTab.realms, 'Reinos', state.realmCount()),
+      _tab(state, bloc, SearchTab.bosses, 'Bosses', state.bossCount()),
+    ],
+  );
 
-  Widget _tab(SearchState state, SearchBloc bloc, SearchTab tab, String label,
-      int count) {
+  Widget _tab(
+    SearchState state,
+    SearchBloc bloc,
+    SearchTab tab,
+    String label,
+    int count,
+  ) {
     final active = state.tab == tab;
     return Expanded(
       child: GestureDetector(
@@ -102,16 +115,19 @@ class SearchView extends StatelessWidget {
           decoration: BoxDecoration(
             border: Border(
               bottom: BorderSide(
-                color: active ? AppColors.gold : AppColors.border,
+                color: active ? AppColors.frost : AppColors.border,
                 width: active ? 2 : 1,
               ),
             ),
           ),
-          child: Text('$label  $count',
-              style: TextStyle(
-                  color: active ? AppColors.gold : AppColors.textMuted,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w700)),
+          child: Text(
+            '$label  $count',
+            style: TextStyle(
+              color: active ? AppColors.frost : AppColors.textMuted,
+              fontSize: 13,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
         ),
       ),
     );
@@ -166,10 +182,12 @@ class SearchView extends StatelessWidget {
 
   Widget _bossTile(BuildContext context, SearchState state, Boss boss) {
     final defeated = state.isDefeated(boss.id);
-    final thumb = Image.asset('assets/${boss.art}',
-        fit: BoxFit.cover,
-        alignment: const Alignment(0, -0.6),
-        errorBuilder: (c, e, s) => Container(color: AppColors.surfaceAlt));
+    final thumb = Image.asset(
+      'assets/${boss.art}',
+      fit: BoxFit.cover,
+      alignment: const Alignment(0, -0.6),
+      errorBuilder: (c, e, s) => Container(color: AppColors.surfaceAlt),
+    );
     return _tile(
       leading: ClipRRect(
         borderRadius: BorderRadius.circular(8),
@@ -185,7 +203,7 @@ class SearchView extends StatelessWidget {
       ),
       // crown only once defeated (reward), name muted while pending
       title: (boss.isMainBoss && defeated) ? '${boss.name}  👑' : boss.name,
-      titleColor: defeated ? AppColors.goldLight : const Color(0xFF9A8A66),
+      titleColor: defeated ? AppColors.frostLight : const Color(0xFF9A8A66),
       subtitle: state.realmName(boss.realm),
       onTap: () => _openBoss(context, state, boss),
     );
@@ -194,7 +212,10 @@ class SearchView extends StatelessWidget {
   /// Resolves [realmMapImage] from state and pushes [BossDetailsScreen]
   /// directly — same behaviour as album_view's _openBoss.
   Future<void> _openBoss(
-      BuildContext context, SearchState state, Boss boss) async {
+    BuildContext context,
+    SearchState state,
+    Boss boss,
+  ) async {
     final mapImage = state.realmMapImage(boss.realm);
     await BossDetailsScreen.push(context, boss, realmMapImage: mapImage);
     if (!context.mounted) return;
@@ -202,62 +223,72 @@ class SearchView extends StatelessWidget {
   }
 
   Widget _sectionLabel(String text) => Padding(
-        padding: const EdgeInsets.fromLTRB(6, 12, 6, 4),
-        child: Text(text,
-            style: const TextStyle(
-                color: AppColors.textMuted,
-                fontSize: 10,
-                fontWeight: FontWeight.w800,
-                letterSpacing: 1.2)),
-      );
+    padding: const EdgeInsets.fromLTRB(6, 12, 6, 4),
+    child: Text(
+      text,
+      style: const TextStyle(
+        color: AppColors.textMuted,
+        fontSize: 10,
+        fontWeight: FontWeight.w800,
+        letterSpacing: 1.2,
+      ),
+    ),
+  );
 
   Widget _tile({
     required Widget leading,
     required String title,
     required String subtitle,
     VoidCallback? onTap,
-    Color titleColor = AppColors.goldLight,
-  }) =>
-      InkWell(
-        onTap: onTap,
-        borderRadius: BorderRadius.circular(10),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 13),
-          child: Row(
-            children: [
-              leading,
-              const SizedBox(width: 11),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(title,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            color: titleColor,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w700)),
-                    const SizedBox(height: 5),
-                    Text(subtitle,
-                        style: const TextStyle(
-                            color: AppColors.textMuted, fontSize: 11)),
-                  ],
+    Color titleColor = AppColors.frostLight,
+  }) => InkWell(
+    onTap: onTap,
+    borderRadius: BorderRadius.circular(10),
+    child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 13),
+      child: Row(
+        children: [
+          leading,
+          const SizedBox(width: 11),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: titleColor,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
-              ),
-              const Icon(Icons.chevron_right,
-                  color: Color(0xFF4A3C2A), size: 20),
-            ],
+                const SizedBox(height: 5),
+                Text(
+                  subtitle,
+                  style: const TextStyle(
+                    color: AppColors.textMuted,
+                    fontSize: 11,
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-      );
+          const Icon(Icons.chevron_right, color: Color(0xFF4A3C2A), size: 20),
+        ],
+      ),
+    ),
+  );
 }
 
 class _Empty extends StatelessWidget {
   const _Empty();
   @override
   Widget build(BuildContext context) => const Center(
-        child: Text('Nada encontrado',
-            style: TextStyle(color: AppColors.textMuted)),
-      );
+    child: Text(
+      'Nada encontrado',
+      style: TextStyle(color: AppColors.textMuted),
+    ),
+  );
 }

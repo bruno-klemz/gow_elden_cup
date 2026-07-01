@@ -29,7 +29,7 @@ class MobileFrame extends StatelessWidget {
             decoration: BoxDecoration(
               border: Border.symmetric(
                 vertical: BorderSide(
-                  color: AppColors.gold.withValues(alpha: 0.15),
+                  color: AppColors.frost.withValues(alpha: 0.15),
                 ),
               ),
             ),

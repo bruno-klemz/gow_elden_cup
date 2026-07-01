@@ -36,44 +36,46 @@ class AlbumPageIndicator extends StatelessWidget {
             ],
           ),
         ),
-        child: Center(
-          child: _pill(),
-        ),
+        child: Center(child: _pill()),
       ),
     );
   }
 
   Widget _pill() => Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 7),
-        decoration: BoxDecoration(
-          color: AppColors.surface,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: AppColors.border),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.55),
-              blurRadius: 14,
-              offset: const Offset(0, 4),
-            ),
-          ],
+    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 7),
+    decoration: BoxDecoration(
+      color: AppColors.surface,
+      borderRadius: BorderRadius.circular(20),
+      border: Border.all(color: AppColors.border),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withValues(alpha: 0.55),
+          blurRadius: 14,
+          offset: const Offset(0, 4),
         ),
-        child: Text.rich(
-          TextSpan(children: [
-            TextSpan(
-              text: '${currentIndex + 1}',
-              style: const TextStyle(
-                  color: AppColors.gold,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w800),
+      ],
+    ),
+    child: Text.rich(
+      TextSpan(
+        children: [
+          TextSpan(
+            text: '${currentIndex + 1}',
+            style: const TextStyle(
+              color: AppColors.frost,
+              fontSize: 13,
+              fontWeight: FontWeight.w800,
             ),
-            TextSpan(
-              text: ' / $count',
-              style: const TextStyle(
-                  color: AppColors.textMuted,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600),
+          ),
+          TextSpan(
+            text: ' / $count',
+            style: const TextStyle(
+              color: AppColors.textMuted,
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
             ),
-          ]),
-        ),
-      );
+          ),
+        ],
+      ),
+    ),
+  );
 }
