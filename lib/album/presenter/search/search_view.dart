@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../boss/presenter/boss_details/boss_details_screen.dart';
 import '../../../shared/widgets/pending_art.dart';
 import '../../../theme/app_theme.dart';
+import '../../../favors/presenter/theme/realm_theme.dart';
 import '../../domain/entity/boss.dart';
 import '../../domain/entity/realm.dart';
 import 'bloc/search_bloc.dart';
-import 'widgets/progress_ring.dart';
 import 'widgets/type_filter_chips.dart';
 
 /// Pure UI for search. Reads [SearchBloc]. Boss taps push [BossDetailsScreen]
@@ -131,7 +131,15 @@ class SearchView extends StatelessWidget {
     final defeated = state.defeatedIn(realm.id);
     final total = state.data!.bossesIn(realm.id).length;
     return _tile(
-      leading: ProgressRing(progress: total == 0 ? 0 : defeated / total),
+      leading: SizedBox(
+        width: 34,
+        height: 34,
+        child: Image.asset(
+          RealmTheme.of(realm.id).runeAsset,
+          fit: BoxFit.contain,
+          errorBuilder: (c, e, s) => const SizedBox.shrink(),
+        ),
+      ),
       title: realm.name,
       subtitle: '$defeated/$total derrotados',
     );
