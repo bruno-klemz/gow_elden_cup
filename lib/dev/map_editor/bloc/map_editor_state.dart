@@ -33,6 +33,7 @@ class MapEditorState extends Equatable {
     List<Boss>? bosses,
     String? selectedRealmId,
     String? selectedBossId,
+    bool clearSelectedBoss = false,
     Map<String, MapCoord>? coords,
     String? exportedPath,
   }) => MapEditorState(
@@ -40,7 +41,7 @@ class MapEditorState extends Equatable {
         realms: realms ?? this.realms,
         bosses: bosses ?? this.bosses,
         selectedRealmId: selectedRealmId ?? this.selectedRealmId,
-        selectedBossId: selectedBossId ?? this.selectedBossId,
+        selectedBossId: clearSelectedBoss ? null : (selectedBossId ?? this.selectedBossId),
         coords: coords ?? this.coords,
         exportedPath: exportedPath ?? this.exportedPath,
       );

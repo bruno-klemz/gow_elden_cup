@@ -38,7 +38,7 @@ class MapEditorBloc extends Bloc<MapEditorEvent, MapEditorState> {
         super(const MapEditorState()) {
     on<MapEditorStarted>(_onStarted);
     on<RealmSelected>(
-      (e, emit) => emit(state.copyWith(selectedRealmId: e.realmId)),
+      (e, emit) => emit(state.copyWith(selectedRealmId: e.realmId, clearSelectedBoss: true)),
     );
     on<BossSelected>(
       (e, emit) => emit(state.copyWith(selectedBossId: e.bossId)),

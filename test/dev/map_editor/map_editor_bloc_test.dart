@@ -62,4 +62,37 @@ void main() {
       ),
     ],
   );
+
+  blocTest<MapEditorBloc, MapEditorState>(
+    'CoordsExported sets exportedPath via injected ExportFn',
+    build: () => MapEditorBloc(
+      loadAlbum,
+      export: (coords) async => '/tmp/fake/map_coords.json',
+    ),
+    seed: () => const MapEditorState(loading: false),
+    act: (b) => b.add(CoordsExported()),
+    expect: () => [
+      isA<MapEditorState>().having(
+        (s) => s.exportedPath,
+        'exportedPath',
+        '/tmp/fake/map_coords.json',
+      ),
+    ],
+  );
+
+  blocTest<MapEditorBloc, MapEditorState>(
+    'RealmSelected clears previously selected boss',
+    build: () => MapEditorBloc(loadAlbum),
+    seed: () => const MapEditorState(
+      loading: false,
+      selectedBossId: 'a',
+      selectedRealmId: 'midgard',
+    ),
+    act: (b) => b.add(RealmSelected('vanaheim')),
+    expect: () => [
+      isA<MapEditorState>()
+          .having((s) => s.selectedRealmId, 'selectedRealmId', 'vanaheim')
+          .having((s) => s.selectedBossId, 'selectedBossId', null),
+    ],
+  );
 }
