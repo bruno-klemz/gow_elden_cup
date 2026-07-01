@@ -1,5 +1,3 @@
-/// Dev-only compile-time flags. Enable with e.g.
-/// `flutter run --dart-define=MAP_EDITOR=true`.
-///
-/// Defaults to false so no dev surface ships in release builds.
-const bool kMapEditor = bool.fromEnvironment('MAP_EDITOR');
+/// Dev-only flags. Flip [kMapEditor] to true to expose the map coord editor
+/// tab while testing, then set it back to false before shipping.
+const bool kMapEditor = true;
